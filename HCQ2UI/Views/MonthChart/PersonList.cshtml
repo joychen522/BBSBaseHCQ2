@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "打卡记录详细";
+}
+@section headerSection{
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 0px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+@section footSection{
+    <script src="~/Resources/myScript/MonthChart/monthChartManager.js"></script>
+    <script>
+        $(function () {
+            //初始化Table
+            cardManager.initTable();
+        });
+    </script>
+}
+

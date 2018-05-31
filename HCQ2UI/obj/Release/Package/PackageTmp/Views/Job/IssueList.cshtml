@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "简历管理";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <div class="col-sm-12 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    <div class="form-group">
+                        <input id="A0101" name="A0101" type="text" class="form-control" placeholder="请输入姓名">
+                    </div>
+                    <div class="form-group">
+                        <input id="C0104" name="C0104" type="text" class="form-control" placeholder="请输入电话">
+                    </div>
+                    <div class="form-group">
+                        <input id="A0410" name="A0410" type="text" class="form-control" placeholder="请输入专业">
+                    </div>
+                    <div class="form-group">
+                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                    </div>
+                    <div class="form-group">
+                        <button id="btnOperator" class="btn btn-primary" type="button"><i class="fa fa-star"></i>&nbsp;邀请</button>
+                    </div>
+                </div>
+                <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="org_form" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="orgFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="job_status" name="job_status" title="请选择状态" class="form-control input-sm selectcontrol" required="" aria-required="true" placeholder="请选择状态" style="padding: 5px 10px;">
+                    <option value="01" selected>等待邀请</option>
+                    <option value="02">邀请面试</option>
+                    <option value="03">邀请工作</option>
+                    <option value="04">放弃</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/Job/jobManager.js"></script>
+    <script>
+        $(function () {
+            //初始化Page
+            issueManager.initPage();
+        });
+    </script>
+}
+
+
+
+

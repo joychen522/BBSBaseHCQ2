@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "工资维护";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 90%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+            margin-top: -2px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="tree"></div>
+        <!--生成按钮-->
+        <div class="col-sm-10 right-sm-9" style="padding-left: 5px;">
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("groupAdd"))
+                        {
+                            <button id="groupAdd" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                            </button>
+                        }
+                        if (folderList.Contains("groupEdit"))
+                        {
+                            <button id="groupEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                        }
+                        if (folderList.Contains("groupDel"))
+                        {
+                            <button id="groupDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                        }
+                        if (folderList.Contains("groupGrant"))
+                        {
+                            <div class="form-group">
+                                <button id="groupGrant" class="btn btn-primary" type="button" disabled="disabled">
+                                    <i class="fa fa-heart"></i>&nbsp;发放
+                                </button>
+                            </div>
+                            @*<div class="form-group">
+                                <button id="groupAPIGrant" class="btn btn-primary" type="button">
+                                    <i class="fa fa-heart"></i>&nbsp;登录测试
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <button id="groupWageSent" class="btn btn-primary" type="button">
+                                    <i class="fa fa-heart"></i>&nbsp;工资下发
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <button id="groupWageCheck" class="btn btn-primary" type="button">
+                                    <i class="fa fa-heart"></i>&nbsp;工资登记
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <button id="groupOrg" class="btn btn-primary" type="button">
+                                    <i class="fa fa-heart"></i>&nbsp;组织机构下发
+                                </button>
+                            </div>*@
+                        }
+                    }
+                </div>
+                <table id="financeTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 添加/编辑 -->
+<div id="group_form" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="groupFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">用工单位<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="unitinfo" name="unitinfo" readonly="true" type="text" class="form-control input-sm" required="" aria-required="true"/>
+                <input type="hidden" id="UnitID" name="UnitID" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">标记<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="WGJG0101" name="WGJG0101" title="请选择归档标示" class="form-control input-sm selectpicker" required="" aria-required="true" placeholder="请选择归档标示" style="padding: 5px 10px;"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">约定发薪日<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="WGJGDAY" name="WGJGDAY" type="text" class="form-control input-sm" placeholder="请输入约定发薪日小于31" title="请输入约定发薪日小于31" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">工资发放方式：<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="WGJG0203" name="WGJG0203" title="请选择工资发放方式" class="form-control input-sm selectpicker" required="" aria-required="true" placeholder="请选择工资发放方式" style="padding: 5px 10px;"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">发放原因：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0103" name="WGJG0103" type="text" class="form-control input-sm" placeholder="请输入发放原因" title="请输入发放原因"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="WGJG0104" name="WGJG0104" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="ydDate" style="display: none; width: 450px; height: 80px; padding-top: 20px;">
+    <label class="col-sm-4 control-label">约定发薪日期：<span class="glyphicon glyphicon-asterisk requiredtitle"></span></label>
+    <div class="col-sm-8">
+        <input id="WGJG0107" name="WGJG0107" type="text" class="laydate-icon form-control input-sm" placeholder="请输入约定发薪日期" title="请输入约定发薪日期" required="" aria-required="true" onclick=" laydate({ istime: true, format: 'YYYY-MM-DD' }) " />
+    </div>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/bootstrap-treeview-1.2.0.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/finance/financeManager.js"></script>
+    <script>
+        $(function() {
+            //初始化菜单
+            parent.showLoadBoxs();
+            wageManager.initUnitDataByAjax();
+            wageManager.initTable();
+            wageManager.initSelect();
+            wageManager.bindEvent();
+            parent.delLoadBoxs();
+        });
+    </script>
+}
+

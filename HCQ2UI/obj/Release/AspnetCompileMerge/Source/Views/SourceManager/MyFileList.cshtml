@@ -1,0 +1,188 @@
+﻿@model HCQ2_Model.T_DocumentFolder
+@{
+    ViewBag.Title = "我的资源";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/demo.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/metroStyle.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.core.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.excheck.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.exedit.min.js"></script>
+    <script src="~/Resources/tools/search_zTree.js"></script>
+    <style>
+        body {
+            font-family: '微软雅黑';
+            font-size: 14px;
+            color: #676a6c;
+        }
+
+        a {
+            font-size: 15px;
+        }
+
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+
+        #unitTreezTreeData {
+            border: 0;
+            border-top: 1px solid #E7EAEC;
+            background: #FFFFFF;
+        }
+
+            #unitTreezTreeData li {
+                line-height: 28px;
+            }
+
+                #unitTreezTreeData li:hover {
+                    background: #F5F5F5;
+                }
+
+        #search_condition {
+            width: 99%;
+        }
+
+        .selectTreezTreeLI {
+            background-color: #2DC1C3;
+            color: #fff;
+        }
+
+        #nodeFormTable label {
+            font-weight: bold;
+        }
+
+        .fileClass label {
+            text-align: right;
+        }
+
+        #upFileForm .col-sm-7 {
+            margin-bottom: 8px;
+        }
+
+        #bootstrap-duallistbox-selected-list_duallistbox_demo1 option, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option {
+            height: 30px;
+            line-height: 30px;
+            padding-top: 5px;
+        }
+
+            #bootstrap-duallistbox-selected-list_duallistbox_demo1 option:hover, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option:hover {
+                background-color: antiquewhite;
+            }
+
+        .buttons {
+            width: 100%;
+        }
+
+            .buttons button {
+                width: 50%;
+            }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="unitTree" class="col-sm-3" style="width:20%;height:100%;padding:0;border:1px solid #E7EAEC;"></div>
+        <div class="col-sm-9 col-sm-leftRight" style="width:80%;padding-left: 3px; margin-top: 2px;">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group" style="width:180px">
+                                <input id="keyword" name="keyword" type="text" class="form-control" placeholder="请输入资源名称/作者名">
+                            </div>
+                            <div class="form-group" style="width:120px;margin-top:-3px;">
+                                <select id="FileType" title="请选择节点类型" class="form-control input-sm selectpicker" required="" aria-required="true" placeholder="请选择文档状态" style="padding: 5px 10px;">
+                                    <option value="-1" selected>全部</option>
+                                    <option value="0">私有</option>
+                                    <option value="1">待审核</option>
+                                    <option value="5">已上架</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                        if (folderList.Contains("btnUploadFile"))
+                        {
+                            <div class="form-group">
+                                <button id="btnUploadFile" class="btn btn-primary" type="button"><i class="fa fa-upload"></i>&nbsp;新增文档</button>
+                            </div>
+                        }
+                        if (folderList.Contains("btnEditFile"))
+                        {
+
+                            <div class="form-group">
+                                <button id="btnEditFile" class="btn btn-primary" type="button"><i class="fa fa-pencil"></i>&nbsp;编辑文档</button>
+                            </div>
+                        }
+                        if (folderList.Contains("btnDeleteFile"))
+                        {
+                            <div class="form-group">
+                                <button id="btnDeleteFile" class="btn btn-danger" type="button"><i class="fa fa-trash"></i>&nbsp;删除文档</button>
+                            </div>
+                        }
+                    }
+                </div>
+                <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!--分享设置-->
+<div id="createDataBySel" style="width: 650px;overflow: hidden; display: none;">
+    <div class="col-md-12">
+        <select multiple="multiple" size="15" name="duallistbox_demo1" style="height: 250px;" class="demo1 listSel"></select>
+    </div>
+</div>
+@section footSection{
+    <script src="~/Resources/x-editable/js/bootstrap-editable.js"></script>
+    <script src="~/Resources/duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Resources/myScript/Doc/sourceManager.js"></script>
+    <script>
+        var userID = "@ViewBag.userID";
+        $(function () {
+            //初始化页面
+            docManager.initPage(userID);
+        });
+    </script>
+}

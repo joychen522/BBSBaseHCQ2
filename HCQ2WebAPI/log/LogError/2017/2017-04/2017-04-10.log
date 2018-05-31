@@ -1,0 +1,268 @@
+﻿
+ 
+记录时间：2017-04-10 10:17:33,136 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：52
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/AppSystem/TimeSentDown
+错误信息：Could not create ADO.NET connection for transaction
+错误源：Spring.Data
+异常方法：Void DoBegin(System.Object, Spring.Transaction.ITransactionDefinition)
+堆栈信息：   在 Spring.Data.Core.AdoPlatformTransactionManager.DoBegin(Object transaction, ITransactionDefinition definition)
+   在 Spring.Transaction.Support.AbstractPlatformTransactionManager.GetTransaction(ITransactionDefinition definition)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(ITransactionAttribute sourceAttr, String joinpointIdentification)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(MethodInfo method, Type targetType)
+   在 Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
+   在 Spring.Aop.Framework.AbstractMethodInvocation.Proceed()
+   在 Spring.Aop.Framework.DynamicProxy.AdvisedProxy.Invoke(Object proxy, Object target, Type targetType, MethodInfo targetMethod, MethodInfo proxyMethod, Object[] args, IList interceptors)
+   在 CompositionAopProxy_afdbb6cf85c047308a5ea73cd69014d0.GetBLLSession()
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.MyApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\MyApiAuthorizeFilterAttribute.cs:行号 137
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-04-10 10:17:33,164 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：52
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/AppSystem/TimeSentDown
+错误信息：Could not create ADO.NET connection for transaction
+错误源：Spring.Data
+异常方法：Void DoBegin(System.Object, Spring.Transaction.ITransactionDefinition)
+堆栈信息：   在 Spring.Data.Core.AdoPlatformTransactionManager.DoBegin(Object transaction, ITransactionDefinition definition)
+   在 Spring.Transaction.Support.AbstractPlatformTransactionManager.GetTransaction(ITransactionDefinition definition)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(ITransactionAttribute sourceAttr, String joinpointIdentification)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(MethodInfo method, Type targetType)
+   在 Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
+   在 Spring.Aop.Framework.AbstractMethodInvocation.Proceed()
+   在 Spring.Aop.Framework.DynamicProxy.AdvisedProxy.Invoke(Object proxy, Object target, Type targetType, MethodInfo targetMethod, MethodInfo proxyMethod, Object[] args, IList interceptors)
+   在 CompositionAopProxy_afdbb6cf85c047308a5ea73cd69014d0.GetBLLSession()
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.MyApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\MyApiAuthorizeFilterAttribute.cs:行号 137
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-04-10 12:42:15,701 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：52
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/SysLoginApi/AppUserLogin
+错误信息：索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+错误源：mscorlib
+异常方法：Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+堆栈信息：   在 System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   在 System.Collections.Generic.List`1.get_Item(Int32 index)
+   在 HCQ2WebAPI_Logic.BaseAPIController.SysLoginApiController.AppUserLogin(SysLoginModel model) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\SysLoginApiController.cs:行号 34
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-04-10 12:44:13,376 
+线程ID:[11] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：52
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/SysLoginApi/AppUserLogin
+错误信息：索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+错误源：mscorlib
+异常方法：Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource)
+堆栈信息：   在 System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   在 System.Collections.Generic.List`1.get_Item(Int32 index)
+   在 HCQ2WebAPI_Logic.BaseAPIController.SysLoginApiController.AppUserLogin(SysLoginModel model) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\SysLoginApiController.cs:行号 34
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-04-10 18:32:52,328 
+线程ID:[28] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Chrome
+浏览器版本：57
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/WageManager/WageSentDown
+错误信息：未将对象引用设置到对象的实例。
+错误源：HCQ2WebAPI_Logic
+异常方法：System.Object WageSentDown(HCQ2_Model.WebApiModel.ParamModel.BaseModel)
+堆栈信息：   在 HCQ2WebAPI_Logic.WageAPIController.WageManagerController.WageSentDown(BaseModel wage) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\WageManagerController.cs:行号 26
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-04-10 18:35:28,737 
+线程ID:[7] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Chrome
+浏览器版本：57
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/WageManager/WageSentDown
+错误信息：未将对象引用设置到对象的实例。
+错误源：HCQ2WebAPI_Logic
+异常方法：System.Object WageSentDown(HCQ2_Model.WebApiModel.ParamModel.BaseModel)
+堆栈信息：   在 HCQ2WebAPI_Logic.WageAPIController.WageManagerController.WageSentDown(BaseModel wage) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\WageManagerController.cs:行号 26
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

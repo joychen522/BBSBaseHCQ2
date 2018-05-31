@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "合同附件管理";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+
+        .number-money {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <div class="col-sm-12 col-sm-leftRight">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    <button id="pactAdd" type="button" class="btn btn-outline btn-primary">
+                        <i class="glyphicon glyphicon-plus" aria-hidden="true">添加</i>
+                    </button>
+                    <button id="pactDel" type="button" class="btn btn-outline btn-danger">
+                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                    </button>
+                </div>
+                <table id="pactTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+@section footSection{
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/AfterSaleManager/ItemPreserveManager.js"></script>
+    <script>
+        $(function () {
+            //初始化Page
+            pactFlieManager.initPage();
+        });
+    </script>
+}
+
+
+
+

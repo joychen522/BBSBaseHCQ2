@@ -1,0 +1,84 @@
+﻿
+ 
+记录时间：2018-04-16 10:42:33,584 
+线程ID:[23] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/BBSHCQ2WebAPI/api/BaneVerifyPerson/VerifyPerson
+错误信息：更新条目时出错。有关详细信息，请参阅内部异常。
+错误源：EntityFramework
+异常方法：Int32 SaveChanges()
+堆栈信息：   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 HCQ2_DAL_MSSQL.BaseDAL`1.Add(T model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_DAL\BaseDAL.cs:行号 44
+   在 HCQ2_BLL.BaseBLL`1.Add(T model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_BLL\BaseBLL.cs:行号 74
+   在 HCQ2_BLL.Bane_UrinalysisRecordBLL.AutoAddUrinalysisRecordUser(String user_identify) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_BLL\ExtensionBLL\Bane_UrinalysisRecordBLL.cs:行号 84
+   在 HCQ2WebAPI_Logic.BaneController.BaneVerifyPersonController.VerifyPerson(VerifyModel model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2WebAPI_Logic\BaneController\BaneVerifyPersonController.cs:行号 34
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2018-04-16 10:45:05,060 
+线程ID:[6] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/BBSHCQ2WebAPI/api/BaneVerifyPerson/VerifyPerson
+错误信息：更新条目时出错。有关详细信息，请参阅内部异常。
+错误源：EntityFramework
+异常方法：Int32 SaveChanges()
+堆栈信息：   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 HCQ2_DAL_MSSQL.BaseDAL`1.Add(T model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_DAL\BaseDAL.cs:行号 44
+   在 HCQ2_BLL.BaseBLL`1.Add(T model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_BLL\BaseBLL.cs:行号 74
+   在 HCQ2_BLL.Bane_UrinalysisRecordBLL.AutoAddUrinalysisRecordUser(String user_identify) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_BLL\ExtensionBLL\Bane_UrinalysisRecordBLL.cs:行号 84
+   在 HCQ2WebAPI_Logic.BaneController.BaneVerifyPersonController.VerifyPerson(VerifyModel model) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2WebAPI_Logic\BaneController\BaneVerifyPersonController.cs:行号 34
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

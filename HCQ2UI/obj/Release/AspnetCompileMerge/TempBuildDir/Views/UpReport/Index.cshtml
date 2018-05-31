@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+
+    <style>
+        /* 半透明的遮罩层 */
+        .overlay {
+            background: #000;
+            filter: alpha(opacity=50); /* IE的透明度 */
+            opacity: 0.5; /* 透明度 */
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 100; /* 此处的图层要大于页面 */
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="panel-body">
+    <div class="">
+        <div id="divWage" class="spiner-example" style="width:100%;height:100%;display:none;z-index:100;">
+            <div class="sk-spinner sk-spinner-wave" style="">
+                <div class="sk-rect1"></div>
+                <div class="sk-rect2"></div>
+                <div class="sk-rect3"></div>
+                <div class="sk-rect4"></div>
+                <div class="sk-rect5"></div>
+            </div>
+        </div>
+        <div class="row">
+            <input type="hidden" id="JianDieUnitID" name="JianDieUnitID" />
+            <div class="row">
+                <div id="divTree" class="col-sm-2" style="overflow:auto; margin:0; display:none;">
+                    <div id="treeview"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="example">
+                        <table id="TableFromData" data-mobile-responsive="true"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="table-tool" class="row">
+            <input type="hidden" id="JianDie" />
+            <div class="col-sm-12" style="padding:0;">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <input type="text" id="txtSearchName" style="width:200px;" class="form-control" placeholder="项目名称">
+                        <select class="form-control" id="upType" name="upType" style="width:250px;">
+                            @{
+                                foreach (var item in ViewBag.UpDate)
+                                {
+                                    <option value="@item.code_value">@item.code_name</option>
+                                }
+                            }
+                        </select>
+                        <button type="button" id="btnSearch" class="btn btn-primary">
+                            <i class="glyphicon glyphicon-search"></i>
+                            查询
+                        </button>
+                        <button type="button" id="UpData" class="btn btn-primary" style="margin-left: 2px;">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                            测试地址上报
+                        </button>
+                        <button type="button" id="UpDataForm" class="btn btn-primary" style="margin-left: 2px;">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                            正式地址上报
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="divResult" style="display:none;">
+            <div class="input-group" style="margin-top:10px;">
+                <div id="lblMess"></div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/myScript/UpReport/Index.js"></script>
+    <script>
+        $(function () {
+            $("#divTree").height($.GetBodyHeight());
+            treeHelp.BindTree("treeview",@Html.Raw(ViewBag.TreeJson),treeClick);
+        });
+        function treeClick (o){
+            $("#JianDieUnitID").val(o.com_id);
+            //tableHelp.refresh(Table.SetTable());
+        }
+        function GetComName(com_id){
+            var data = @Html.Raw(ViewBag.ComName);
+            var value = "";
+            $.each(data,function(index,element){
+                if(data[index]["com_id"] == com_id){
+                    value = data[index]["dwmc"];
+                }
+            });
+            return value;
+        }
+    </script>
+</body>
+</html>

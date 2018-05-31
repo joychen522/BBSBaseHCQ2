@@ -1,0 +1,144 @@
+﻿
+ 
+记录时间：2017-06-05 17:23:44,650 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/CheckWrokRecord/GetPersonWorkByUnit
+错误信息：没有为该对象定义无参数的构造函数。
+错误源：mscorlib
+异常方法：System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+堆栈信息：   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance[T]()
+   在 HCQ2_Common.Data.DataTableHelper.DataTableToIList[T](DataTable dt, Boolean isChangeDateToStr)
+   在 HCQ2_DAL_MSSQL.View_A02DAL.GetonWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_DAL\ExtensionDAL\View_A02DAL.cs:行号 76
+   在 HCQ2_BLL.View_A02BLL.GetWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_BLL\PersonManager\View_A02BLL.cs:行号 382
+   在 HCQ2WebAPI_Logic.APPController.CheckWrokRecordController.GetPersonWorkByUnit(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\APPController\CheckWrokRecordController.cs:行号 93
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-06-05 17:24:11,317 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/CheckWrokRecord/GetPersonWorkByUnit
+错误信息：没有为该对象定义无参数的构造函数。
+错误源：mscorlib
+异常方法：System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+堆栈信息：   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance[T]()
+   在 HCQ2_Common.Data.DataTableHelper.DataTableToIList[T](DataTable dt, Boolean isChangeDateToStr)
+   在 HCQ2_DAL_MSSQL.View_A02DAL.GetonWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_DAL\ExtensionDAL\View_A02DAL.cs:行号 76
+   在 HCQ2_BLL.View_A02BLL.GetWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_BLL\PersonManager\View_A02BLL.cs:行号 382
+   在 HCQ2WebAPI_Logic.APPController.CheckWrokRecordController.GetPersonWorkByUnit(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\APPController\CheckWrokRecordController.cs:行号 93
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-06-05 17:24:32,913 
+线程ID:[24] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/CheckWrokRecord/GetPersonWorkByUnit
+错误信息：没有为该对象定义无参数的构造函数。
+错误源：mscorlib
+异常方法：System.Object CreateInstance(System.RuntimeType, Boolean, Boolean, Boolean ByRef, System.RuntimeMethodHandleInternal ByRef, Boolean ByRef)
+堆栈信息：   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance[T]()
+   在 HCQ2_Common.Data.DataTableHelper.DataTableToIList[T](DataTable dt, Boolean isChangeDateToStr)
+   在 HCQ2_DAL_MSSQL.View_A02DAL.GetonWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_DAL\ExtensionDAL\View_A02DAL.cs:行号 76
+   在 HCQ2_BLL.View_A02BLL.GetWorkPersonList(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2_BLL\PersonManager\View_A02BLL.cs:行号 382
+   在 HCQ2WebAPI_Logic.APPController.CheckWrokRecordController.GetPersonWorkByUnit(WorkCount model) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\APPController\CheckWrokRecordController.cs:行号 93
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

@@ -1,0 +1,51 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ output extension=".cs"#>
+ <#
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+string inputFile = @"..\HCQ2_Model\HCQ2.edmx";
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using HCQ2_IBLL;
+namespace HCQ2_BLL
+{
+	public partial class BLLSession:IBLLSession
+	{
+<#
+int version=0;
+// Emit Entity Types
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+    //fileManager.StartNewFile(entity.Name + "RepositoryExt.cs");
+    //BeginNamespace(namespaceName, code);
+	version++;
+#>
+	#region <#=version.ToString("00")#> 业务接口
+		I<#=entity.Name#>BLL i<#=entity.Name#>Bll;
+		public I<#=entity.Name#>BLL <#=entity.Name#>
+		{
+			get
+			{
+				if(i<#=entity.Name#>Bll==null)
+					i<#=entity.Name#>Bll=new <#=entity.Name#>BLL();
+				return i<#=entity.Name#>Bll;
+			}
+			set
+			{
+				i<#=entity.Name#>Bll=value;
+			}
+		}
+		#endregion
+
+	<#}#>
+	}
+}

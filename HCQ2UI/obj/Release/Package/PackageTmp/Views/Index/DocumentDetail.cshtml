@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>政策详细信息</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/simditor/simditor.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--编辑器-->
+    <link href="~/Resources/mainFrame/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <style>
+        .row {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .col-sm-12 {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body class="panel-body" style="margin:0; padding:0px;">
+
+    <div class="row">
+        <div id="content" name="content" class="col-sm-12">
+
+        </div>
+    </div>
+    <script src="~/Resources/mainFrame/js/jquery.min.js"></script>
+    <script src="~/Resources/mainFrame/js/bootstrap.min.js"></script>
+    <script src="~/Resources/mainFrame/js/content.min.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/summernote/summernote.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/summernote/summernote-zh-CN.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#content").summernote({
+                lang: "zh-CN",
+                height: 300
+            });
+
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: $.GetIISName() + "/Index/GetDocument",
+                async: false,
+                data: { documentID: $.GetUrlParam("documentID") },
+                success: function (result) {
+                    $("#content").code(result.DocContent);
+                }
+            })
+        });
+    </script>
+</body>
+</html>

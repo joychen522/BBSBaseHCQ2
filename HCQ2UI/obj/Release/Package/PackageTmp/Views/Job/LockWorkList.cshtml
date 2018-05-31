@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "查看用工需求";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="tree"></div>
+        <div class="col-sm-10 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("jobDetail"))
+                        {
+                            <button id="jobDetail" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-th-large" aria-hidden="true">详细</i>
+                            </button>
+                        }
+                        if (folderList.Contains("jobEdit"))
+                        {
+                            <button id="jobEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                        }
+                        if (folderList.Contains("jobDel"))
+                        {
+                            <button id="jobDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">撤销发布</i>
+                            </button>
+                        }
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="jobName" name="jobName" type="text" class="form-control" placeholder="请输入行业/岗位">
+                            </div>
+                            <div class="form-group">
+                                <input id="jobStartMoney" name="jobStartMoney" type="text" class="form-control" style="width:100px;" placeholder="请输入起薪">
+                            </div>
+                            <div class="form-group">
+                                <input id="jobEndMoney" name="jobEndMoney" type="text" class="form-control" style="width:100px;" placeholder="请输入薪资截止">
+                            </div>
+                            <div class="form-group" style="margin-top:-1px;">
+                                <select id="use_status" name="use_status" title="请选择状态" class="form-control show-tick selectpicker" placeholder="请选择状态">
+                                    <option value=2 selected>已发布</option>
+                                    <option value=3>已结束</option>
+                                    <option value=4>已作废</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                    }
+                </div>
+                <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="org_form" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="orgFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">岗位<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="work_type" name="work_type" class="form-control show-tick selectpicker" data-live-search="true" placeholder="请选择岗位" required="" aria-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">行业：</label>
+            <div class="col-sm-7">
+                <input id="trade_type" name="trade_type" type="text" class="form-control input-sm" placeholder="请输入行业" title="请输入行业" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">工作城市：</label>
+            <div class="col-sm-7">
+                <input id="work_city" name="work_city" type="text" class="form-control input-sm" placeholder="请输入工作城市" title="请输入工作城市" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">薪酬起薪：</label>
+            <div class="col-sm-7">
+                <input id="use_wage_start" name="use_wage_start" type="text" value="0" class="form-control input-sm" placeholder="请输入起薪" title="请输入起薪" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">薪酬最高：</label>
+            <div class="col-sm-7">
+                <input id="use_wage_end" name="use_wage_end" type="text" value="0" class="form-control input-sm" placeholder="请输入薪酬最高" title="请输入薪酬最高" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">性别<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="use_sex" name="use_sex" title="请选择性别" class="form-control input-sm selectcontrol" required="" aria-required="true" placeholder="请选择性别" style="padding: 5px 10px;">
+                    <option value="男" selected>男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">年龄：</label>
+            <div class="col-sm-7">
+                <input id="use_age" name="use_age" type="text" class="form-control input-sm" placeholder="请输入年龄" title="请输入年龄" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">学历：</label>
+            <div class="col-sm-7">
+                <select id="use_edu" name="use_edu" class="form-control show-tick selectpicker" data-live-search="true" placeholder="请选择学历">
+                    <option value="0" selected>不限</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">工作经验：</label>
+            <div class="col-sm-7">
+                <select id="use_ageLimit" name="use_ageLimit" class="form-control show-tick selectpicker" data-live-search="true" placeholder="请选择工作年限"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">专业要求：</label>
+            <div class="col-sm-7">
+                <input id="use_major" name="use_major" type="text" class="form-control input-sm" placeholder="请输入相关专业" title="请输入相关专业" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">就职日期：</label>
+            <div class="col-sm-7">
+                <input id="work_start" name="work_start" type="text" class="form-control input-sm" placeholder="请选择就职日期" title="请选择就职日期" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="use_status" name="use_status" title="请选择状态" class="form-control input-sm selectcontrol" required="" aria-required="true" placeholder="请选择状态" style="padding: 5px 10px;">
+                    <option value=1 selected>待发布</option>
+                    <option value=2>已发布</option>
+                    <option value=3>已结束</option>
+                    <option value=4>已作废</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="use_note" name="use_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/Job/jobManager.js"></script>
+    <script>
+        $(function () {
+            //初始化Page
+            lookJobManager.initPage();
+        });
+    </script>
+}
+

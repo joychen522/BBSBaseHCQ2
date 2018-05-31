@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>后台管理</title>
+    @Scripts.Render("~/AdminScript")
+    <script src="~/Scripts/jquery.msg.process.js"></script>
+    <style type="text/css">
+        #divMsg {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        function Success(data) {
+            //alert(data);
+            $.Login(data, function(_data) {
+                //成功
+                window.location = _data.Url;
+            });
+        }
+    </script>
+</head>
+<body>
+    <!--ajax异步提交-->
+    @using (Ajax.BeginForm(new AjaxOptions()
+    {
+        HttpMethod = "post",
+        OnSuccess = "Success",
+        LoadingElementId = "divMsg"
+    }))
+    {
+        <input type="text" value="sa" name="login_name" />
+        <input type="password" value="123" name="user_pwd" />
+        <input type="checkbox" name="isAllway" value="1" />
+        <input type="submit" value="登陆" />
+    }
+    <div id="divMsg">加载中~~~</div>
+</body>
+</html>
+
+
+

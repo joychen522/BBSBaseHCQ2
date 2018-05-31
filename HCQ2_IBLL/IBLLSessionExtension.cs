@@ -1,0 +1,81 @@
+﻿
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace HCQ2_IBLL
+{
+	public partial interface IBLLSession
+	{
+	IBane_CriminalRecordBLL Bane_CriminalRecord{get;set;}
+		IBane_FamilyRecordBLL Bane_FamilyRecord{get;set;}
+		IBane_HistoryScoreBLL Bane_HistoryScore{get;set;}
+		IBane_HistoryScoreDetialBLL Bane_HistoryScoreDetial{get;set;}
+		IBane_IntegralScoreDetialBLL Bane_IntegralScoreDetial{get;set;}
+		IBane_LogDetailBLL Bane_LogDetail{get;set;}
+		IBane_QuestionInfoBLL Bane_QuestionInfo{get;set;}
+		IBane_QuestionValueBLL Bane_QuestionValue{get;set;}
+		IBane_RecoveryInfoBLL Bane_RecoveryInfo{get;set;}
+		IBane_UrinalysisRecordBLL Bane_UrinalysisRecord{get;set;}
+		IBane_UrinalysisTimeSetBLL Bane_UrinalysisTimeSet{get;set;}
+		IBane_UserBLL Bane_User{get;set;}
+		IBane_UserPermissRelationBLL Bane_UserPermissRelation{get;set;}
+		IBMQ_DocumentBLL BMQ_Document{get;set;}
+		IT_AreaInfoBLL T_AreaInfo{get;set;}
+		IT_AreaPermissRelationBLL T_AreaPermissRelation{get;set;}
+		IT_AskManagerBLL T_AskManager{get;set;}
+		IT_CheckGroupBLL T_CheckGroup{get;set;}
+		IT_ComplaintsBLL T_Complaints{get;set;}
+		IT_CompProInfoBLL T_CompProInfo{get;set;}
+		IT_ContractBLL T_Contract{get;set;}
+		IT_DocFolderPermissRelationBLL T_DocFolderPermissRelation{get;set;}
+		IT_DocumentFolderBLL T_DocumentFolder{get;set;}
+		IT_DocumentFolderRelationBLL T_DocumentFolderRelation{get;set;}
+		IT_DocumentInfoBLL T_DocumentInfo{get;set;}
+		IT_DocumentSetTypeBLL T_DocumentSetType{get;set;}
+		IT_ElementPermissRelationBLL T_ElementPermissRelation{get;set;}
+		IT_EnterDetailBLL T_EnterDetail{get;set;}
+		IT_EquipmentBLL T_Equipment{get;set;}
+		IT_ExceptionLogBLL T_ExceptionLog{get;set;}
+		IT_FilePermissRelationBLL T_FilePermissRelation{get;set;}
+		IT_FolderPermissRelationBLL T_FolderPermissRelation{get;set;}
+		IT_FunctionBLL T_Function{get;set;}
+		IT_ImplementBLL T_Implement{get;set;}
+		IT_InstructionsBLL T_Instructions{get;set;}
+		IT_ItemCodeBLL T_ItemCode{get;set;}
+		IT_ItemCodeMenumBLL T_ItemCodeMenum{get;set;}
+		IT_JobResumeRelationBLL T_JobResumeRelation{get;set;}
+		IT_LimitUserBLL T_LimitUser{get;set;}
+		IT_LoginBLL T_Login{get;set;}
+		IT_LogSetingBLL T_LogSeting{get;set;}
+		IT_LogSetingDetailBLL T_LogSetingDetail{get;set;}
+		IT_MessageNoticeBLL T_MessageNotice{get;set;}
+		IT_ModulePermissRelationBLL T_ModulePermissRelation{get;set;}
+		IT_Org_UserBLL T_Org_User{get;set;}
+		IT_OrgFolderBLL T_OrgFolder{get;set;}
+		IT_OrgUserRelationBLL T_OrgUserRelation{get;set;}
+		IT_PageElementBLL T_PageElement{get;set;}
+		IT_PageFileBLL T_PageFile{get;set;}
+		IT_PageFolderBLL T_PageFolder{get;set;}
+		IT_PayAccountBLL T_PayAccount{get;set;}
+		IT_PerFuncRelationBLL T_PerFuncRelation{get;set;}
+		IT_PermissConfigBLL T_PermissConfig{get;set;}
+		IT_PermissionsBLL T_Permissions{get;set;}
+		IT_RoleBLL T_Role{get;set;}
+		IT_RoleGroupRelationBLL T_RoleGroupRelation{get;set;}
+		IT_RolePermissRelationBLL T_RolePermissRelation{get;set;}
+		IT_SetMainPageBLL T_SetMainPage{get;set;}
+		IT_SynchronousBLL T_Synchronous{get;set;}
+		IT_SysModuleBLL T_SysModule{get;set;}
+		IT_TableBLL T_Table{get;set;}
+		IT_TableFieldBLL T_TableField{get;set;}
+		IT_TodoListBLL T_TodoList{get;set;}
+		IT_UserBLL T_User{get;set;}
+		IT_UserGroupBLL T_UserGroup{get;set;}
+		IT_UserGroupRelationBLL T_UserGroupRelation{get;set;}
+		IT_UserRoleRelationBLL T_UserRoleRelation{get;set;}
+		IT_UserUnitPersonRelationBLL T_UserUnitPersonRelation{get;set;}
+		IT_UserUnitRelationBLL T_UserUnitRelation{get;set;}
+		IT_UseWorkerBLL T_UseWorker{get;set;}
+		}
+}

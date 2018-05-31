@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "微信题库管理";
+}
+@section headerSection{
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+        #lab_value label{
+            float:left;
+            width:15px;
+        }
+       #lab_value .form-group textarea{
+           float:left;
+           width:380px;
+           margin-right:3px;
+       }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 5px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            @{
+                                List<string> folderList = (List<string>)ViewBag.elementList;
+                                if (folderList.Contains("scoreAdd"))
+                                {
+                                    <button id="scoreAdd" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("scoreEdit"))
+                                {
+                                    <button id="scoreEdit" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("scoreDel"))
+                                {
+                                    <button id="scoreDel" type="button" class="btn btn-outline btn-danger">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("btnSearch"))
+                                {
+                                    <div class="form-group">
+                                        <input id="scoreName" name="scoreName" type="text" class="form-control" placeholder="请输入标题">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="groupForm" style="width: 560px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="groupFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">标题<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="sub_title" name="sub_title" rows="2" placeholder="请输入标题" required="" aria-required="true"></textarea>
+                <input type="hidden" id="sub_id" name="sub_id" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">短文：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="sub_essay" name="sub_essay" rows="3" placeholder="请输入短文内容"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">分数<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-9">
+                <input id="sub_score" name="sub_score" type="text" value="10" class="form-control input-sm" placeholder="请输入分数" title="请输入分数" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">答案选项<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div id="lab_value" class="col-sm-9">
+                <div class="form-group" id="lab_value1">
+                    <label>A</label>
+                    <textarea class="form-control" id="sel1" name="sel1" rows="2" placeholder="请输入选项描述" required="" aria-required="true"></textarea>
+                    <input type="hidden" id="sel1_value" />
+                    <button id="answer_plus" title="添加备选项" class="btn btn-info btn-circle" type="button">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button id="answer_minus" title="减少备选项" class="btn btn-info btn-circle" type="button">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+                <div class="form-group" id="lab_value2">
+                    <label>B</label>
+                    <textarea class="form-control" id="sel2" name="sel2" rows="2" placeholder="请输入选项描述" required="" aria-required="true"></textarea>
+                    <input type="hidden" id="sel2_value" />
+                </div>
+                <div class="form-group" id="lab_value3">
+                    <label>C</label>
+                    <textarea class="form-control" id="sel3" name="sel3" rows="2" placeholder="请输入选项描述" required="" aria-required="true"></textarea>
+                    <input type="hidden" id="sel3_value" />
+                </div>
+                <div class="form-group" id="lab_value4">
+                    <label>D</label>
+                    <textarea class="form-control" id="sel4" name="sel4" rows="2" placeholder="请输入选项描述" required="" aria-required="true"></textarea>
+                    <input type="hidden" id="sel4_value" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">答案项<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-9">
+                <select id="sub_value" name="sub_value" title="请选择答案项" class="form-control show-tick" placeholder="请选择答案项" required="" aria-required="true">
+                    <option tabindex="1" value="A" selected>A</option>
+                    <option tabindex="2" value="B">B</option>
+                    <option tabindex="3" value="C">C</option>
+                    <option tabindex="4" value="D">D</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="sub_note" name="sub_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/myScript/BaneChat/baneScoreManager.js"></script>
+    <script>
+        $(function () {
+            baneScoreManager.initPage();
+        });
+    </script>
+}
+

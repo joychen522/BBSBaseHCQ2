@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "用户组角色对应数据一览";
+}
+@section headerSection{
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 5px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            <div class="form-group">
+                                <input id="roleName" name="perName" type="text" class="form-control" placeholder="请输入用户名称">
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+
+@section footSection{
+    <script src="~/Resources/myScript/SysAdmin/userGroupManager.js"></script>
+    <script>
+        $(function () {
+            //初始化Table
+            roleAndGroupManager.initTable();
+            roleAndGroupManager.initEvent();
+        });
+    </script>
+}
+

@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{956FAC75-C9F1-43AF-8CA3-C68252421720}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HCQ2_Model</RootNamespace>
+    <AssemblyName>HCQ2_Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\HCQ2UI\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HCQ2UI\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AfterSaleModel\CashDetailModel.cs" />
+    <Compile Include="AfterSaleModel\FacilityPreserveModel.cs" />
+    <Compile Include="AfterSaleModel\ItemPreserve.cs" />
+    <Compile Include="AfterSaleModel\ItemPreserveParam.cs" />
+    <Compile Include="AfterSaleModel\TrackRecordModel.cs" />
+    <Compile Include="AfterSaleModel\TrackRecordParam.cs" />
+    <Compile Include="APPModel\CheckWork.cs" />
+    <Compile Include="APPModel\Compay.cs" />
+    <Compile Include="APPModel\Complaints.cs" />
+    <Compile Include="APPModel\MainCount.cs" />
+    <Compile Include="APPModel\NoticeModel.cs" />
+    <Compile Include="APPModel\ParamModel\AppRegUserModel.cs" />
+    <Compile Include="APPModel\ParamModel\BaseAPI.cs" />
+    <Compile Include="APPModel\ParamModel\CompProInfoParam.cs" />
+    <Compile Include="APPModel\ParamModel\DebtSelModel.cs" />
+    <Compile Include="APPModel\ParamModel\JobEmployModel.cs" />
+    <Compile Include="APPModel\ParamModel\OrgModel.cs" />
+    <Compile Include="APPModel\ParamModel\PostDetialParam.cs" />
+    <Compile Include="APPModel\ParamModel\SysUserModel.cs" />
+    <Compile Include="APPModel\ParamModel\WageGrantParamModel.cs" />
+    <Compile Include="APPModel\ParamModel\WorkParamModel.cs" />
+    <Compile Include="APPModel\Person.cs" />
+    <Compile Include="APPModel\RepeatPerson.cs" />
+    <Compile Include="APPModel\ResultApiModel\BusComProinfoResult.cs" />
+    <Compile Include="APPModel\ResultApiModel\ChartProject.cs" />
+    <Compile Include="APPModel\ResultApiModel\CompanyModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\CompProInfoResult.cs" />
+    <Compile Include="APPModel\ResultApiModel\DebtSelResultModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\DebtWGJG01Model.cs" />
+    <Compile Include="APPModel\ResultApiModel\EnterModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\EntModelResult.cs" />
+    <Compile Include="APPModel\ResultApiModel\JobEmployResultModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\LoginAPPResultModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\PostDetialResultModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\ToWorkResultModel.cs" />
+    <Compile Include="APPModel\ResultApiModel\WageDetialResult.cs" />
+    <Compile Include="APPModel\ResultApiModel\WorkMonthResult.cs" />
+    <Compile Include="APPModel\ResultApiModel\WorkTypeCount.cs" />
+    <Compile Include="APPModel\ToDo.cs" />
+    <Compile Include="APPModel\WorkPerson.cs" />
+    <Compile Include="BaneUser\APP\Params\BaneLoginModel.cs" />
+    <Compile Include="BaneUser\APP\Params\BaneNewsParam.cs" />
+    <Compile Include="BaneUser\APP\Params\BaneRegModel.cs" />
+    <Compile Include="BaneUser\APP\Params\BaseBaneModel.cs" />
+    <Compile Include="BaneUser\APP\Params\AnswerModel.cs" />
+    <Compile Include="BaneUser\APP\Params\ModifyBaneDataModel.cs" />
+    <Compile Include="BaneUser\APP\Params\NewsAndPolicyParams.cs" />
+    <Compile Include="BaneUser\APP\Params\SubmitAnswerModel.cs" />
+    <Compile Include="BaneUser\APP\Result\AnswerHelpModel.cs" />
+    <Compile Include="BaneUser\APP\Result\AnswerHistoryResultModel.cs" />
+    <Compile Include="BaneUser\APP\Result\AnswerIntegralModel.cs" />
+    <Compile Include="BaneUser\APP\Result\BaneDetectionModel.cs" />
+    <Compile Include="BaneUser\APP\Result\BaneHomeAnswerModel.cs" />
+    <Compile Include="BaneUser\APP\Result\AnswerResultModel.cs" />
+    <Compile Include="BaneUser\APP\Result\BaneMyMessageModel.cs" />
+    <Compile Include="BaneUser\APP\Result\BaneSpotNewsModel.cs" />
+    <Compile Include="BaneUser\APP\Result\BaneTopicModel.cs" />
+    <Compile Include="BaneUser\APP\Result\NewsAndPolicyModel.cs" />
+    <Compile Include="BaneUser\BaneAddModel.cs" />
+    <Compile Include="BaneUser\BaneCriminalModel.cs" />
+    <Compile Include="BaneUser\BaneEditUrinalyRecord.cs" />
+    <Compile Include="BaneUser\BaneFamilyRecordModel.cs" />
+    <Compile Include="BaneUser\BaneListModel.cs" />
+    <Compile Include="BaneUser\BaneListParams.cs" />
+    <Compile Include="BaneUser\BaneLogParam.cs" />
+    <Compile Include="BaneUser\BaneProModel.cs" />
+    <Compile Include="BaneUser\BaneUrinalysisRecordModel.cs" />
+    <Compile Include="Bane_CriminalRecord.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_FamilyRecord.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_HistoryScore.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_HistoryScoreDetial.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_IntegralScoreDetial.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_LogDetail.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_QuestionInfo.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_QuestionValue.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_RecoveryInfo.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_UrinalysisRecord.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_UrinalysisTimeSet.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_User.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bane_UserPermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BMQ_Document.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Constant\AreaModel.cs" />
+    <Compile Include="DocModel\DocTableParamModel.cs" />
+    <Compile Include="DocModel\DocTreeModel.cs" />
+    <Compile Include="DocModel\DocTreeResultModel.cs" />
+    <Compile Include="EnumModel\LoginEnum.cs" />
+    <Compile Include="ExtendsionModel\A02Model.cs" />
+    <Compile Include="ExtendsionModel\ComProInfoDalModel.cs" />
+    <Compile Include="ExtendsionModel\ComProInfoModel.cs" />
+    <Compile Include="ExtendsionModel\ComProModel.cs" />
+    <Compile Include="ExtendsionModel\ServiceUserModel.cs" />
+    <Compile Include="ExtendsionModel\T_AskManagerModel.cs" />
+    <Compile Include="ExtendsionModel\T_PageElementModel.cs" />
+    <Compile Include="ExtendsionModel\T_PageFolderModel.cs" />
+    <Compile Include="ExtendsionModel\T_User.cs" />
+    <Compile Include="ExtendsionModel\T_UseWorkerModel.cs" />
+    <Compile Include="ExtendsionModel\WGJG_ZX.cs" />
+    <Compile Include="ExtendsionModel\WGJG_ZXDetail.cs" />
+    <Compile Include="FormatModel\CodeItemsModel.cs" />
+    <Compile Include="FormatModel\DataJsonModel.cs" />
+    <Compile Include="HCQ2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HCQ2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HCQ2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HCQ2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HCQ2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonData\JsonModel.cs" />
+    <Compile Include="JsonData\unitJsonModel.cs" />
+    <Compile Include="ParamsModel\T_UseWorkerParam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RollScreenModel\BigDateMainModel.cs" />
+    <Compile Include="RollScreenModel\RollHelp.cs" />
+    <Compile Include="SelectModel\JobsModel.cs" />
+    <Compile Include="SelectModel\SelectValueModel.cs" />
+    <Compile Include="SysModel\UserUnitRelation.cs" />
+    <Compile Include="TreeModel\AreaUnitModel.cs" />
+    <Compile Include="TreeModel\DocTreeListModel.cs" />
+    <Compile Include="TreeModel\OrgTableParamModel.cs" />
+    <Compile Include="TreeModel\OrgTreeModel.cs" />
+    <Compile Include="TreeModel\OrgTreeResultModel.cs" />
+    <Compile Include="TreeModel\ProInfoTreeModel.cs" />
+    <Compile Include="T_AreaInfo.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_AreaPermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_AskManager.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CheckGroup.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Complaints.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CompProInfo.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Contract.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DocFolderPermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DocumentFolder.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DocumentFolderRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DocumentInfo.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DocumentSetType.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ElementPermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_EnterDetail.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Equipment.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ExceptionLog.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_FilePermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_FolderPermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Function.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Implement.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Instructions.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ItemCode.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ItemCodeMenum.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_JobResumeRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LimitUser.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Login.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LogSeting.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LogSetingDetail.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_MessageNotice.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ModulePermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OrgFolder.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OrgUserRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Org_User.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PageElement.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PageFile.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PageFolder.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PayAccount.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PerFuncRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PermissConfig.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Permissions.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Role.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_RoleGroupRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_RolePermissRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SetMainPage.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Synchronous.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SysModule.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Table.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TableField.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TodoList.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_User.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UserGroup.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UserGroupRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UserRoleRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UserUnitPersonRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UserUnitRelation.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_UseWorker.cs">
+      <DependentUpon>HCQ2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AttendanceModel.cs" />
+    <Compile Include="ViewModel\CheckModle.cs" />
+    <Compile Include="ViewModel\ComInfoModle.cs" />
+    <Compile Include="ViewModel\MainCheckUnit.cs" />
+    <Compile Include="ViewModel\NpoiPersonModel.cs" />
+    <Compile Include="ViewModel\WorkInformationModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\BmqModle.cs" />
+    <Compile Include="WebApiModel\ParamModel\CheckLoginBaseModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\CheckParam.cs" />
+    <Compile Include="WebApiModel\ParamModel\CheckUseWorker.cs" />
+    <Compile Include="WebApiModel\ParamModel\VerifyModel.cs" />
+    <Compile Include="WebApiModel\ResultApiModel\OrgModel.cs" />
+    <Compile Include="WebApiModel\ResultApiModel\WageSentDownModel.cs" />
+    <Compile Include="SelectModel\A02Model.cs" />
+    <Compile Include="SelectModel\ListBoxModel.cs" />
+    <Compile Include="SelectModel\T_AskManagerModel.cs" />
+    <Compile Include="SelectModel\WGJG01ChartModel.cs" />
+    <Compile Include="SelectModel\WGJG02ByUnitID.cs" />
+    <Compile Include="SysExtendsionModel\T_Permissions.cs" />
+    <Compile Include="TreeModel\B01PerTreeModel.cs" />
+    <Compile Include="TreeModel\AreaTreeModel.cs" />
+    <Compile Include="TreeModel\B01zTreeModel.cs" />
+    <Compile Include="TreeModel\TableStrcutTreeModel.cs" />
+    <Compile Include="TreeModel\TreeTableAttribute.cs" />
+    <Compile Include="UploadModel\Result.cs" />
+    <Compile Include="ViewModel\EchartsVo.cs" />
+    <Compile Include="ViewModel\LoginResultModel.cs" />
+    <Compile Include="ViewModel\LoginUser.cs" />
+    <Compile Include="ViewModel\Permission.cs" />
+    <Compile Include="ViewModel\PunchCardModel.cs" />
+    <Compile Include="ViewModel\SysAdmin\PageElementModel.cs" />
+    <Compile Include="ViewModel\SysAdmin\UserModel.cs" />
+    <Compile Include="ViewModel\TableModel.cs" />
+    <Compile Include="ViewModel\WebAPI\WebApiResultJsonModel.cs" />
+    <Compile Include="ViewModel\WGJG01Model.cs" />
+    <Compile Include="ViewModel\WGJG02Model.cs" />
+    <Compile Include="WebApiModel\ParamModel\AppLogModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\BaseModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\CheckWorkModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\PersonModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\SysLoginModel.cs" />
+    <Compile Include="WebApiModel\ParamModel\WageRegisterModel.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\BaseWeiXinModel.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\CompanyModel.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\DebtQXTJModel.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\PersonSelect.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\RepeatWorker.cs" />
+    <Compile Include="WeiXinApiModel\ParamModel\WorkRank.cs" />
+    <Compile Include="WeiXinApiModel\ResultApiModel\CompanyResultModel.cs" />
+    <Compile Include="WeiXinApiModel\ResultApiModel\DebtMoneyResultModel.cs" />
+    <Compile Include="WeiXinApiModel\ResultApiModel\DebtPeopleResultModel.cs" />
+    <Compile Include="WeiXinApiModel\ResultApiModel\DebtQXTJResultModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HCQ2_Common\HCQ2_Common.csproj">
+      <Project>{a401c41a-24ff-4f68-91b5-8b599267a111}</Project>
+      <Name>HCQ2_Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="HCQ2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HCQ2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HCQ2.edmx.diagram">
+      <DependentUpon>HCQ2.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HCQ2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HCQ2.edmx</DependentUpon>
+      <LastGenOutput>HCQ2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HCQ2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HCQ2.edmx</DependentUpon>
+      <LastGenOutput>HCQ2.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

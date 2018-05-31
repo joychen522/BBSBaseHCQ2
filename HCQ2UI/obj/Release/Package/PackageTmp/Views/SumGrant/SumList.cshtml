@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "发放汇总";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="tree"></div>
+        <!--生成按钮-->
+        <div class="col-sm-10 right-sm-9" style="padding-left: 5px;">
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="a0101" name="a0101" type="text" class="form-control" placeholder="请输入用户名查询">
+                            </div>
+                            <div class="form-group">
+                                <input id="dateStart" name="dateStart" type="text" class="form-control laydate-icon" placeholder="请输入发放开始时间">
+                            </div>
+                            <div class="form-group">
+                                <input id="dateEnd" name="dateEnd" type="text" class="form-control laydate-icon" placeholder="请输入发放截止时间">
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                        if (folderList.Contains("sumGrantExport"))
+                        {
+                            <div class="form-group">
+                                <button id="sumGrantExport" class="btn btn-primary" type="button">
+                                    <i class="fa fa-heart"></i>&nbsp;全部导出
+                                </button>
+                                <a id="sumExport" class="btn btn-success btn-outline" href="#" style="display: none;">导出</a>
+                            </div>
+                        }
+                    }
+                </div>
+                <table id="sumGrantTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/bootstrap-treeview-1.2.0.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/tableExport.js"></script>
+    <script src="~/Resources/myScript/finance/sumGrantManager.js"></script>
+    <script>
+        $(function() {
+            //初始化菜单
+            parent.showLoadBoxs();
+            sumGrantManager.initUnitDataByAjax();
+            sumGrantManager.initDate();
+            sumGrantManager.initTable();
+            sumGrantManager.initEvent();
+            parent.delLoadBoxs();
+        });
+    </script>
+}
+
+

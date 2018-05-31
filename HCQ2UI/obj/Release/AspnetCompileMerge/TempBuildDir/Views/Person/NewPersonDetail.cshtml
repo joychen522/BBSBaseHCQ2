@@ -1,0 +1,740 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <title>NewPersonDetail</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        .btn {
+            width: 170px;
+            margin-top: 5px;
+        }
+
+        #add_area .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #add_area .hr-line-dashed {
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+
+        #eduTool .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #workTool .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #workTool .col-sm-1 {
+            padding: 0;
+        }
+
+        #AttendanceTool .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #WageTool .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div id="divTree" class="col-sm-2" style="margin:0px; border:1px solid gray; border-top-width:0px; border-bottom-width:0px; border-left-width:0px;">
+            <div class="col-sm-12" style="margin:5px;">
+                <img id="person_image" src="../Person/@ViewBag.photo" style="height:200px; width:170px;" />
+            </div>
+            <div class="col-sm-12" style="margin:5px;">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary">人员基本信息</button>
+                </div>
+                <div class="col-sm-12" style="display:none;">
+                    <button id="btnEdu" class="btn btn-primary">学位学历</button>
+                </div>
+                <div class="col-sm-12" style="display:none;">
+                    <button id="btnWork" class="btn btn-primary">工作经历</button>
+                </div>
+                <div class="col-sm-12">
+                    <button id="btnAttendance" class="btn btn-primary">考勤情况</button>
+                </div>
+                <div class="col-sm-12">
+                    <button id="btnWage" class="btn btn-primary">员工工资发放登记</button>
+                </div>
+            </div>
+        </div>
+        <div id="add_area" class="col-sm-10">
+            <div id="basicdiv" class="row form-horizontal" style="overflow:auto; margin:0px;">
+                <form action="Person/NewPeronDetail" method="post" id="PersonDetail">
+                    <input type="hidden" id="RowID" name="RowID" />
+                    <input type="hidden" id="identifyCodeCardPhoto" name="identifyCodeCardPhoto" />
+                    <input type="hidden" id="small_iris" name="small_iris" />
+                    <input type="hidden" id="big_iris" name="big_iris" />
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0101" name="A0101" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">身份证号<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0177" name="A0177" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">所属项目<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0001" name="B0001" class="form-control" onclick="$('#SelectDivTree3').show()" />
+                            <input type="hidden" id="B00011" name="B00011" />
+                            <div id="SelectDivTree3" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; overflow:auto; position:absolute;">
+                                <div id="treeview3"></div>
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">所在工区</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="A0181" name="A0181">
+                                <option> </option>
+                                @{
+                                    foreach (var item in ViewBag.A0181)
+                                    {
+                                        <option>@item.code_name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">移动电话</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="C0104" name="C0104" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">基本工资</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0178" name="A0178" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">预计发放时间</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0179" name="A0179" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">工种</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="E0386" name="E0386" onclick="$('#SelectDivTree4').show()" />
+                            <div id="SelectDivTree4" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; overflow:auto; position: fixed;">
+                                <div id="treeview4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">农民工账户所属银行<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="NMGZHSSYH" name="NMGZHSSYH">
+                                @{
+                                    foreach (var item in ViewBag.NMGZHSSYH)
+                                    {
+                                        <option value="@item.code_value">@item.code_name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">农民工银行卡号<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0146" name="A0146" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">劳动合同</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="scan_contract" name="scan_contract" class="form-control" onclick="$('#SelectDivTree9').show()" />
+                            <div id="SelectDivTree9" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:999; overflow:auto; position: fixed; border:1px solid gray;">
+                                <input type="file" id="scan_contractFile" name="scan_contractFile" class="form-control" style="width:100%;" />
+                                <img id="person_scan_img" alt="劳动合同扫描件" />
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">所属队伍</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="in_team" name="in_team">
+                                <option> </option>
+                                @{
+                                    foreach (var item in ViewBag.InTeam)
+                                    {
+                                        <option value="@item.com_id">@item.dwmc</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">入职日期</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="E0359" name="E0359" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">兼岗位描述</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="E0387" name="E0387" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="A0107" name="A0107">
+                                <option> </option>
+                                @foreach (var item in ViewBag.A0107)
+                                {
+                                    <option>@item.CodeItemName</option>
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">出生日期</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0111" name="A0111" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">年龄</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="C0101" name="C0101" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">民族</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="A0121" name="A0121">
+                                <option> </option>
+                                @foreach (var item in ViewBag.A0121)
+                                {
+                                    <option>@item.CodeItemName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">籍贯</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="A0114" name="A0114">
+                                <option> </option>
+                                @foreach (var item in ViewBag.A0114)
+                                {
+                                    <option>@item.CodeItemName</option>
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">发薪模式</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="E0394" name="E0394" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">户籍地址</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0109" name="A0109" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">签发机关</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0112" name="A0112" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">有效日期起</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0116" name="A0116" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">有效日期止</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="A0117" name="A0117" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">紧急联系人</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="C01SS" name="C01SS" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">紧急联系人电话</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="C01RV" name="C01RV" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">所属单位类别</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="SSDWLB" name="SSDWLB">
+                                <option> </option>
+                                @foreach (var item in ViewBag.SSDWLB)
+                                {
+                                    <option value="@item.code_value">@item.code_name</option>
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">所属单位职务<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="SSDWZW" name="SSDWZW">
+                                <option> </option>
+                                @foreach (var item in ViewBag.SSDWZW)
+                                {
+                                    <option value="@item.code_value">@item.code_name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">工种工资核定方式<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="GZGZHDFS" name="GZGZHDFS">
+                                <option> </option>
+                                @foreach (var item in ViewBag.GZGZHDFS)
+                                {
+                                    <option value="@item.code_value">@item.code_name</option>
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">工种工资核定标准<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="text" id="GZGZHDBZ" name="GZGZHDBZ" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">所属班组</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="SSBZ" name="SSBZ">
+                                <option> </option>
+                                @foreach (var item in ViewBag.SSBZ)
+                                {
+                                    <option value="@item.code_value">@item.code_name</option>
+                                }
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">是否班组负责人</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="SFBZFZR" name="SFBZFZR">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">是否签订简易用工合同<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="SFQDJYYGHT" name="SFQDJYYGHT">
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label">离职原因</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="lzyy" name="lzyy" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-10" style="padding-left:15px; padding-right:15px;">
+                            <textarea id="A0122" name="A0122" class="form-control"></textarea>
+                        </div>
+                        <input type="hidden" id="JianDie1" />
+                    </div>
+                </form>
+            </div>
+            <div class="row" style="height:60px; border-top:1px solid gray; margin-bottom:0px; align-content:center; text-align:center;">
+                <div class="row">
+                    <button id="btnIdentifyCard" class="btn btn-primary" style="width:100px;" onclick="hxgc_OpenReader();">读取身份证</button>
+                    <button id="btnIris" class="btn btn-primary" style="width:100px;">虹膜采集</button>
+                    <button id="btnSave" class="btn btn-primary" style="width:100px;">保存</button>
+                    <button id="btnClose" class="btn btn-primary" style="width:100px;">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--学位学历-->
+    <div class="row" id="edu" style="display:none;">
+        <table id="TableFromEdu" data-mobile-responsive="true"></table>
+    </div>
+    <div class="row" id="eduTool" style="display:none;">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <button id="edu_save" class="btn btn-primary">保存</button>
+                <button id="edu_edit" class="btn btn-primary">编辑</button>
+                <button id="edu_delete" class="btn btn-primary">删除</button>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <form method="post" id="eduForm">
+                <input type="hidden" id="EduRowID" name="EduRowID" />
+                <input type="hidden" id="EduIsEdit" name="EduIsEdit" />
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <input type="text" id="A0415" name="A0415" class="form-control" placeholder="入学时间" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A0430" name="A0430" class="form-control" placeholder="毕业时间" />
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="A0405" name="A0405">
+                            <option value="" disabled selected>学历学位</option>
+                            <option> </option>
+                            @foreach (var item in ViewBag.A0108)
+                            {
+                                <option>@item.CodeItemName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A0435" name="A0435" class="form-control" placeholder="毕业院校" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A0410" name="A0410" class="form-control" placeholder="所学专业" />
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control" id="C0401" name="C0401">
+                            <option value="" disabled selected>教育方式</option>
+                            <option> </option>
+                            @foreach (var item in ViewBag.C0401)
+                            {
+                                <option>@item.CodeItemName</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--工作经历-->
+    <div class="row" id="work" style="display:none;">
+        <table id="TableFromWork" data-mobile-responsive="true"></table>
+    </div>
+    <div class="row" id="workTool" style="display:none;">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <button id="work_save" class="btn btn-primary">保存</button>
+                <button id="work_edit" class="btn btn-primary">编辑</button>
+                <button id="work_delete" class="btn btn-primary">删除</button>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <form method="post" id="workForm">
+                <input type="hidden" id="workRowID" name="workRowID" />
+                <input type="hidden" id="workIsEdit" name="workIsEdit" />
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <input type="text" id="A1915" name="A1915" class="form-control" placeholder="所在公司名称" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1905" name="A1905" class="form-control" placeholder="起始时间" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1910" name="A1910" class="form-control" placeholder="终止时间" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1927" name="A1927" class="form-control" placeholder="所在部门" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1920" name="A1920" class="form-control" placeholder="所在岗位" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1928" name="A1928" class="form-control" placeholder="工作内容" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1929" name="A1929" class="form-control" placeholder="薪资待遇" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1930" name="A1930" class="form-control" placeholder="离职原因" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1925" name="A1925" class="form-control" placeholder="证明人" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="A1926" name="A1926" class="form-control" placeholder="证明人联系方式" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--考勤情况-->
+    <div class="row" id="Attendance" style="display:none;">
+        <table id="TableFromAttendance" data-mobile-responsive="true"></table>
+    </div>
+    <div class="row" id="AttendanceTool" style="display:none;">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <button id="Attendance_save" class="btn btn-primary">保存</button>
+                <button id="Attendance_edit" class="btn btn-primary">编辑</button>
+                <button id="Attendance_delete" class="btn btn-primary">删除</button>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <form method="post" id="AttendanceForm">
+                <input type="hidden" id="AttendanceRowID" name="AttendanceRowID" />
+                <input type="hidden" id="AttendanceIsEdit" name="AttendanceIsEdit" />
+                <div class="form-group">
+                    <div class="col-sm-6" style="padding:0;">
+                        <input type="text" id="A0201" name="A0201" class="form-control" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="签到时间" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--工资发放登记-->
+    <div class="row" id="Wage" style="display:none;">
+        <table id="TableFromWage" data-mobile-responsive="true"></table>
+    </div>
+    <div class="row" id="WageTool" style="display:none;">
+        <div class="col-sm-12">
+            <div class="col-sm-12">
+                <button id="Wage_save" class="btn btn-primary">保存</button>
+                <button id="Wage_edit" class="btn btn-primary">编辑</button>
+                <button id="Wage_delete" class="btn btn-primary">删除</button>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <form method="post" id="WageForm">
+                <input type="hidden" id="WageRowID" name="WageRowID" />
+                <input type="hidden" id="WageIsEdit" name="WageIsEdit" />
+                <div class="form-group">
+                    <div class="col-sm-4" style="padding:0;">
+                        <input type="text" id="A0301" name="A0301" class="form-control" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="签到时间" />
+                    </div>
+                    <div class="col-sm-4" style="padding:0;">
+                        <input type="text" id="A0302" name="A0302" class="form-control" placeholder="发放月份" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--虹膜采集-->
+    <div id="divIris" class="row" style="display:none;">
+
+    </div>
+
+    <!--读取身份证-->
+    <div id="divIris" class="row" style="display:none;">
+        <object id="objActiveX" classid="clsid:A66F5373-0A8A-4C42-814B-38A87B331D40"></object>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/myScript/Person/NewPerson_Operter.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Resources/myScript/Person/VlidateIdentifyCode.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+
+    <script>
+        var g_iPort = 1001;											//端口号；USB = 1001 ~ 1016 ，COM端口 = 1~16
+        var g_strPHPath = "D:\\IdentifyCodeCardPhoto\\";			//保存照片路径初始值，路径结尾需添加'\\'
+        var g_strJpgPHName = "_PhotoB.jpg";    	//保存jpg照片名称
+
+        function hxgc_OpenReader()
+        {
+            var iResult = 0;
+            iResult = objActiveX.hxgc_OpenReader(g_iPort);//打开设备
+            if(iResult == 0){
+                hxgc_ReadIDCard();//打开成功，直接读取身份证
+            }else{
+                layer.msg("设备打开失败！请重试！");//打开失败
+            }
+        }
+
+        function hxgc_ReadIDCard()
+        {
+            var iResult = 0;
+            iResult = objActiveX.hxgc_ReadIDCard(g_iPort);//读二代证
+            if(iResult == 0){
+                $("#A0101").val(objActiveX.hxgc_GetName());
+                $("#A0107").val(objActiveX.hxgc_GetSex());
+                $("#A0121").val(objActiveX.hxgc_GetNation() + "族");
+                $("#A0111").val(SetCharDate(objActiveX.hxgc_GetBirthDate()));
+                $("#A0109").val(objActiveX.hxgc_GetAddress());
+                $("#A0177").val(objActiveX.hxgc_GetIDCode());
+                $("#A0112").val(objActiveX.hxgc_GetIssuingAuthority());
+                $("#A0116").val(SetCharDate(objActiveX.hxgc_GetBeginPeriodOfValidity()));
+                $("#A0117").val(SetCharDate(objActiveX.hxgc_GetEndPeriodOfValidity()));
+
+                var strPhotoBase64 = objActiveX.hxgc_SavePhAsJpgBase64();
+                $("#identifyCodeCardPhoto").val(strPhotoBase64);
+                $("#person_image").attr("src","data:image/jpeg;base64," + strPhotoBase64);//显示图片
+            }else{
+                alert("读取身份证失败！错误代码：" + iResut);
+            }
+        }
+
+        function SetCharDate(value){
+            if(value != "" && value != null && value != undefined){
+                var text = value.substr(0,4) + "-" + value.substr(4,2) + "-" + value.substr(6,2);
+                return text;
+            }else{
+                return "";
+            }
+        }
+
+    </script>
+
+    <script>
+        $(function () {
+            TextBoxOper();
+
+            //参数为空表示是新增
+            if($.GetUrlParam("RowID") != ""){
+                SetTextBoxValue(@Html.Raw(ViewBag.Edu));
+            }
+
+            //选择的项目
+            var SelUnit = $.GetUrlParam("UnitID");
+            if (SelUnit != null && SelUnit != "") {
+                $.ajax({
+                    type:"post",
+                    dataType:"text",
+                    data:{UnitID:SelUnit},
+                    async:false,
+                    url:$.GetIISName() + "/Person/GetUnitNameByUnitID",
+                    success:function(result){
+                        $("#B0001").val(result);
+                        $("#B00011").val(SelUnit);
+                    }
+                });
+            }
+
+            $("#divTree").height($.GetBodyHeight());
+            $("#basicdiv").height($.GetBodyHeight() - 60);
+
+            $("#SelectDivTree3").width($("#B0001").width() + 24);
+            $("#B0001").click(function () {
+                $("body").bind("mousedown",onBodyDown3);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.TreeJson),
+                    onNodeSelected: function (event, data) {
+                        if(data.UnitID.length == 3){
+                            if(data.text.indexOf("</i>") > 0)
+                                $("#B0001").val(data.text.split("</i> ")[1]);
+                            else
+                                $("#B0001").val(data.text);
+                            $("#B00011").val(data.UnitID);
+                            $("#SelectDivTree3").hide();
+                        }else
+                            layer.msg("请选择正确的所属项目！");
+                    }
+                };
+                $("#treeview3").treeview(options);
+            })
+
+            $("#SelectDivTree4").width($("#E0386").width() + 24);
+            $("#E0386").click(function () {
+                $("body").bind("mousedown",onBodyDown4);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.Jobs),
+                    onNodeSelected: function (event, data) {
+                        if(data.parent != "."){
+                            $("#E0386").val(data.text);
+                            $("#SelectDivTree4").hide();
+                        }else
+                            layer.msg("请选择正确的工种！");
+                    }
+                };
+                $("#treeview4").treeview(options);
+            })
+
+            $("#SelectDivTree9").width($("#scan_contract").width() + 24);
+            $("#scan_contract").click(function () {
+                var data = $(this).val();
+                if(data != null && data != "" && data != undefined){
+                    $("#person_scan_img").attr("src", data.replace("~",".."));
+                }
+                $("body").bind("mousedown",onBodyDown5);
+            })
+        });
+
+        var onBodyDown5 = function(event){
+            if (!(event.target.id == "SelectDivTree9" || $(event.target).parents("#SelectDivTree9").length > 0)) {
+                //隐藏
+                $("#SelectDivTree9").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown5);
+            }
+        }
+
+        var onBodyDown3 = function(event){
+            if (!(event.target.id == "SelectDivTree3" || $(event.target).parents("#SelectDivTree3").length > 0)) {
+                //隐藏
+                $("#SelectDivTree3").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown3);
+            }
+        }
+
+        var onBodyDown4 = function(event){
+            if (!(event.target.id == "SelectDivTree4" || $(event.target).parents("#SelectDivTree4").length > 0)) {
+                //隐藏
+                $("#SelectDivTree4").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown);
+            }
+        }
+    </script>
+</body>
+</html>

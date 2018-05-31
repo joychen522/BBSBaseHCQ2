@@ -1,0 +1,310 @@
+﻿@{
+    ViewBag.Title = "定期检测";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/demo.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/metroStyle.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.core.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.excheck.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.exedit.min.js"></script>
+    <script src="~/Resources/tools/search_zTree.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/tableExport.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+    <script src="~/Resources/tools/jsExportToExecl.js"></script>
+    <style>
+        body {
+            font-family: '微软雅黑';
+            font-size: 14px;
+            color: #676a6c;
+        }
+
+        a {
+            font-size: 15px;
+        }
+
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+
+        #unitTreezTreeData {
+            border: 0;
+            border-top: 1px solid #E7EAEC;
+            background: #FFFFFF;
+        }
+
+            #unitTreezTreeData li {
+                line-height: 28px;
+            }
+
+                #unitTreezTreeData li:hover {
+                    background: #F5F5F5;
+                }
+
+        #search_condition {
+            width: 99%;
+        }
+
+        .selectTreezTreeLI {
+            background-color: #2DC1C3;
+            color: #fff;
+        }
+
+        #nodeFormTable label {
+            font-weight: bold;
+        }
+
+        .fileClass label {
+            text-align: right;
+        }
+
+        #upFileForm .col-sm-7 {
+            margin-bottom: 8px;
+        }
+
+        #bootstrap-duallistbox-selected-list_duallistbox_demo1 option, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option {
+            height: 30px;
+            line-height: 30px;
+            padding-top: 5px;
+        }
+
+            #bootstrap-duallistbox-selected-list_duallistbox_demo1 option:hover, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option:hover {
+                background-color: antiquewhite;
+            }
+
+        .buttons {
+            width: 100%;
+        }
+
+            .buttons button {
+                width: 50%;
+            }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="unitTree" class="col-sm-2" style="height:100%;padding:0;border:1px solid #E7EAEC;"></div>
+        <div class="col-sm-10 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("baneConduct"))
+                        {
+                            <button id="baneConduct" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-search" aria-hidden="true">查看记录</i>
+                            </button>
+                        }
+                        if (folderList.Contains("baneDel"))
+                        {
+                            <button id="baneDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                        }
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="baneName" name="baneName" type="text" class="form-control" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group" style="width:150px;margin-top:-1px;">
+                                <select id="baneType" name="baneType" title="请选择人员类别" class="form-control show-tick selectpicker" placeholder="请选择所属模块">
+                                    <option value="">全部</option>
+                                    <option value="社区戒毒">社区戒毒</option>
+                                    <option value="社区康复">社区康复</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="width:200px;margin-top:-1px;">
+                                <select id="baneTask" name="baneTask" title="请选择定期检测任务" class="form-control show-tick selectpicker" placeholder="请选择尿检任务">
+                                    <option value="0">全部</option>
+                                    <option value="1" selected>当前任务</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="width:200px;margin-top:-1px;">
+                                <select id="banedays" name="banedays" title="请选择定期检测提醒" class="form-control show-tick selectpicker" placeholder="请选择尿检提醒">
+                                    <option value="" selected>全部</option>
+                                    <option value="30">本月应检人员</option>
+                                    <option value="-30">本月已检人员</option>
+                                    <option value="-7">一周内应检人员</option>
+                                    <option value="0">已过检测人员</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                        if (folderList.Contains("baneExportExcel"))
+                        {
+                            <button id="baneExportExcel" type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">导出Excel</i>
+                            </button>
+                        }
+                    }
+                </div>
+                <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!--办理尿检 -->
+<div id="orgform" style="width: 600px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="orgFormTable" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">编号<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-8">
+                <input id="ur_code" name="ur_code" type="text" class="form-control input-sm" placeholder="请输入编号" title="请输入编号" required="" aria-required="true"/>
+                <input type="hidden" id="ur_id" name="ur_id" value="" />
+                <input type="hidden" id="approve_status" name="approve_status" value="1" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">被检测人：</label>
+            <div class="col-sm-8">
+                <input id="user_name" name="user_name" type="text" disabled class="form-control input-sm" placeholder="请输入姓名" title="请输入姓名" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">性别：</label>
+            <div class="col-sm-8">
+                <input id="user_sex" name="user_sex" disabled type="text" class="form-control input-sm" placeholder="请输入性别" title="请输入性别" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">出生日期：</label>
+            <div class="col-sm-8">
+                <input id="user_birth" name="user_birth" disabled type="text" class="form-control input-sm" placeholder="请输入出生日期" title="请输入出生日期" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">身份证：</label>
+            <div class="col-sm-8">
+                <input id="user_identify" name="user_identify" disabled type="text" class="form-control input-sm" placeholder="请输入身份证" title="请输入身份证" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">本次应到检测时间<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-8">
+                <input id="ur_should_date" name="ur_should_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入本次应到检测时间" title="请输入本次应到检测时间"  disabled />
+                <input type="hidden" id="ur_id" name="ur_id" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">现场检测时间<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-8">
+                <input id="ur_reality_date" name="ur_reality_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入实际定期检测时间" title="请输入实际定期检测时间" onclick="laydate({ istime: true, format: 'YYYY-MM-DD hh:mm:ss' })" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">现场检测地点：</label>
+            <div class="col-sm-8">
+                <input id="ur_site" name="ur_site" type="text" class="form-control input-sm" placeholder="请输入现场检测地点" title="请输入现场检测地点" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">现场检测方法：</label>
+            <div class="col-sm-8">
+                <select id="ur_method" name="ur_method" title="请选择现场检测方法"  class="form-control show-tick selectpicker" placeholder="请选择现场检测方法">
+                    <option value="尿液检测" selected>尿液检测</option>
+                    <option value="唾液检测">唾液检测</option>
+                    <option value="毛发检测">毛发检测</option>
+                    <option value="血液检测">血液检测</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">现场检测结果：</label>
+            <div class="col-sm-8">
+                <select id="ur_result" name="ur_result" title="请选择现场检测结果" class="form-control show-tick selectpicker" placeholder="请选择现场检测结果">
+                    <option value="阴性" selected>阴性</option>
+                    <option value="阳性">阳性</option>
+                </select>
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label class="col-sm-4 control-label">结果呈：</label>
+            <div class="col-sm-8">
+                <input id="ur_result_show" name="ur_result_show" type="text" class="form-control input-sm" placeholder="请输入结果呈" title="请输入结果呈" />
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label class="col-sm-4 control-label">检测人：</label>
+            <div class="col-sm-8">
+                <input id="ur_manager" name="ur_manager" type="text" class="form-control input-sm" placeholder="请输入定期检测监督人员" title="请输入定期检测监督人员" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">录入日期：<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-8">
+                <input id="ur_input_date" name="ur_input_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入实际尿检时间" title="请输入实际尿检时间" onclick="laydate({ istime: true, format: 'YYYY-MM-DD' })" required="" aria-required="true" />
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label class="col-sm-4 control-label">任务状态<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-8">
+                <select id="approve_status" name="approve_status" title="请选择任务状态" required="" aria-required="true" class="form-control show-tick selectpicker" placeholder="请选择任务状态">
+                    <option value=0>未完成</option>
+                    <option value=1 selected>已完成</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">定期检测附件：</label>
+            <div class="col-sm-8">
+                <div id="file-pretty">
+                    <input type="file" class="form-control" id="file" name="file">
+                    <input type="hidden" id="ur_attach" name="ur_attach" />
+                </div>
+            </div>
+          </div>*@
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/BaneUser/baneProManager.js"></script>
+    <script>
+        var isBaneShow;
+        $(function () {
+            isBaneShow=@ViewBag.isBaneShow;
+            //初始化Page
+            baneProManager.initPage();
+        });
+    </script>
+}

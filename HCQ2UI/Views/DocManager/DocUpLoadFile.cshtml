@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title>Krajee JQuery Plugins - &copy; Kartik</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/layer/laydate/laydate.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-fileinput/fileinput.js"></script>
+    <script src="~/Resources/mainFrame/js/bootstrap.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-fileinput/fileinput_locale_zh.js"></script>
+    <script src="~/Resources/tools/jquery-hcq2-extend.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/select/bootstrap-select.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="~/Resources/mainFrame/js/demo/form-validate-demo.min.js"></script>
+    <style>
+        .fileClass label{
+            text-align:right;
+        }
+       .col-sm-7{
+           margin-bottom:8px;
+        }
+       #doc_type_sel{
+           border:1px solid #CCCCCC;
+           display:none;
+           position:absolute;
+           z-index:90;
+           width:93%;
+           background-color:#fff;
+       }
+       #doc_type_sel li:hover{
+           background-color:#CCCCCC;
+           cursor:pointer;
+       }
+       #doc_type_sel li{
+           list-style-type:none;
+           margin-left:-40px;
+           padding-left:5px;
+       }
+    </style>
+</head>
+<body onclick="closeType()">
+    <div class="container kv-main">
+        <form class="form-horizontal m-t" id="orgFormTable" method="post" enctype="multipart/form-data">
+            <div class="fileClass" style="height:280px;">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档名称：</label>
+                    <div class="col-sm-7">
+                        <input id="file_name" name="file_name" type="text" class="form-control input-sm" placeholder="默认读取上传文档名" title="默认读取上传文档名" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档别名：</label>
+                    <div class="col-sm-7">
+                        <input id="alias_name" name="alias_name" type="text" class="form-control input-sm" placeholder="默认读取上传文档名" title="默认读取上传文档名" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">发布开始时间：</label>
+                    <div class="col-sm-7">
+                        <input id="issue_start" name="issue_start" type="text" class="form-control laydate-icon" placeholder="请输入发布开始时间">
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    <label class="col-sm-3 control-label">文档类型<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <select id="" name="doc_type" title="请选择文档类型" class="form-control input-sm selectcontrol" placeholder="请选择文档类型" style="padding: 5px 10px;" required="" aria-required="true"></select>
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档类型<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <input type="hidden" id="doc_type" name="doc_type" value=""/>
+                        <input id="doc_type1" name="doc_type1" type="text" class="form-control input-sm" placeholder="请选择文档类型" title="请选择文档类型"  required="" aria-required="true"/>
+                        <ul id="doc_type_sel">
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档定价：</label>
+                    <div class="col-sm-7">
+                        <input id="file_money" name="file_money" type="text" class="form-control input-sm" placeholder="请给文档标价" title="请给文档标价" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档分类<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <select id="file_classify" name="file_classify"  title="请选择文档分类" class="form-control input-sm selectcontrol" data-live-search="true" required="" aria-required="true" placeholder="请选择文档分类"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档属性<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <select id="file_status" name="file_status" title="请选择文档属性" class="form-control input-sm selectcontrol" placeholder="请选择文档属性" style="padding: 5px 10px;" required="" aria-required="true">
+                            <option value="0" selected>私有</option>
+                            <option value="1">公开</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文号<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <input id="doc_number" name="doc_number" type="text" class="form-control laydate-icon" placeholder="请输入文号" required="" aria-required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">备注：</label>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" id="file_note" name="file_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="fileClass" style="height:300px;">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">文档附件<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                    <div class="col-sm-7">
+                        <input id="fileUpload" type="file" multiple class="file" required="" aria-required="true"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        var folder_id = $.getUrls("folder_id"),//节点ID
+        file_id = $.getUrls("file_id");//文档ID
+        var $url = '/DocManager/UpLoadFile/' + folder_id, isUpload = 0;//0 ：不上传，1：上传
+        if (file_id)
+            $url = '/DocManager/EditLoadFile/' + file_id;//EditLoadFile
+        $("#fileUpload").fileinput({
+            uploadUrl: $.ctx() + $url, //上传的地址
+            allowedFileExtensions: ['jpg', 'png', 'gif','txt', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'ppt', 'pptx', 'mp4', 'flv'],//['jpg', 'png','gif'],视频格式只允许上传
+            overwriteInitial: false,
+            showUpload: false,//是否显示上传按钮
+            maxFileSize: 0,//20M以内
+            maxFileCount: 1,
+            minFileCount: 1,
+            uploadExtraData: function () {
+                var dataJson = {}, obj = $('#orgFormTable').serializeArray();
+                $.each(obj, function (i, v) {
+                    dataJson[v.name] = v.value;
+                });
+                dataJson["isUpload"] = isUpload;
+                return dataJson;
+            },
+            slugCallback: function (filename) {
+                return filename.replace('(', '_').replace(']', '_');
+            }
+        }).on('fileuploaded', function (event, data, previewId, index) {  
+            window.parent.docManager.closeUpLoadForm(data.response);
+        }).on('filebatchselected', function (event, files) {
+            //选中文件后
+            isUpload = 1;
+        });
+        //文件上传方法
+        function initData() {
+            var dateStart = {
+                elem: '#issue_start',
+                format: 'YYYY-MM-DD',
+                max: '2099-06-16 23:59:59', //最大日期
+                istime: true,
+                istoday: false,
+                choose: function (datas) {
+                    dateEnd.min = datas; //开始日选好后，重置结束日的最小日期
+                    dateEnd.start = datas; //将结束日的初始值设定为开始日
+                }
+            };
+            //var dateEnd = {
+            //    elem: '#issue_end',
+            //    format: 'YYYY-MM-DD',
+            //    min: laydate.now(),
+            //    max: '2099-06-16 23:59:59',
+            //    istime: true,
+            //    istoday: false,
+            //    choose: function (datas) {
+            //        dateStart.max = datas; //结束日选好后，重置开始日的最大日期
+            //    }
+            //};
+            laydate(dateStart);
+            //laydate(dateEnd);
+            $('#issue_start').val(laydate.now().substring(0, 4) + '-01-01');
+        }
+        var doc_type_data = null;
+        function initSelect() {
+            $.ajax({
+                url: ctx + '/SysCommon/GetDictionaryByCode',
+                type: "post",
+                async: false,
+                data: { fieldCode: 'docType' },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.Statu === 1) {
+                        layer.msg(data.Msg, { icon: 5 });
+                        return false;
+                    }
+                    doc_type_data = data.Data;
+                    var itemStr = "";
+                    $.each(data.Data, function (i, item) {
+                        itemStr += "<li docType='" + item.code_value + "'>" + item.code_name + "</li>";
+                    });
+                    $('#doc_type_sel').append(itemStr);
+                },
+                error: function () {
+                    layer.msg('数据异常~', { icon: 5 });
+                }
+            });
+            //$('#doc_type').initSelectcontrol("docType");
+            $('#doc_type1').click(function () {
+                var doc = $('#doc_type_sel');
+                if (doc.css('display') === 'block')
+                    doc.css('display', 'none');
+                else
+                    doc.css('display', 'block');
+                return false;
+            }).blur(function () {
+                var doc_type_value = $('#doc_type').val();
+                if (!doc_type_value)
+                    $('#doc_type').val($(this).val());
+            });
+            $('#doc_type_sel li').click(function () {
+                $('#doc_type').val($(this).attr('docType'));
+                $('#doc_type1').val($(this).text());
+                $('#doc_type_sel').css('display', 'none');
+                return false;
+            });
+            $('#file_classify').initSelectcontrol("FileClassify");
+        }
+        function initEdit() {
+            if (!file_id)
+                return false;
+            $.ajax({
+                type: 'post',
+                url: ctx + '/DocManager/GetNodeDataById/' + file_id,
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                    if (data.Statu === 0) {
+                        //填充数据
+                        var row = data.Data;
+                        if (row) {
+                            if (row.issue_start != null && row.issue_start.length > 10)
+                                row.issue_start = $.formatDate(new Date(parseInt(row.issue_start.slice(6))));
+                            $('#orgFormTable')[0].reset();//重置表单
+                            $('#orgFormTable').LoadForm(row);//表单填充数据
+                            if (doc_type_data) {
+                                $.each(doc_type_data, function (i,item) {
+                                    if(row.doc_type===item.code_value) {
+                                        $('#doc_type1').val(item.code_name);
+                                        return false;
+                                    }
+                                });
+                            }
+                            if (!$('#doc_type1').val())
+                                $('#doc_type1').val(row.doc_type);
+                        }
+                    }
+                    else
+                        layer.msg(data.Msg, { icon: 5 });
+                }
+            });
+        }
+        //保存上传数据
+        function upLoadDoc() {
+            //判断字段是否合法
+            if (!$('#orgFormTable').valid()) return false;
+            //判断文档类型是否合法
+            var $data = $('#doc_type1').val(), $exec = false;
+            $.each(doc_type_data, function (i,item) {
+                if (item.code_name === $data)
+                    $exec = true;
+            });
+            if (!$exec)
+                $('#doc_type').val($('#doc_type1').val());
+            if (isUpload > 0)
+                $("#fileUpload").fileinput("upload");//上传
+            {
+                var dataJson = {}, obj = $('#orgFormTable').serializeArray();
+                $.each(obj, function (i, v) {
+                    dataJson[v.name] = v.value;
+                });
+                dataJson["isUpload"] = isUpload;
+                $.ajax({
+                    type: 'post',
+                    url: $.ctx() + $url,
+                    dataType: 'json',
+                    data: dataJson,
+                    async: false,
+                    success: function (data) {
+                        if (data.Statu === 0) 
+                            window.parent.docManager.closeUpLoadForm(data);
+                        else
+                            layer.msg(data.Msg, { icon: 5 });
+                    }
+                });
+            }            
+        }
+        function closeType() {
+            $('#doc_type_sel').css('display', 'none');
+        }
+        $(function () {  
+            initData();
+            initSelect();
+            initEdit();
+        });
+    </script>
+</body>
+</html>

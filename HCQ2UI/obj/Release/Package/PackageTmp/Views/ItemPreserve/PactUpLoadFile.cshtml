@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title>Krajee JQuery Plugins - &copy; Kartik</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/layer/laydate/laydate.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-fileinput/fileinput.js"></script>
+    <script src="~/Resources/mainFrame/js/bootstrap.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-fileinput/fileinput_locale_zh.js"></script>
+    <script src="~/Resources/tools/jquery-hcq2-extend.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/select/bootstrap-select.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="~/Resources/mainFrame/js/demo/form-validate-demo.min.js"></script>
+    <style>
+        .fileClass label{
+            text-align:right;
+        }
+       .col-sm-7{
+           margin-bottom:8px;
+        }
+    </style>
+</head>
+<body onclick="closeType()">
+    <div class="container kv-main">
+        <form class="form-horizontal m-t" id="orgFormTable" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文档名称：</label>
+                <div class="col-sm-7">
+                    <input id="pd_name" name="pd_name" type="text" class="form-control input-sm" placeholder="默认读取上传文档名" title="默认读取上传文档名" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">文档附件<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                <div class="col-sm-7">
+                    <input id="fileUpload" type="file" multiple class="file" required="" aria-required="true" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        var ip_id = $.getUrls("ip_id");//台账ID
+        var $url = '/ItemPreserve/UpLoadFile/' + ip_id, isUpload = 0;//0 ：不上传，1：上传
+        $("#fileUpload").fileinput({
+            uploadUrl: $.ctx() + $url, //上传的地址
+            allowedFileExtensions: ['doc', 'docx', 'xls', 'xlsx', 'pdf', 'ppt', 'pptx'],//只允许上传文档文件
+            overwriteInitial: false,
+            showUpload: false,//是否显示上传按钮
+            maxFileSize: 0,//20M以内
+            maxFileCount: 1,//最大同时上传1个
+            minFileCount: 1,
+            uploadExtraData: function () {
+                var dataJson = {}, obj = $('#orgFormTable').serializeArray();
+                $.each(obj, function (i, v) {
+                    dataJson[v.name] = v.value;
+                });
+                dataJson["isUpload"] = isUpload;
+                return dataJson;
+            },
+            slugCallback: function (filename) {
+                return filename.replace('(', '_').replace(']', '_');
+            }
+        }).on('fileuploaded', function (event, data, previewId, index) {  
+            window.parent.pactFlieManager.closeUpLoadForm(data.response);
+        }).on('filebatchselected', function (event, files) {
+            //选中文件后
+            isUpload = 1;
+        });
+        //保存上传数据
+        function upLoadDoc() {
+            //判断字段是否合法
+            if (!$('#orgFormTable').valid()) return false;
+            if (isUpload > 0)
+                $("#fileUpload").fileinput("upload");//上传
+            {
+                var dataJson = {}, obj = $('#orgFormTable').serializeArray();
+                $.each(obj, function (i, v) {
+                    dataJson[v.name] = v.value;
+                });
+                dataJson["isUpload"] = isUpload;
+                $.ajax({
+                    type: 'post',
+                    url: $.ctx() + $url,
+                    dataType: 'json',
+                    data: dataJson,
+                    async: false,
+                    success: function (data) {
+                        if (data.Statu === 0) 
+                            window.parent.pactFlieManager.closeUpLoadForm(data);
+                        else
+                            layer.msg(data.Msg, { icon: 5 });
+                    }
+                });
+            }            
+        }
+    </script>
+</body>
+</html>

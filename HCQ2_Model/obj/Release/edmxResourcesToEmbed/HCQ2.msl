@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HCQ2ModelStoreContainer" CdmEntityContainer="HCQ2Entities">
+    <EntitySetMapping Name="Bane_CriminalRecord">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_CriminalRecord">
+        <MappingFragment StoreEntitySet="Bane_CriminalRecord">
+          <ScalarProperty Name="cr_id" ColumnName="cr_id" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="start_drug_date" ColumnName="start_drug_date" />
+          <ScalarProperty Name="drug_year" ColumnName="drug_year" />
+          <ScalarProperty Name="force_time" ColumnName="force_time" />
+          <ScalarProperty Name="force_insulate" ColumnName="force_insulate" />
+          <ScalarProperty Name="other_record" ColumnName="other_record" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_FamilyRecord">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_FamilyRecord">
+        <MappingFragment StoreEntitySet="Bane_FamilyRecord">
+          <ScalarProperty Name="fr_id" ColumnName="fr_id" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="fr_name" ColumnName="fr_name" />
+          <ScalarProperty Name="fr_sex" ColumnName="fr_sex" />
+          <ScalarProperty Name="fr_birth" ColumnName="fr_birth" />
+          <ScalarProperty Name="fr_edu" ColumnName="fr_edu" />
+          <ScalarProperty Name="fr_family_url" ColumnName="fr_family_url" />
+          <ScalarProperty Name="fr_job" ColumnName="fr_job" />
+          <ScalarProperty Name="fr_unit" ColumnName="fr_unit" />
+          <ScalarProperty Name="fr_relation" ColumnName="fr_relation" />
+          <ScalarProperty Name="fr_phone" ColumnName="fr_phone" />
+          <ScalarProperty Name="fr_type" ColumnName="fr_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_HistoryScore">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_HistoryScore">
+        <MappingFragment StoreEntitySet="Bane_HistoryScore">
+          <ScalarProperty Name="hs_id" ColumnName="hs_id" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="hs_time" ColumnName="hs_time" />
+          <ScalarProperty Name="hs_score" ColumnName="hs_score" />
+          <ScalarProperty Name="hs_title" ColumnName="hs_title" />
+          <ScalarProperty Name="hs_total" ColumnName="hs_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_HistoryScoreDetial">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_HistoryScoreDetial">
+        <MappingFragment StoreEntitySet="Bane_HistoryScoreDetial">
+          <ScalarProperty Name="hd_id" ColumnName="hd_id" />
+          <ScalarProperty Name="hs_id" ColumnName="hs_id" />
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="hd_value" ColumnName="hd_value" />
+          <ScalarProperty Name="sub_value" ColumnName="sub_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_IntegralScoreDetial">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_IntegralScoreDetial">
+        <MappingFragment StoreEntitySet="Bane_IntegralScoreDetial">
+          <ScalarProperty Name="his_id" ColumnName="his_id" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="his_title" ColumnName="his_title" />
+          <ScalarProperty Name="his_time" ColumnName="his_time" />
+          <ScalarProperty Name="his_total" ColumnName="his_total" />
+          <ScalarProperty Name="his_note" ColumnName="his_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_LogDetail">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_LogDetail">
+        <MappingFragment StoreEntitySet="Bane_LogDetail">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="log_type" ColumnName="log_type" />
+          <ScalarProperty Name="log_ip" ColumnName="log_ip" />
+          <ScalarProperty Name="log_title" ColumnName="log_title" />
+          <ScalarProperty Name="log_context" ColumnName="log_context" />
+          <ScalarProperty Name="log_date" ColumnName="log_date" />
+          <ScalarProperty Name="log_note" ColumnName="log_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_QuestionInfo">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_QuestionInfo">
+        <MappingFragment StoreEntitySet="Bane_QuestionInfo">
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="sub_type" ColumnName="sub_type" />
+          <ScalarProperty Name="sub_title" ColumnName="sub_title" />
+          <ScalarProperty Name="sub_value" ColumnName="sub_value" />
+          <ScalarProperty Name="sub_score" ColumnName="sub_score" />
+          <ScalarProperty Name="sub_date" ColumnName="sub_date" />
+          <ScalarProperty Name="sub_note" ColumnName="sub_note" />
+          <ScalarProperty Name="sub_essay" ColumnName="sub_essay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_QuestionValue">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_QuestionValue">
+        <MappingFragment StoreEntitySet="Bane_QuestionValue">
+          <ScalarProperty Name="score_id" ColumnName="score_id" />
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="score_option" ColumnName="score_option" />
+          <ScalarProperty Name="score_value" ColumnName="score_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_RecoveryInfo">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_RecoveryInfo">
+        <MappingFragment StoreEntitySet="Bane_RecoveryInfo">
+          <ScalarProperty Name="ri_id" ColumnName="ri_id" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="exec_area" ColumnName="exec_area" />
+          <ScalarProperty Name="exec_unit" ColumnName="exec_unit" />
+          <ScalarProperty Name="order_unit" ColumnName="order_unit" />
+          <ScalarProperty Name="is_aids" ColumnName="is_aids" />
+          <ScalarProperty Name="isolation_url" ColumnName="isolation_url" />
+          <ScalarProperty Name="isolation_out_date" ColumnName="isolation_out_date" />
+          <ScalarProperty Name="cure_ups" ColumnName="cure_ups" />
+          <ScalarProperty Name="in_recovery" ColumnName="in_recovery" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="end_reason" ColumnName="end_reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_UrinalysisRecord">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_UrinalysisRecord">
+        <MappingFragment StoreEntitySet="Bane_UrinalysisRecord">
+          <ScalarProperty Name="ur_id" ColumnName="ur_id" />
+          <ScalarProperty Name="ur_code" ColumnName="ur_code" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="ur_should_date" ColumnName="ur_should_date" />
+          <ScalarProperty Name="ur_reality_date" ColumnName="ur_reality_date" />
+          <ScalarProperty Name="ur_site" ColumnName="ur_site" />
+          <ScalarProperty Name="ur_method" ColumnName="ur_method" />
+          <ScalarProperty Name="ur_manager" ColumnName="ur_manager" />
+          <ScalarProperty Name="ur_result" ColumnName="ur_result" />
+          <ScalarProperty Name="ur_result_show" ColumnName="ur_result_show" />
+          <ScalarProperty Name="ur_file_name" ColumnName="ur_file_name" />
+          <ScalarProperty Name="ur_attach" ColumnName="ur_attach" />
+          <ScalarProperty Name="ur_input_date" ColumnName="ur_input_date" />
+          <ScalarProperty Name="ur_note" ColumnName="ur_note" />
+          <ScalarProperty Name="approve_status" ColumnName="approve_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_UrinalysisTimeSet">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_UrinalysisTimeSet">
+        <MappingFragment StoreEntitySet="Bane_UrinalysisTimeSet">
+          <ScalarProperty Name="ut_id" ColumnName="ut_id" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="min_month" ColumnName="min_month" />
+          <ScalarProperty Name="max_month" ColumnName="max_month" />
+          <ScalarProperty Name="gap_month" ColumnName="gap_month" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_User">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_User">
+        <MappingFragment StoreEntitySet="Bane_User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="alias_name" ColumnName="alias_name" />
+          <ScalarProperty Name="user_sex" ColumnName="user_sex" />
+          <ScalarProperty Name="user_birth" ColumnName="user_birth" />
+          <ScalarProperty Name="user_height" ColumnName="user_height" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+          <ScalarProperty Name="user_edu" ColumnName="user_edu" />
+          <ScalarProperty Name="job_status" ColumnName="job_status" />
+          <ScalarProperty Name="bane_type" ColumnName="bane_type" />
+          <ScalarProperty Name="birth_url" ColumnName="birth_url" />
+          <ScalarProperty Name="family_phone" ColumnName="family_phone" />
+          <ScalarProperty Name="live_url" ColumnName="live_url" />
+          <ScalarProperty Name="move_phone" ColumnName="move_phone" />
+          <ScalarProperty Name="attn_name" ColumnName="attn_name" />
+          <ScalarProperty Name="attn_url" ColumnName="attn_url" />
+          <ScalarProperty Name="attn_relation" ColumnName="attn_relation" />
+          <ScalarProperty Name="attn_phone" ColumnName="attn_phone" />
+          <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+          <ScalarProperty Name="is_live_parent" ColumnName="is_live_parent" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="is_pro_train" ColumnName="is_pro_train" />
+          <ScalarProperty Name="user_skill" ColumnName="user_skill" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+          <ScalarProperty Name="ur_next_date" ColumnName="ur_next_date" />
+          <ScalarProperty Name="user_photo" ColumnName="user_photo" />
+          <ScalarProperty Name="user_note" ColumnName="user_note" />
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="is_send" ColumnName="is_send" />
+          <ScalarProperty Name="user_resume" ColumnName="user_resume" />
+          <ScalarProperty Name="iris_data1" ColumnName="iris_data1" />
+          <ScalarProperty Name="iris_data2" ColumnName="iris_data2" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="user_guid" ColumnName="user_guid" />
+          <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+          <ScalarProperty Name="user_mobile" ColumnName="user_mobile" />
+          <ScalarProperty Name="user_total" ColumnName="user_total" />
+          <ScalarProperty Name="last_score" ColumnName="last_score" />
+          <ScalarProperty Name="the_score" ColumnName="the_score" />
+          <ScalarProperty Name="the_num" ColumnName="the_num" />
+          <ScalarProperty Name="control_date" ColumnName="control_date" />
+          <ScalarProperty Name="is_control" ColumnName="is_control" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bane_UserPermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.Bane_UserPermissRelation">
+        <MappingFragment StoreEntitySet="Bane_UserPermissRelation">
+          <ScalarProperty Name="tb_id" ColumnName="tb_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BMQ_Document">
+      <EntityTypeMapping TypeName="HCQ2Model.BMQ_Document">
+        <MappingFragment StoreEntitySet="BMQ_Document">
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+          <ScalarProperty Name="CatalogModule" ColumnName="CatalogModule" />
+          <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="DocTitle" ColumnName="DocTitle" />
+          <ScalarProperty Name="DocContent" ColumnName="DocContent" />
+          <ScalarProperty Name="DocPublishDate" ColumnName="DocPublishDate" />
+          <ScalarProperty Name="DocAuthor" ColumnName="DocAuthor" />
+          <ScalarProperty Name="DocNumber" ColumnName="DocNumber" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Timeliness" ColumnName="Timeliness" />
+          <ScalarProperty Name="ExecDate" ColumnName="ExecDate" />
+          <ScalarProperty Name="DocOrg" ColumnName="DocOrg" />
+          <ScalarProperty Name="DisableDate" ColumnName="DisableDate" />
+          <ScalarProperty Name="DocYear" ColumnName="DocYear" />
+          <ScalarProperty Name="DocLevel" ColumnName="DocLevel" />
+          <ScalarProperty Name="DocGroupValue" ColumnName="DocGroupValue" />
+          <ScalarProperty Name="DocGroupText" ColumnName="DocGroupText" />
+          <ScalarProperty Name="PublishState" ColumnName="PublishState" />
+          <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+          <ScalarProperty Name="IsActivity" ColumnName="IsActivity" />
+          <ScalarProperty Name="DocAttach" ColumnName="DocAttach" />
+          <ScalarProperty Name="DocImage" ColumnName="DocImage" />
+          <ScalarProperty Name="IsHotDoc" ColumnName="IsHotDoc" />
+          <ScalarProperty Name="DispOrder" ColumnName="DispOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AreaInfo">
+      <EntityTypeMapping TypeName="HCQ2Model.T_AreaInfo">
+        <MappingFragment StoreEntitySet="T_AreaInfo">
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="area_pid" ColumnName="area_pid" />
+          <ScalarProperty Name="area_code" ColumnName="area_code" />
+          <ScalarProperty Name="area_name" ColumnName="area_name" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="area_note" ColumnName="area_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AreaPermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_AreaPermissRelation">
+        <MappingFragment StoreEntitySet="T_AreaPermissRelation">
+          <ScalarProperty Name="ap_id" ColumnName="ap_id" />
+          <ScalarProperty Name="area_code" ColumnName="area_code" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AskManager">
+      <EntityTypeMapping TypeName="HCQ2Model.T_AskManager">
+        <MappingFragment StoreEntitySet="T_AskManager">
+          <ScalarProperty Name="ask_id" ColumnName="ask_id" />
+          <ScalarProperty Name="ask_unit" ColumnName="ask_unit" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="ask_startDate" ColumnName="ask_startDate" />
+          <ScalarProperty Name="ask_endDate" ColumnName="ask_endDate" />
+          <ScalarProperty Name="ask_day" ColumnName="ask_day" />
+          <ScalarProperty Name="ask_title" ColumnName="ask_title" />
+          <ScalarProperty Name="ask_context" ColumnName="ask_context" />
+          <ScalarProperty Name="ask_type" ColumnName="ask_type" />
+          <ScalarProperty Name="ask_status" ColumnName="ask_status" />
+          <ScalarProperty Name="ask_operUser" ColumnName="ask_operUser" />
+          <ScalarProperty Name="ask_operDate" ColumnName="ask_operDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CheckGroup">
+      <EntityTypeMapping TypeName="HCQ2Model.T_CheckGroup">
+        <MappingFragment StoreEntitySet="T_CheckGroup">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="group_pid" ColumnName="group_pid" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="person_name" ColumnName="person_name" />
+          <ScalarProperty Name="person_identifycode" ColumnName="person_identifycode" />
+          <ScalarProperty Name="if_leader" ColumnName="if_leader" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="xMin" ColumnName="xMin" />
+          <ScalarProperty Name="yMin" ColumnName="yMin" />
+          <ScalarProperty Name="xyAoe" ColumnName="xyAoe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Complaints">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Complaints">
+        <MappingFragment StoreEntitySet="T_Complaints">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_title" ColumnName="c_title" />
+          <ScalarProperty Name="c_content" ColumnName="c_content" />
+          <ScalarProperty Name="c_image" ColumnName="c_image" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_guid" ColumnName="create_guid" />
+          <ScalarProperty Name="create_personid" ColumnName="create_personid" />
+          <ScalarProperty Name="create_identifycode" ColumnName="create_identifycode" />
+          <ScalarProperty Name="re_date" ColumnName="re_date" />
+          <ScalarProperty Name="re_note" ColumnName="re_note" />
+          <ScalarProperty Name="re_user_id" ColumnName="re_user_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CompProInfo">
+      <EntityTypeMapping TypeName="HCQ2Model.T_CompProInfo">
+        <MappingFragment StoreEntitySet="T_CompProInfo">
+          <ScalarProperty Name="com_id" ColumnName="com_id" />
+          <ScalarProperty Name="dwbh" ColumnName="dwbh" />
+          <ScalarProperty Name="dwmc" ColumnName="dwmc" />
+          <ScalarProperty Name="tyshxydm" ColumnName="tyshxydm" />
+          <ScalarProperty Name="zzjgdm" ColumnName="zzjgdm" />
+          <ScalarProperty Name="gsdjzzhm" ColumnName="gsdjzzhm" />
+          <ScalarProperty Name="xxly" ColumnName="xxly" />
+          <ScalarProperty Name="gsdjzzzl" ColumnName="gsdjzzzl" />
+          <ScalarProperty Name="gsdjyxqxqs" ColumnName="gsdjyxqxqs" />
+          <ScalarProperty Name="qsdjyxqxzz" ColumnName="qsdjyxqxzz" />
+          <ScalarProperty Name="Shbxdjzbm" ColumnName="Shbxdjzbm" />
+          <ScalarProperty Name="Fddbrxm" ColumnName="Fddbrxm" />
+          <ScalarProperty Name="Fddbrsfzhm" ColumnName="Fddbrsfzhm" />
+          <ScalarProperty Name="Fddbrdh" ColumnName="Fddbrdh" />
+          <ScalarProperty Name="Dwlx" ColumnName="Dwlx" />
+          <ScalarProperty Name="Jjlx" ColumnName="Jjlx" />
+          <ScalarProperty Name="Lsgx" ColumnName="Lsgx" />
+          <ScalarProperty Name="Jyfs" ColumnName="Jyfs" />
+          <ScalarProperty Name="Zczb" ColumnName="Zczb" />
+          <ScalarProperty Name="ZYFW" ColumnName="ZYFW" />
+          <ScalarProperty Name="JYFW" ColumnName="JYFW" />
+          <ScalarProperty Name="XZQHDM" ColumnName="XZQHDM" />
+          <ScalarProperty Name="DJZCLX" ColumnName="DJZCLX" />
+          <ScalarProperty Name="FDDBRZW" ColumnName="FDDBRZW" />
+          <ScalarProperty Name="DWFZRXM" ColumnName="DWFZRXM" />
+          <ScalarProperty Name="DWFZRZW" ColumnName="DWFZRZW" />
+          <ScalarProperty Name="DWFZRDH" ColumnName="DWFZRDH" />
+          <ScalarProperty Name="ZCDZ" ColumnName="ZCDZ" />
+          <ScalarProperty Name="LZFZR" ColumnName="LZFZR" />
+          <ScalarProperty Name="LZFZRSFZHM" ColumnName="LZFZRSFZHM" />
+          <ScalarProperty Name="LZFZRZW" ColumnName="LZFZRZW" />
+          <ScalarProperty Name="LZFZRDH" ColumnName="LZFZRDH" />
+          <ScalarProperty Name="SSHY" ColumnName="SSHY" />
+          <ScalarProperty Name="DWQTLXFS" ColumnName="DWQTLXFS" />
+          <ScalarProperty Name="LXR" ColumnName="LXR" />
+          <ScalarProperty Name="LXDH" ColumnName="LXDH" />
+          <ScalarProperty Name="BGDZ" ColumnName="BGDZ" />
+          <ScalarProperty Name="YZBM" ColumnName="YZBM" />
+          <ScalarProperty Name="DWJBZHKHYH" ColumnName="DWJBZHKHYH" />
+          <ScalarProperty Name="DWJBZHKHMC" ColumnName="DWJBZHKHMC" />
+          <ScalarProperty Name="DWJBZHZH" ColumnName="DWJBZHZH" />
+          <ScalarProperty Name="CZHM" ColumnName="CZHM" />
+          <ScalarProperty Name="DZYX" ColumnName="DZYX" />
+          <ScalarProperty Name="WZ" ColumnName="WZ" />
+          <ScalarProperty Name="JGZSBH" ColumnName="JGZSBH" />
+          <ScalarProperty Name="LYYJY" ColumnName="LYYJY" />
+          <ScalarProperty Name="JGLB" ColumnName="JGLB" />
+          <ScalarProperty Name="SSWG" ColumnName="SSWG" />
+          <ScalarProperty Name="DWMCPY" ColumnName="DWMCPY" />
+          <ScalarProperty Name="FDDBRZJHM" ColumnName="FDDBRZJHM" />
+          <ScalarProperty Name="ZGBM" ColumnName="ZGBM" />
+          <ScalarProperty Name="tiISYLWPQJYXMtle" ColumnName="tiISYLWPQJYXMtle" />
+          <ScalarProperty Name="BZ" ColumnName="BZ" />
+          <ScalarProperty Name="SSKS" ColumnName="SSKS" />
+          <ScalarProperty Name="CZRXM" ColumnName="CZRXM" />
+          <ScalarProperty Name="CZRDZ" ColumnName="CZRDZ" />
+          <ScalarProperty Name="CZRLXDH" ColumnName="CZRLXDH" />
+          <ScalarProperty Name="ZLQX" ColumnName="ZLQX" />
+          <ScalarProperty Name="CZRFBDR" ColumnName="CZRFBDR" />
+          <ScalarProperty Name="ISYYZX" ColumnName="ISYYZX" />
+          <ScalarProperty Name="YRDWWHSJ" ColumnName="YRDWWHSJ" />
+          <ScalarProperty Name="SJDW" ColumnName="SJDW" />
+          <ScalarProperty Name="LZJBRXM" ColumnName="LZJBRXM" />
+          <ScalarProperty Name="LZJBRDH" ColumnName="LZJBRDH" />
+          <ScalarProperty Name="LDJCBH" ColumnName="LDJCBH" />
+          <ScalarProperty Name="STDJZH" ColumnName="STDJZH" />
+          <ScalarProperty Name="Sjdwmc" ColumnName="Sjdwmc" />
+          <ScalarProperty Name="QXLB" ColumnName="QXLB" />
+          <ScalarProperty Name="COMPATH" ColumnName="COMPATH" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="bus_nature" ColumnName="bus_nature" />
+          <ScalarProperty Name="bus_scale" ColumnName="bus_scale" />
+          <ScalarProperty Name="bus_note" ColumnName="bus_note" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Contract">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Contract">
+        <MappingFragment StoreEntitySet="T_Contract">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="RowID" ColumnName="RowID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="isModel" ColumnName="isModel" />
+          <ScalarProperty Name="sType" ColumnName="sType" />
+          <ScalarProperty Name="s1StartDate" ColumnName="s1StartDate" />
+          <ScalarProperty Name="s1EndDate" ColumnName="s1EndDate" />
+          <ScalarProperty Name="s1TestStartDate" ColumnName="s1TestStartDate" />
+          <ScalarProperty Name="s1TestEndDate" ColumnName="s1TestEndDate" />
+          <ScalarProperty Name="s2StartDate" ColumnName="s2StartDate" />
+          <ScalarProperty Name="s2TestStartDate" ColumnName="s2TestStartDate" />
+          <ScalarProperty Name="s2TestEndDate" ColumnName="s2TestEndDate" />
+          <ScalarProperty Name="s3StartDate" ColumnName="s3StartDate" />
+          <ScalarProperty Name="s3EndReason" ColumnName="s3EndReason" />
+          <ScalarProperty Name="post_name" ColumnName="post_name" />
+          <ScalarProperty Name="work_address" ColumnName="work_address" />
+          <ScalarProperty Name="sWageType" ColumnName="sWageType" />
+          <ScalarProperty Name="s1Wage" ColumnName="s1Wage" />
+          <ScalarProperty Name="s2Wage" ColumnName="s2Wage" />
+          <ScalarProperty Name="s3Wage" ColumnName="s3Wage" />
+          <ScalarProperty Name="s3WagePrice" ColumnName="s3WagePrice" />
+          <ScalarProperty Name="other_reason" ColumnName="other_reason" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="update_id" ColumnName="update_id" />
+          <ScalarProperty Name="update_name" ColumnName="update_name" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="userContract" ColumnName="userContract" />
+          <ScalarProperty Name="witheContract" ColumnName="witheContract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DocFolderPermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_DocFolderPermissRelation">
+        <MappingFragment StoreEntitySet="T_DocFolderPermissRelation">
+          <ScalarProperty Name="fp_id" ColumnName="fp_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DocumentFolder">
+      <EntityTypeMapping TypeName="HCQ2Model.T_DocumentFolder">
+        <MappingFragment StoreEntitySet="T_DocumentFolder">
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="folder_name" ColumnName="folder_name" />
+          <ScalarProperty Name="folder_url" ColumnName="folder_url" />
+          <ScalarProperty Name="folder_pid" ColumnName="folder_pid" />
+          <ScalarProperty Name="folder_image" ColumnName="folder_image" />
+          <ScalarProperty Name="folder_order" ColumnName="folder_order" />
+          <ScalarProperty Name="was_share" ColumnName="was_share" />
+          <ScalarProperty Name="if_create_child" ColumnName="if_create_child" />
+          <ScalarProperty Name="read_only" ColumnName="read_only" />
+          <ScalarProperty Name="if_sys" ColumnName="if_sys" />
+          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="have_child" ColumnName="have_child" />
+          <ScalarProperty Name="page_type" ColumnName="page_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DocumentFolderRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_DocumentFolderRelation">
+        <MappingFragment StoreEntitySet="T_DocumentFolderRelation">
+          <ScalarProperty Name="fr_id" ColumnName="fr_id" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DocumentInfo">
+      <EntityTypeMapping TypeName="HCQ2Model.T_DocumentInfo">
+        <MappingFragment StoreEntitySet="T_DocumentInfo">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="alias_name" ColumnName="alias_name" />
+          <ScalarProperty Name="font_type" ColumnName="font_type" />
+          <ScalarProperty Name="file_type" ColumnName="file_type" />
+          <ScalarProperty Name="file_size" ColumnName="file_size" />
+          <ScalarProperty Name="file_money" ColumnName="file_money" />
+          <ScalarProperty Name="down_number" ColumnName="down_number" />
+          <ScalarProperty Name="file_classify" ColumnName="file_classify" />
+          <ScalarProperty Name="file_status" ColumnName="file_status" />
+          <ScalarProperty Name="issue_start" ColumnName="issue_start" />
+          <ScalarProperty Name="doc_type" ColumnName="doc_type" />
+          <ScalarProperty Name="doc_number" ColumnName="doc_number" />
+          <ScalarProperty Name="issue_end" ColumnName="issue_end" />
+          <ScalarProperty Name="issue_name" ColumnName="issue_name" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="attach_url" ColumnName="attach_url" />
+          <ScalarProperty Name="if_remove" ColumnName="if_remove" />
+          <ScalarProperty Name="file_note" ColumnName="file_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DocumentSetType">
+      <EntityTypeMapping TypeName="HCQ2Model.T_DocumentSetType">
+        <MappingFragment StoreEntitySet="T_DocumentSetType">
+          <ScalarProperty Name="ft_id" ColumnName="ft_id" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="share_id" ColumnName="share_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ElementPermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_ElementPermissRelation">
+        <MappingFragment StoreEntitySet="T_ElementPermissRelation">
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+          <ScalarProperty Name="pe_id" ColumnName="pe_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_EnterDetail">
+      <EntityTypeMapping TypeName="HCQ2Model.T_EnterDetail">
+        <MappingFragment StoreEntitySet="T_EnterDetail">
+          <ScalarProperty Name="ed_id" ColumnName="ed_id" />
+          <ScalarProperty Name="ent_id" ColumnName="ent_id" />
+          <ScalarProperty Name="ed_title" ColumnName="ed_title" />
+          <ScalarProperty Name="ed_reason" ColumnName="ed_reason" />
+          <ScalarProperty Name="ed_create" ColumnName="ed_create" />
+          <ScalarProperty Name="ed_createId" ColumnName="ed_createId" />
+          <ScalarProperty Name="ed_time" ColumnName="ed_time" />
+          <ScalarProperty Name="ed_note" ColumnName="ed_note" />
+          <ScalarProperty Name="ent_type" ColumnName="ent_type" />
+          <ScalarProperty Name="is_success" ColumnName="is_success" />
+          <ScalarProperty Name="case_type" ColumnName="case_type" />
+          <ScalarProperty Name="pay_money" ColumnName="pay_money" />
+          <ScalarProperty Name="pay_person" ColumnName="pay_person" />
+          <ScalarProperty Name="solve_type" ColumnName="solve_type" />
+          <ScalarProperty Name="update_name" ColumnName="update_name" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Equipment">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Equipment">
+        <MappingFragment StoreEntitySet="T_Equipment">
+          <ScalarProperty Name="ep_id" ColumnName="ep_id" />
+          <ScalarProperty Name="equipment_name" ColumnName="equipment_name" />
+          <ScalarProperty Name="equipment_code" ColumnName="equipment_code" />
+          <ScalarProperty Name="equipment_type" ColumnName="equipment_type" />
+          <ScalarProperty Name="equipment_num" ColumnName="equipment_num" />
+          <ScalarProperty Name="install_date" ColumnName="install_date" />
+          <ScalarProperty Name="equipment_note" ColumnName="equipment_note" />
+          <ScalarProperty Name="if_remove" ColumnName="if_remove" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ExceptionLog">
+      <EntityTypeMapping TypeName="HCQ2Model.T_ExceptionLog">
+        <MappingFragment StoreEntitySet="T_ExceptionLog">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="log_ip" ColumnName="log_ip" />
+          <ScalarProperty Name="log_browse" ColumnName="log_browse" />
+          <ScalarProperty Name="browse_versions" ColumnName="browse_versions" />
+          <ScalarProperty Name="log_sys" ColumnName="log_sys" />
+          <ScalarProperty Name="log_url" ColumnName="log_url" />
+          <ScalarProperty Name="log_title" ColumnName="log_title" />
+          <ScalarProperty Name="log_source" ColumnName="log_source" />
+          <ScalarProperty Name="log_func" ColumnName="log_func" />
+          <ScalarProperty Name="log_stack" ColumnName="log_stack" />
+          <ScalarProperty Name="created_time" ColumnName="created_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_FilePermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_FilePermissRelation">
+        <MappingFragment StoreEntitySet="T_FilePermissRelation">
+          <ScalarProperty Name="f_id" ColumnName="f_id" />
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_FolderPermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_FolderPermissRelation">
+        <MappingFragment StoreEntitySet="T_FolderPermissRelation">
+          <ScalarProperty Name="fp_id" ColumnName="fp_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Function">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Function">
+        <MappingFragment StoreEntitySet="T_Function">
+          <ScalarProperty Name="fun_id" ColumnName="fun_id" />
+          <ScalarProperty Name="fun_name" ColumnName="fun_name" />
+          <ScalarProperty Name="fun_code" ColumnName="fun_code" />
+          <ScalarProperty Name="fun_url" ColumnName="fun_url" />
+          <ScalarProperty Name="fun_pid" ColumnName="fun_pid" />
+          <ScalarProperty Name="fun_order" ColumnName="fun_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Implement">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Implement">
+        <MappingFragment StoreEntitySet="T_Implement">
+          <ScalarProperty Name="imp_id" ColumnName="imp_id" />
+          <ScalarProperty Name="owner_name" ColumnName="owner_name" />
+          <ScalarProperty Name="B0001" ColumnName="B0001" />
+          <ScalarProperty Name="B0002" ColumnName="B0002" />
+          <ScalarProperty Name="B000201" ColumnName="B000201" />
+          <ScalarProperty Name="respon_name" ColumnName="respon_name" />
+          <ScalarProperty Name="respon_phone" ColumnName="respon_phone" />
+          <ScalarProperty Name="install_date" ColumnName="install_date" />
+          <ScalarProperty Name="collect_date" ColumnName="collect_date" />
+          <ScalarProperty Name="clockin_date" ColumnName="clockin_date" />
+          <ScalarProperty Name="use_days" ColumnName="use_days" />
+          <ScalarProperty Name="cost_money" ColumnName="cost_money" />
+          <ScalarProperty Name="use_status" ColumnName="use_status" />
+          <ScalarProperty Name="cost_date" ColumnName="cost_date" />
+          <ScalarProperty Name="impl_note" ColumnName="impl_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Instructions">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Instructions">
+        <MappingFragment StoreEntitySet="T_Instructions">
+          <ScalarProperty Name="in_id" ColumnName="in_id" />
+          <ScalarProperty Name="in_title" ColumnName="in_title" />
+          <ScalarProperty Name="in_note" ColumnName="in_note" />
+          <ScalarProperty Name="in_url" ColumnName="in_url" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ItemCode">
+      <EntityTypeMapping TypeName="HCQ2Model.T_ItemCode">
+        <MappingFragment StoreEntitySet="T_ItemCode">
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="item_code" ColumnName="item_code" />
+          <ScalarProperty Name="item_note" ColumnName="item_note" />
+          <ScalarProperty Name="creator_date" ColumnName="creator_date" />
+          <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+          <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ItemCodeMenum">
+      <EntityTypeMapping TypeName="HCQ2Model.T_ItemCodeMenum">
+        <MappingFragment StoreEntitySet="T_ItemCodeMenum">
+          <ScalarProperty Name="code_id" ColumnName="code_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="code_value" ColumnName="code_value" />
+          <ScalarProperty Name="code_order" ColumnName="code_order" />
+          <ScalarProperty Name="code_pid" ColumnName="code_pid" />
+          <ScalarProperty Name="if_child" ColumnName="if_child" />
+          <ScalarProperty Name="if_system" ColumnName="if_system" />
+          <ScalarProperty Name="code_note" ColumnName="code_note" />
+          <ScalarProperty Name="code_type" ColumnName="code_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_JobResumeRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_JobResumeRelation">
+        <MappingFragment StoreEntitySet="T_JobResumeRelation">
+          <ScalarProperty Name="job_id" ColumnName="job_id" />
+          <ScalarProperty Name="com_id" ColumnName="com_id" />
+          <ScalarProperty Name="use_id" ColumnName="use_id" />
+          <ScalarProperty Name="A0177" ColumnName="A0177" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="send_date" ColumnName="send_date" />
+          <ScalarProperty Name="job_notes" ColumnName="job_notes" />
+          <ScalarProperty Name="job_status" ColumnName="job_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_LimitUser">
+      <EntityTypeMapping TypeName="HCQ2Model.T_LimitUser">
+        <MappingFragment StoreEntitySet="T_LimitUser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="from_time" ColumnName="from_time" />
+          <ScalarProperty Name="to_time" ColumnName="to_time" />
+          <ScalarProperty Name="limit_note" ColumnName="limit_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Login">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Login">
+        <MappingFragment StoreEntitySet="T_Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="login_count" ColumnName="login_count" />
+          <ScalarProperty Name="error_count" ColumnName="error_count" />
+          <ScalarProperty Name="login_ip" ColumnName="login_ip" />
+          <ScalarProperty Name="login_time" ColumnName="login_time" />
+          <ScalarProperty Name="last_ip" ColumnName="last_ip" />
+          <ScalarProperty Name="last_time" ColumnName="last_time" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="if_false" ColumnName="if_false" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_LogSeting">
+      <EntityTypeMapping TypeName="HCQ2Model.T_LogSeting">
+        <MappingFragment StoreEntitySet="T_LogSeting">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="business_name" ColumnName="business_name" />
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="primary_key" ColumnName="primary_key" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="log_type" ColumnName="log_type" />
+          <ScalarProperty Name="log_date" ColumnName="log_date" />
+          <ScalarProperty Name="log_note" ColumnName="log_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_LogSetingDetail">
+      <EntityTypeMapping TypeName="HCQ2Model.T_LogSetingDetail">
+        <MappingFragment StoreEntitySet="T_LogSetingDetail">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="table_field" ColumnName="table_field" />
+          <ScalarProperty Name="field_text" ColumnName="field_text" />
+          <ScalarProperty Name="field_datetype" ColumnName="field_datetype" />
+          <ScalarProperty Name="field_oldvalue" ColumnName="field_oldvalue" />
+          <ScalarProperty Name="field_newvalue" ColumnName="field_newvalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_MessageNotice">
+      <EntityTypeMapping TypeName="HCQ2Model.T_MessageNotice">
+        <MappingFragment StoreEntitySet="T_MessageNotice">
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="m_title" ColumnName="m_title" />
+          <ScalarProperty Name="m_content" ColumnName="m_content" />
+          <ScalarProperty Name="m_image" ColumnName="m_image" />
+          <ScalarProperty Name="m_image_src" ColumnName="m_image_src" />
+          <ScalarProperty Name="m_type" ColumnName="m_type" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_user_id" ColumnName="create_user_id" />
+          <ScalarProperty Name="create_user_name" ColumnName="create_user_name" />
+          <ScalarProperty Name="browse_num" ColumnName="browse_num" />
+          <ScalarProperty Name="focus_imgage" ColumnName="focus_imgage" />
+          <ScalarProperty Name="messList_imgage" ColumnName="messList_imgage" />
+          <ScalarProperty Name="messDetail_imgage" ColumnName="messDetail_imgage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ModulePermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_ModulePermissRelation">
+        <MappingFragment StoreEntitySet="T_ModulePermissRelation">
+          <ScalarProperty Name="pr_id" ColumnName="pr_id" />
+          <ScalarProperty Name="sm_id" ColumnName="sm_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Org_User">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Org_User">
+        <MappingFragment StoreEntitySet="T_Org_User">
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="org_note" ColumnName="org_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrgFolder">
+      <EntityTypeMapping TypeName="HCQ2Model.T_OrgFolder">
+        <MappingFragment StoreEntitySet="T_OrgFolder">
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="folder_name" ColumnName="folder_name" />
+          <ScalarProperty Name="folder_pid" ColumnName="folder_pid" />
+          <ScalarProperty Name="folder_image" ColumnName="folder_image" />
+          <ScalarProperty Name="folder_order" ColumnName="folder_order" />
+          <ScalarProperty Name="if_sys" ColumnName="if_sys" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="have_child" ColumnName="have_child" />
+          <ScalarProperty Name="folder_path" ColumnName="folder_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrgUserRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_OrgUserRelation">
+        <MappingFragment StoreEntitySet="T_OrgUserRelation">
+          <ScalarProperty Name="or_id" ColumnName="or_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PageElement">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PageElement">
+        <MappingFragment StoreEntitySet="T_PageElement">
+          <ScalarProperty Name="pe_id" ColumnName="pe_id" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="pe_name" ColumnName="pe_name" />
+          <ScalarProperty Name="pe_code" ColumnName="pe_code" />
+          <ScalarProperty Name="pe_event" ColumnName="pe_event" />
+          <ScalarProperty Name="pe_func" ColumnName="pe_func" />
+          <ScalarProperty Name="pe_order" ColumnName="pe_order" />
+          <ScalarProperty Name="pe_create_time" ColumnName="pe_create_time" />
+          <ScalarProperty Name="pe_create_id" ColumnName="pe_create_id" />
+          <ScalarProperty Name="pe_note" ColumnName="pe_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PageFile">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PageFile">
+        <MappingFragment StoreEntitySet="T_PageFile">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_url" ColumnName="file_url" />
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PageFolder">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PageFolder">
+        <MappingFragment StoreEntitySet="T_PageFolder">
+          <ScalarProperty Name="folder_id" ColumnName="folder_id" />
+          <ScalarProperty Name="folder_name" ColumnName="folder_name" />
+          <ScalarProperty Name="folder_url" ColumnName="folder_url" />
+          <ScalarProperty Name="folder_pid" ColumnName="folder_pid" />
+          <ScalarProperty Name="folder_image" ColumnName="folder_image" />
+          <ScalarProperty Name="folder_order" ColumnName="folder_order" />
+          <ScalarProperty Name="folder_type" ColumnName="folder_type" />
+          <ScalarProperty Name="folder_state" ColumnName="folder_state" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="have_child" ColumnName="have_child" />
+          <ScalarProperty Name="sm_code" ColumnName="sm_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PayAccount">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PayAccount">
+        <MappingFragment StoreEntitySet="T_PayAccount">
+          <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="ssyh" ColumnName="ssyh" />
+          <ScalarProperty Name="khmc" ColumnName="khmc" />
+          <ScalarProperty Name="zh" ColumnName="zh" />
+          <ScalarProperty Name="khh" ColumnName="khh" />
+          <ScalarProperty Name="pzzl" ColumnName="pzzl" />
+          <ScalarProperty Name="pzhm" ColumnName="pzhm" />
+          <ScalarProperty Name="ye" ColumnName="ye" />
+          <ScalarProperty Name="if_remove" ColumnName="if_remove" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="update_name" ColumnName="update_name" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PerFuncRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PerFuncRelation">
+        <MappingFragment StoreEntitySet="T_PerFuncRelation">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="fun_id" ColumnName="fun_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PermissConfig">
+      <EntityTypeMapping TypeName="HCQ2Model.T_PermissConfig">
+        <MappingFragment StoreEntitySet="T_PermissConfig">
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="per_type" ColumnName="per_type" />
+          <ScalarProperty Name="per_name" ColumnName="per_name" />
+          <ScalarProperty Name="pc_openUrl" ColumnName="pc_openUrl" />
+          <ScalarProperty Name="pc_saveUrl" ColumnName="pc_saveUrl" />
+          <ScalarProperty Name="pc_width" ColumnName="pc_width" />
+          <ScalarProperty Name="pc_height" ColumnName="pc_height" />
+          <ScalarProperty Name="pc_note" ColumnName="pc_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Permissions">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Permissions">
+        <MappingFragment StoreEntitySet="T_Permissions">
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+          <ScalarProperty Name="per_type" ColumnName="per_type" />
+          <ScalarProperty Name="per_name" ColumnName="per_name" />
+          <ScalarProperty Name="per_code" ColumnName="per_code" />
+          <ScalarProperty Name="per_note" ColumnName="per_note" />
+          <ScalarProperty Name="creator_date" ColumnName="creator_date" />
+          <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+          <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+          <ScalarProperty Name="sm_code" ColumnName="sm_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Role">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Role">
+        <MappingFragment StoreEntitySet="T_Role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_code" ColumnName="role_code" />
+          <ScalarProperty Name="role_order" ColumnName="role_order" />
+          <ScalarProperty Name="creator_date" ColumnName="creator_date" />
+          <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+          <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+          <ScalarProperty Name="role_note" ColumnName="role_note" />
+          <ScalarProperty Name="sm_code" ColumnName="sm_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_RoleGroupRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_RoleGroupRelation">
+        <MappingFragment StoreEntitySet="T_RoleGroupRelation">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_RolePermissRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_RolePermissRelation">
+        <MappingFragment StoreEntitySet="T_RolePermissRelation">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="per_id" ColumnName="per_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SetMainPage">
+      <EntityTypeMapping TypeName="HCQ2Model.T_SetMainPage">
+        <MappingFragment StoreEntitySet="T_SetMainPage">
+          <ScalarProperty Name="main_id" ColumnName="main_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="main_url" ColumnName="main_url" />
+          <ScalarProperty Name="file_note" ColumnName="file_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Synchronous">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Synchronous">
+        <MappingFragment StoreEntitySet="T_Synchronous">
+          <ScalarProperty Name="sy_id" ColumnName="sy_id" />
+          <ScalarProperty Name="sy_unit_id" ColumnName="sy_unit_id" />
+          <ScalarProperty Name="sy_user_id" ColumnName="sy_user_id" />
+          <ScalarProperty Name="sy_date" ColumnName="sy_date" />
+          <ScalarProperty Name="deviceid" ColumnName="deviceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SysModule">
+      <EntityTypeMapping TypeName="HCQ2Model.T_SysModule">
+        <MappingFragment StoreEntitySet="T_SysModule">
+          <ScalarProperty Name="sm_id" ColumnName="sm_id" />
+          <ScalarProperty Name="sm_name" ColumnName="sm_name" />
+          <ScalarProperty Name="sm_code" ColumnName="sm_code" />
+          <ScalarProperty Name="sm_image1" ColumnName="sm_image1" />
+          <ScalarProperty Name="sm_image2" ColumnName="sm_image2" />
+          <ScalarProperty Name="sm_order" ColumnName="sm_order" />
+          <ScalarProperty Name="if_start" ColumnName="if_start" />
+          <ScalarProperty Name="create_id" ColumnName="create_id" />
+          <ScalarProperty Name="create_name" ColumnName="create_name" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="sm_note" ColumnName="sm_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Table">
+      <EntityTypeMapping TypeName="HCQ2Model.T_Table">
+        <MappingFragment StoreEntitySet="T_Table">
+          <ScalarProperty Name="table_id" ColumnName="table_id" />
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="table_cname" ColumnName="table_cname" />
+          <ScalarProperty Name="table_key" ColumnName="table_key" />
+          <ScalarProperty Name="table_type" ColumnName="table_type" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="table_note" ColumnName="table_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_TableField">
+      <EntityTypeMapping TypeName="HCQ2Model.T_TableField">
+        <MappingFragment StoreEntitySet="T_TableField">
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+          <ScalarProperty Name="field_name" ColumnName="field_name" />
+          <ScalarProperty Name="field_cname" ColumnName="field_cname" />
+          <ScalarProperty Name="data_type" ColumnName="data_type" />
+          <ScalarProperty Name="not_null" ColumnName="not_null" />
+          <ScalarProperty Name="field_len" ColumnName="field_len" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+          <ScalarProperty Name="field_note" ColumnName="field_note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_TodoList">
+      <EntityTypeMapping TypeName="HCQ2Model.T_TodoList">
+        <MappingFragment StoreEntitySet="T_TodoList">
+          <ScalarProperty Name="to_id" ColumnName="to_id" />
+          <ScalarProperty Name="to_user_id" ColumnName="to_user_id" />
+          <ScalarProperty Name="to_user_name" ColumnName="to_user_name" />
+          <ScalarProperty Name="to_copy_to_user" ColumnName="to_copy_to_user" />
+          <ScalarProperty Name="to_title" ColumnName="to_title" />
+          <ScalarProperty Name="to_content" ColumnName="to_content" />
+          <ScalarProperty Name="to_file" ColumnName="to_file" />
+          <ScalarProperty Name="to_send_user_id" ColumnName="to_send_user_id" />
+          <ScalarProperty Name="to_send_user_name" ColumnName="to_send_user_name" />
+          <ScalarProperty Name="to_send_date" ColumnName="to_send_date" />
+          <ScalarProperty Name="is_system" ColumnName="is_system" />
+          <ScalarProperty Name="to_remove" ColumnName="to_remove" />
+          <ScalarProperty Name="re_content" ColumnName="re_content" />
+          <ScalarProperty Name="re_date" ColumnName="re_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_User">
+      <EntityTypeMapping TypeName="HCQ2Model.T_User">
+        <MappingFragment StoreEntitySet="T_User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="login_name" ColumnName="login_name" />
+          <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+          <ScalarProperty Name="user_sex" ColumnName="user_sex" />
+          <ScalarProperty Name="user_qq" ColumnName="user_qq" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+          <ScalarProperty Name="user_address" ColumnName="user_address" />
+          <ScalarProperty Name="user_birth" ColumnName="user_birth" />
+          <ScalarProperty Name="user_note" ColumnName="user_note" />
+          <ScalarProperty Name="user_img" ColumnName="user_img" />
+          <ScalarProperty Name="user_guid" ColumnName="user_guid" />
+          <ScalarProperty Name="reg_from" ColumnName="reg_from" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="user_identify" ColumnName="user_identify" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserGroup">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UserGroup">
+        <MappingFragment StoreEntitySet="T_UserGroup">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="group_cname" ColumnName="group_cname" />
+          <ScalarProperty Name="group_order" ColumnName="group_order" />
+          <ScalarProperty Name="creator_date" ColumnName="creator_date" />
+          <ScalarProperty Name="creator_id" ColumnName="creator_id" />
+          <ScalarProperty Name="creator_name" ColumnName="creator_name" />
+          <ScalarProperty Name="update_id" ColumnName="update_id" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="group_note" ColumnName="group_note" />
+          <ScalarProperty Name="sm_code" ColumnName="sm_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserGroupRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UserGroupRelation">
+        <MappingFragment StoreEntitySet="T_UserGroupRelation">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserRoleRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UserRoleRelation">
+        <MappingFragment StoreEntitySet="T_UserRoleRelation">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserUnitPersonRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UserUnitPersonRelation">
+        <MappingFragment StoreEntitySet="T_UserUnitPersonRelation">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserUnitRelation">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UserUnitRelation">
+        <MappingFragment StoreEntitySet="T_UserUnitRelation">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UseWorker">
+      <EntityTypeMapping TypeName="HCQ2Model.T_UseWorker">
+        <MappingFragment StoreEntitySet="T_UseWorker">
+          <ScalarProperty Name="use_id" ColumnName="use_id" />
+          <ScalarProperty Name="use_title" ColumnName="use_title" />
+          <ScalarProperty Name="com_id" ColumnName="com_id" />
+          <ScalarProperty Name="work_type" ColumnName="work_type" />
+          <ScalarProperty Name="trade_type" ColumnName="trade_type" />
+          <ScalarProperty Name="work_city" ColumnName="work_city" />
+          <ScalarProperty Name="addr" ColumnName="addr" />
+          <ScalarProperty Name="use_wage_start" ColumnName="use_wage_start" />
+          <ScalarProperty Name="use_wage_end" ColumnName="use_wage_end" />
+          <ScalarProperty Name="use_sex" ColumnName="use_sex" />
+          <ScalarProperty Name="use_age" ColumnName="use_age" />
+          <ScalarProperty Name="use_edu" ColumnName="use_edu" />
+          <ScalarProperty Name="use_ageLimit" ColumnName="use_ageLimit" />
+          <ScalarProperty Name="use_major" ColumnName="use_major" />
+          <ScalarProperty Name="work_start" ColumnName="work_start" />
+          <ScalarProperty Name="issue_start" ColumnName="issue_start" />
+          <ScalarProperty Name="use_status" ColumnName="use_status" />
+          <ScalarProperty Name="postNote" ColumnName="postNote" />
+          <ScalarProperty Name="use_note" ColumnName="use_note" />
+          <ScalarProperty Name="header_img" ColumnName="header_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_CreateDefault" FunctionName="HCQ2Model.Store.P_CreateDefault" />
+    <FunctionImportMapping FunctionImportName="P_CreateIndex" FunctionName="HCQ2Model.Store.P_CreateIndex" />
+    <FunctionImportMapping FunctionImportName="P_CreateTable" FunctionName="HCQ2Model.Store.P_CreateTable" />
+  </EntityContainerMapping>
+</Mapping>

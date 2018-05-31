@@ -1,0 +1,160 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetRepeat</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        #updateDiv .form-group {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #updateDiv .hr-line-dashed {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="example" style="width:auto; overflow:auto;">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="news_tool" class="row">
+        <div class="col-sm-3" style="padding:0;">
+            <div class="input-group">
+                <div class="row">
+                    <input type="text" id="txtSearchName" style="width:180px;" class="form-control" placeholder="标题或者内容">
+                </div>
+                <span class="input-group-btn">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <button type="button" id="btnSearch" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-search"></i>
+                                查询
+                            </button>
+                        }
+                        if (folderList.Contains("AddMess"))
+                        {
+                            <button type="button" id="AddMess" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                新增
+                            </button>
+                        }
+                        if (folderList.Contains("EditMess"))
+                        {
+                            <button type="button" id="EditMess" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                编辑
+                            </button>
+                        }
+                        if (folderList.Contains("DeleteMess"))
+                        {
+                            <button type="button" id="DeleteMess" class="btn btn-danger" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                删除
+                            </button>
+                        }
+                    }
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="updateDiv" class="row" style="display:none;">
+        <form id="messForm" class="row form-horizontal">
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">标题<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-10">
+                    <input type="text" id="m_title" name="m_title" class="form-control" />
+                    <input type="hidden" id="mes_id" name="mes_id" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">类别</label>
+                <div class="col-sm-10">
+                    <select id="m_type" name="m_type" class="form-control">
+                        @foreach (var item in ViewBag.NewsType)
+                        {
+                            <option>@item.code_name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">封面图片</label>
+                <div class="col-sm-10">
+                    <input type="text" id="m_image" name="m_image" class="form-control" onclick="$('#SelectDivTree').show()" />
+                    <div id="SelectDivTree" style="height:250px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; overflow:auto; position: fixed;">
+                        <input id="NewsImage" name="NewsImage" type="file" />
+                        <img id="image" name="image" />
+                    </div>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">内容</label>
+                <div class="col-sm-10">
+                    <textarea id="m_content" name="m_content" class="form-control" style="height:200px;"></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+        </form>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/myScript/News/NewsMess.js"></script>
+    <script src="~/Scripts/ajaxfileupload.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!--joychen add-->
+    <script src="~/Resources/tools/bootstrap-table-custom.js"></script>
+    <script>
+        $(function () {
+            $("#m_image").click(function () {
+                $("#SelectDivTree").width($("#m_image").width() + 24);
+                $("body").bind("mousedown", onBodyDown);
+                var value = $(this).val();
+                if (value != "" && value != null && value != undefined) {
+                    $("#image").attr("src", value.replace("~", ".."));
+                }
+            })
+            var onBodyDown = function (event) {
+                if (!(event.target.id == "SelectDivTree" || $(event.target).parents("#SelectDivTree").length > 0)) {
+                    //隐藏
+                    $("#SelectDivTree").hide();
+                    //取消绑定的事件
+                    $("body").unbind("mousedown", onBodyDown);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

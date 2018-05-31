@@ -1,0 +1,132 @@
+﻿
+ 
+记录时间：2018-05-09 14:55:09,082 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/BBSHCQ2WebAPI/api/BaneAnswer/SubRandomAnswer
+错误信息：Invalid property identifier character: [. Path 'options', line 4, position 3.
+错误源：Newtonsoft.Json
+异常方法：Boolean ParseProperty()
+堆栈信息：   在 Newtonsoft.Json.JsonTextReader.ParseProperty()
+   在 Newtonsoft.Json.JsonTextReader.Read()
+   在 Newtonsoft.Json.JsonReader.Skip()
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetExtensionData(JsonObjectContract contract, JsonProperty member, JsonReader reader, String memberName, Object o)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 HCQ2_Common.JsonHelper.JsonStrToObject[T](String jsonStr) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_Common\JsonHelper.cs:行号 188
+   在 HCQ2WebAPI_Logic.BaneApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2WebAPI_Logic\Filters\BaneApiAuthorizeFilterAttribute.cs:行号 47
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2018-05-09 14:56:53,175 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/BBSHCQ2WebAPI/api/BaneAnswer/SubRandomAnswer
+错误信息：Invalid property identifier character: [. Path 'options', line 4, position 3.
+错误源：Newtonsoft.Json
+异常方法：Boolean ParseProperty()
+堆栈信息：   在 Newtonsoft.Json.JsonTextReader.ParseProperty()
+   在 Newtonsoft.Json.JsonTextReader.Read()
+   在 Newtonsoft.Json.JsonReader.Skip()
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetExtensionData(JsonObjectContract contract, JsonProperty member, JsonReader reader, String memberName, Object o)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 HCQ2_Common.JsonHelper.JsonStrToObject[T](String jsonStr) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_Common\JsonHelper.cs:行号 188
+   在 HCQ2WebAPI_Logic.BaneApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2WebAPI_Logic\Filters\BaneApiAuthorizeFilterAttribute.cs:行号 47
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2018-05-09 14:58:11,049 
+线程ID:[10] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/BBSHCQ2WebAPI/api/BaneAnswer/SubRandomAnswer
+错误信息：Invalid property identifier character: [. Path 'options', line 4, position 3.
+错误源：Newtonsoft.Json
+异常方法：Boolean ParseProperty()
+堆栈信息：   在 Newtonsoft.Json.JsonTextReader.ParseProperty()
+   在 Newtonsoft.Json.JsonTextReader.Read()
+   在 Newtonsoft.Json.JsonReader.Skip()
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetExtensionData(JsonObjectContract contract, JsonProperty member, JsonReader reader, String memberName, Object o)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 HCQ2_Common.JsonHelper.JsonStrToObject[T](String jsonStr) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2_Common\JsonHelper.cs:行号 188
+   在 HCQ2WebAPI_Logic.BaneApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2WebAPI_Logic\Filters\BaneApiAuthorizeFilterAttribute.cs:行号 47
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

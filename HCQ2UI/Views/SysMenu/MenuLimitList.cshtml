@@ -1,0 +1,31 @@
+﻿@model HCQ2_Model.T_FolderPermissRelation
+@{
+    ViewBag.Title = "菜单权限关联管理";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/css/plugins/gtreetable/default/jquery.treeTable.css" rel="stylesheet" />
+}
+<div class="animated fadeInRight">
+    <div class="col-xl-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5><i class="fa fa-qrcode"></i>&nbsp;菜单资源列表</h5>
+            </div>
+            <div class="ibox-content" style="padding: 0">
+                <table id="treeTable" class="table table-striped table-bordered table-hover table-condensed" style="font-size: 13px"></table>
+            </div>
+        </div>
+    </div>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/gtreetable/jquery.treeTable.js"></script>
+    <script src="~/Resources/myScript/SysAdmin/menuManager.js"></script>
+    <script>
+        $(function () {
+            parent.showLoadBoxs();
+            menuLimitManager.getMenuLimitData();
+            parent.delLoadBoxs();
+        });
+    </script>
+}
+

@@ -1,0 +1,347 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+        body {
+            font-size: 14px;
+            font-family: "微软雅黑";
+        }
+
+        .col-sm-2 .col-sm-4 .col-sm-12 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .row {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .ibox-content {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .hr-line-dashed {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .fixed-table-pagination .pagination-detail,
+        .fixed-table-pagination div.pagination {
+            margin: 0;
+        }
+
+        .fixed-table-pagination .pagination-detail,
+        .fixed-table-pagination div.pagination {
+            margin: 0;
+        }
+
+        #tab-4 .form-group {
+            margin:0px;
+        }
+    </style>
+</head>
+<body class="panel-body" style="padding:5px;">
+    <div class="row">
+        <div class="panel blank-panel">
+            <div class="panel-heading" style="padding:0;">
+                <div class="panel-title m-b-md" style="display:none;">
+                    <h4>图标选项卡</h4>
+                </div>
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#tab-4">人员基本信息</a>
+                        </li>
+                        @*<li class="">
+                                <a data-toggle="tab" href="#tab-5">学历学位</a>
+                            </li>*@
+                        <li class="">
+                            <a data-toggle="tab" href="#tab-6">工作经历</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#tab-7">考勤情况</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#tab-8">员工工资发放登记</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#tab-9">维权凭证</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#tab-10">征信状态</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body" style="padding:0;">
+                <div id="divTab" class="tab-content" style="height:auto; overflow:auto;">
+                    <div id="tab-4" class="tab-pane active">
+                        <form method="get" class="form-horizontal">
+                            <div class="ibox-content">
+                                <div class="col-sm-1">
+                                    <img id="image" src="../Person/@ViewBag.photo" style="background-color:#ffffff" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <input type="hidden" id="RowID" name="RowID" />
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">人员库</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="PClassID" name="PClassID" value="@ViewBag.persondetail.PClassID">
+                                        </div>
+                                        <label class="col-sm-2 control-label">姓名</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0101" name="A0101" value="@ViewBag.persondetail.A0101" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">移动电话</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="C0104" name="C0104" value="@ViewBag.persondetail.C0104" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">基本工资</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0178" value="@ViewBag.persondetail.A0178" name="A0178" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">预计发放时间</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0179" name="A0179" value="@ViewBag.persondetail.A0179" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">工种</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="@ViewBag.persondetail.E0386" id="E0386" name="E0386" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">兼岗位描述</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="E0387" name="E0387" value="@ViewBag.persondetail.E0387" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">所属项目</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="B0001" name="B0001" value="@ViewBag.persondetail.B0001" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">用工单位合并</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="B0002" name="B0002" value="@ViewBag.persondetail.B0002" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">用工单位（一级）</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="B000201" name="B000201" value="@ViewBag.persondetail.B000201" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">用工单位（二级）</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="B000202" name="B000202" value="@ViewBag.persondetail.B000202" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">入职日期</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="E0359" name="E0359" value="@ViewBag.persondetail.E0359" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed" style="display:none;"></div>
+                                    <div class="form-group" style="display:none;">
+                                        <label class="col-sm-2 control-label">发放批次</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0180" name="A0180" value="@ViewBag.persondetail.A0180" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">身份证号</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0177" name="A0177" value="@ViewBag.persondetail.A0177" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">出生日期</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0111" name="A0111" value="@ViewBag.persondetail.A0111" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">性别</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="@ViewBag.persondetail.A0107" id="A0107" name="A0107">
+                                        </div>
+                                        <label class="col-sm-2 control-label">年龄</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="C0101" name="C0101" value="@ViewBag.persondetail.C0101" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">入职登记时间</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0119" name="A0119" value="@ViewBag.persondetail.A0119" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">民族</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="@ViewBag.persondetail.A0121" id="A0121" name="A0121">
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">籍贯</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" value="@ViewBag.persondetail.A0114" id="A0114" name="A0114">
+                                        </div>
+                                        <label class="col-sm-2 control-label">发薪模式</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="E0394" name="E0394" value="@ViewBag.persondetail.E0394" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">户籍地址</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0109" name="A0109" value="@ViewBag.persondetail.A0109" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">签发机关</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0112" name="A0112" value="@ViewBag.persondetail.A0112" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">有效日期起</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0116" name="A0116" value="@ViewBag.persondetail.A0116" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">有效日期止</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="A0117" name="A0117" value="@ViewBag.persondetail.A0117" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">紧急联系人</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="C01SS" name="C01SS" value="@ViewBag.persondetail.C01SS" class="form-control" />
+                                        </div>
+                                        <label class="col-sm-2 control-label">紧急联系人电话</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="C01RV" name="C01RV" value="@ViewBag.persondetail.C01RV" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">备注</label>
+                                        <div class="col-sm-10" style="padding-left:15px; padding-right:15px;">
+                                            <textarea id="A0122" name="A0122" class="form-control">
+                                                @ViewBag.persondetail.A0122
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="tab-5" class="tab-pane">
+                        <table id="TableFromEdu" data-mobile-responsive="true"></table>
+                    </div>
+                    <div id="tab-6" class="tab-pane">
+                        <table id="TableFromWork" data-mobile-responsive="true"></table>
+                    </div>
+                    <div id="tab-7" class="tab-pane">
+                        <table id="TableFromAttendance" data-mobile-responsive="true"></table>
+                    </div>
+                    <div id="tab-8" class="tab-pane">
+                        <table id="TableFromWage" data-mobile-responsive="true"></table>
+                    </div>
+                    <div id="tab-9" class="tab-pane">
+                        <div id="DivContent"></div>
+                    </div>
+                    <div id="tab-10" class="tab-pane">
+                        <table id="TableFromWGJGGRZX" data-mobile-responsive="true"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/myScript/Person/Person-ArchiveDetail.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/echarts/echarts-all.js"></script>
+    <script>
+        $(function () {
+
+            $("#tab-4 input[type='text']").attr("disabled", "disabled");
+
+            $("#DivContent").css("margin-left", ($(window).width() - 610) / 2);
+            $("#divTab").css("height", $(window).height() - 66 + "px");
+            $("li > a").bind("click", function () {
+                switch ($(this).text()) {
+                    case "学历学位":
+                        Detail.Edu();
+                        break;
+                    case "工作经历":
+                        Detail.Work();
+                        break;
+                    case "考勤情况":
+                        Detail.Attendance();
+                        break;
+                    case "员工工资发放登记":
+                        Detail.Wage();
+                        break;
+                    case "维权凭证":
+                        Detail.Credentials(@Html.Raw(ViewBag.Content));
+                        break;
+                    case "征信状态":
+                        Detail.WGJG_GRZX();
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            $("#PersonPhoto").click(function () {
+                $("#imagebox").width($("#PersonPhoto").width() + 26);
+                $("body").bind("mousedown", onBodyDownImg);
+            });
+
+            var onBodyDownImg = function (event) {
+                if (!(event.target.id == "imagebox" || $(event.target).parents("#imagebox").length > 0)) {
+                    //隐藏
+                    $("#imagebox").hide();
+                    //取消绑定的事件
+                    $("body").unbind("mousedown", onBodyDownImg);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

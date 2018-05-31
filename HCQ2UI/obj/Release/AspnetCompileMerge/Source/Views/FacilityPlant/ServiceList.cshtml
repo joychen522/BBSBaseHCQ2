@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "售后用户管理";
+}
+@section headerSection{
+    <link href="~/Resources/duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" />
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 5px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            @{
+                                List<string> folderList = (List<string>)ViewBag.elementList;
+                                if (folderList.Contains("suserEdit"))
+                                {
+                                    <button id="suserEdit" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-pencil" aria-hidden="true">维护售后用户</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("suserDel"))
+                                {
+                                    <button id="suserDel" type="button" class="btn btn-outline btn-danger">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("btnSearch"))
+                                {
+                                    <div class="form-group">
+                                        <input id="suserName" name="suserName" type="text" class="form-control" placeholder="请输入用户名">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!--手动选择生成人员信息-->
+<div id="createDataBySel" style="width: 650px;overflow: hidden; display: none;">
+    <div class="col-md-12">
+        <select multiple="multiple" size="15" name="duallistbox_demo1" style="height: 200px;" class="demo1 listSel"></select>
+    </div>
+</div>
+@section footSection{
+    <script src="~/Resources/duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Resources/myScript/AfterSaleManager/serviceUserManager.js"></script>
+    <script>
+        $(function () {
+            serviceUserManager.initPage();
+        });
+    </script>
+}
+

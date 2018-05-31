@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "ToPersonList";
+}
+@section headerSection{
+    <style>
+        .col-sm-group {
+            width: 400px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .control-label {
+            padding-top: 0px;
+        }
+        .con-right {
+            float: right;
+        }
+        .line-span {
+            display: inline-block;
+            height: 47px;
+        }
+        .line-width {
+            /* width:250px;  */
+        }
+        .col-in-6 {
+            width: 110px;
+            /* width:50%; */
+            position: relative;
+            float: right;
+        }
+        .col-md-1-5 {
+            width: 110px;
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+        }
+        .col-ml-1 {
+            display: inline-block;
+            margin: 5px auto;
+            width: 60%;
+        }
+        .col-in-1 {
+            height: 28px;
+            padding: 3px 12px;
+        }
+        .lab-left-title {
+            float: left;
+            width: 100px;
+        }
+        .tooltip-demo {
+            float: right;
+            width: 200px;
+            height: 34px;
+        }
+        .div-photo {
+            display: inline-block;
+            float: left;
+            height: 200px;
+            width: 310px;
+            padding-left: 50px;
+        }
+        .div-photo img {
+            border: #000 solid 2px;
+            display: block;
+            margin: 0px auto;
+            border-radius: 50%;
+            transition: all 2.0s;
+            width: 180px;
+            height: 180px;
+        }
+        .div-photo img:hover {
+            transform: rotate(360deg);
+        }
+        .btn-oper {
+            text-align: center;
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+        .tooltip-demo input, .tooltip-demo select {
+            margin-top: 0;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight" style="overflow-y: auto;">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <div class="col-sm-12 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <form class="form-horizontal m-t" id="baneUserFormTable" method="post">
+                <div class="div-photo">
+                    <img id="head_img" src="" title="点击修改头像" />
+                </div>
+                <div>
+                    @{ 
+                        List<HCQ2_Model.T_TableColumn> Columnlist = ViewBag.ColumnList;
+                        if(Columnlist!=null && Columnlist.Count > 0)
+                        {
+                            foreach (var item in Columnlist)
+                            {
+                                string required = (item.if_required) ? "  has-error" : "",
+                                    if_required = (item.if_required) ? "required='' aria-required='true'" : "",
+                                    item_width = (string.IsNullOrEmpty(item.item_width)) ? "200px" : item.item_width;
+                                <span class="line-span line-width @required">
+                                    <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">@item.item_cname</label>
+                                    <div class="tooltip-demo" style="width:@item_width">
+                                        @{
+                                            switch (item.item_type.ToLower())
+                                            {
+                                                case "input":
+                                                    {
+                                                        if (item.data_type.ToLower() == "nvarchar")
+                                                        {
+                                                            <input id="@item.item_name" name="@item.item_name" type="text" class="form-control input-sm" placeholder="@item.item_title" title="@item.item_title" @if_required />
+                                                        }
+                                                        else if (item.data_type.ToLower() == "date")
+                                                        {
+                                                            <input id="@item.item_name" name="@item.item_name" type="text" class="laydate-icon form-control input-sm" @if_required placeholder="@item.item_title" title="@item.item_title" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                                                        }
+                                                    }
+                                                    break;
+                                                case "select":
+                                                    {
+                                                        <select id="@item.item_name" name="@item.item_name" title="@item.item_title"  class="form-control show-tick selectpicker archiveStaff" placeholder="@item.item_title"></select>
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                    </div>
+                                </span>
+                            }
+                        }
+                    }
+                </div>
+            </form>
+            <div class="col-sm-12 btn-oper">
+                <button id="btnCriminal" class="btn btn-primary btn-outline" type="button"><i class="fa fa-yelp"></i>&nbsp;&nbsp;违法犯罪记录</button>
+                <button id="btnFamily" class="btn btn-primary btn-outline" type="button"><i class="fa fa-users"></i>&nbsp;&nbsp;家庭成员</button>
+                <button id="btnSociety" class="btn btn-primary btn-outline" type="button"><i class="fa fa-star"></i>&nbsp;&nbsp;社会关系</button>
+                <button id="btnUrinalysis" class="btn btn-primary btn-outline" type="button"><i class="fa fa-heartbeat"></i>&nbsp;&nbsp;定期检测记录</button>
+                <button id="btnAdd" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;新 增</button>
+                <button id="btnIdentify" class="btn btn-primary" type="button" onclick="hxgc_OpenReader();"><i class="fa fa-save"></i>&nbsp;&nbsp;读取身份证</button>
+                <button id="btnIris" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;虹膜采集</button>
+                <button id="btnSave" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;保 存</button>
+                @*<button id="btnCancel" class="btn btn-default" type="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;返 回</button>*@
+            </div>
+        </div>
+
+    </div>
+    <!-- End Panel Other -->
+</div>
+@section footSection{
+    <script src="~/Resources/tools/imgTools.js"></script>
+}    
+
+

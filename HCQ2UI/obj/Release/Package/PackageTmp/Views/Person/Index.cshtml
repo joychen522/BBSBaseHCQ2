@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/zTreeStyle.css" rel="stylesheet" />
+
+    <style>
+        .node-selected {
+            color: #ffffff;
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body class="panel-body">
+    <div style="clear:both;" class="row">
+        <div id="divTree" class="col-sm-2" style="overflow:auto; border-right:1px solid gray;">
+            <input type="text" name="searchArea" id="searchArea" style="width:100%;height:30px;" placeholder="请输入项目名称" />
+            <select id="seSheng" style="width:100%;height:30px;"></select>
+            <select id="seShi" style="width:100%;height:30px;"></select>
+            <div id="divtreeDetail" style="overflow-y:auto; overflow-x:hidden;">
+                <ul id="testTree" style="padding:0px;" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="example" id="divTableController" style="width:auto; overflow:auto;">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="Index-Tool" class="row" style="margin-left:0px;">
+        <input id="NodeUnitID" type="hidden" name="name" value="" />
+        @{
+            List<string> folderList = (List<string>)ViewBag.elementList;
+            //if (folderList.Contains("btnSearch"))
+            //{
+                <div class="col-sm-6" style="padding:0px;">
+                    <input id="txtSearchName" class="form-control text-back" placeholder="输入姓名查找">
+                </div>
+                <div class="col-sm-2">
+                    <button id="btnSearch" type="button" class="btn btn-w-m btn-primary">查找</button>
+                </div>
+            //}
+        }
+
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/z-tree")
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/myScript/Person/Person-Index.js"></script>
+    <script>
+
+        $(function(){
+            $("#divTree").height($.GetBodyHeight());
+            $("#divtreeDetail").height($.GetBodyHeight() - 90);
+            //邦定tree
+            Lutai.Load("seSheng", "seShi", "searchArea", "testTree", 1, treeClick);
+            @*treeHelp.BindTree("treeview",@Html.Raw(ViewBag.TreeJson),treeClick);*@
+
+        });
+        
+        function treeClick(event, treeId, o) {
+            $("#NodeUnitID").val(o.unit_id);
+            tableHelp.refresh(table);
+        }
+        //查询事件
+        $("#btnSearch").click(function(){
+            tableHelp.refresh(table);
+        });
+    </script>
+</body>
+</html>

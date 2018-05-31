@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "请假管理";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="tree"></div>
+        <!--生成按钮-->
+        <div class="col-sm-10 right-sm-9" style="padding-left: 5px;">
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>) ViewBag.elementList;
+                        if (folderList.Contains("askAdd"))
+                        {
+                            <button id="askAdd" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true">添加</i>
+                            </button>
+                        }
+                        if (folderList.Contains("askEdit"))
+                        {
+                            <button id="askEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                        }
+                        if (folderList.Contains("askDel"))
+                        {
+                            <button id="askDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                        }
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group">
+                                <input id="dateStart" name="dateStart" type="text" style="width: 120px;" class="form-control laydate-icon" placeholder="请输入开始时间">
+                            </div>
+                            <div class="form-group">
+                                <input id="dateEnd" name="dateEnd" type="text" style="width: 120px;" class="form-control laydate-icon" placeholder="请输入截止时间">
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                    }
+                </div>
+                <table id="userAskTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 添加/编辑 -->
+<div id="ask_form" style="width: 600px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="askFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">请假人<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="user_name" name="user_name" type="text" class="form-control input-sm" placeholder="请输入用户名" title="请输入用户名" required="" aria-required="true"/>
+                <input id="ask_unit" name="ask_unit" type="hidden"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">请假类别<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id=ask_type title="请选择请假类别" name="ask_type" class="selectpicker show-tick bs-select-hidden" data-live-search="false" required="" aria-required="true" placeholder="请选择请假类别"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">开始时间<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="ask_startDate" name="ask_startDate" class="form-control input-sm laydate-icon" placeholder="请选择开始时间" title="请选择开始时间" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">结束时间<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="ask_endDate" name="ask_endDate" class="form-control input-sm laydate-icon" placeholder="请选择结束时间" title="请选择结束时间" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">请假状态<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id=ask_status title="请选择请假状态" name="ask_status" class="selectpicker show-tick bs-select-hidden" data-live-search="false" required="" aria-required="true" placeholder="请选择请假状态"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">标题<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="ask_title" name="ask_title" type="text" class="form-control input-sm" placeholder="请输入标题" title="请输入标题" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">内容<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="ask_context" name="ask_context" rows="10" placeholder="请输入请假内容" title="请输入请假内容" required="" aria-required="true"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    @*<script src="~/Resources/mainFrame/js/plugins/treeview/bootstrap-treeview-1.2.0.js"></script>*@
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/MonthChart/userAskManager.js"></script>
+    <script>
+        $(function () {
+            //加载单位
+            userAskManager.initPage();
+        });
+    </script>
+}

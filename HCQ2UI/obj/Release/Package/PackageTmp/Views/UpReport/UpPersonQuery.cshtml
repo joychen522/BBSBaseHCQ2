@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>人员信息上报查询</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/zTreeStyle.css" rel="stylesheet" />
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div class="row">
+            <div id="divTree" class="col-sm-2" style="overflow:auto; margin:0;">
+                <input type="hidden" id="JianDie" name="JianDie" />
+                <input type="hidden" id="JianDie1" name="JianDie1" />
+                <div id="treeDiv2" style="overflow:auto; border-right:1px solid gray;">
+                    <input type="text" name="searchArea" id="searchArea" style="width:100%;height:30px;" />
+                    <select id="seSheng" style="width:100%;height:30px;"></select>
+                    <select id="seShi" style="width:100%;height:30px;"></select>
+                    <div id="divtreeDetail" style="overflow-y:auto; overflow-x:hidden;">
+                        <ul id="testTree" style="padding:0px;" class="ztree"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="example">
+                    <table id="TableFromData" data-mobile-responsive="true"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="table-tool" class="row">
+        <input type="hidden" id="JianDie" />
+        <div class="col-sm-12" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input type="text" id="txtSearchName" style="width:200px;" class="form-control" placeholder="人员姓名">
+                    <button type="button" id="btnSearch" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i>
+                        查询
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="divPhoto" style="display:none;">
+        <img id="imPhoto" src="#" alt="" />
+    </div>
+
+    <div id="divHetong" style="display:none;">
+        <img id="imHetong" src="#" alt="" />
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    @Scripts.Render("~/bundles/z-tree")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/myScript/UpReport/UpPersonQuery.js"></script>
+    <script>
+        $(function () {
+            $("#divTree").height($.GetBodyHeight());
+
+            $("#treeDiv2").height($.GetBodyHeight());
+            $("#divtreeDetail").height($.GetBodyHeight()-90);
+            $("#detailDiv").height($.GetBodyHeight());
+
+            Lutai.Load("seSheng", "seShi", "searchArea", "testTree", 1, treeClick);
+        })
+
+        function treeClick(event, treeId, o) {
+            if (o.type == 2) {
+                $("#JianDie").val(o.unit_id);
+                $("#JianDie11").val(o.text);
+                tableHelp.refresh(TableFormAction.SetTable());
+            }
+        }
+    </script>
+</body>
+</html>

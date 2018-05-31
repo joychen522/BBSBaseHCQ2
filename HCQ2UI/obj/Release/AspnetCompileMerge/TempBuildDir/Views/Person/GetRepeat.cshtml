@@ -1,0 +1,145 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetRepeat</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="example" style="width:auto; overflow:auto;">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="repeat_tool" class="col-sm-12">
+        <div class="col-sm-3">
+            <div class="input-group">
+                @{
+                List<string> folderList = (List<string>)ViewBag.elementList;
+                if (folderList.Contains("btnSearch"))
+                {
+                        <div class="row">
+                            <input id="txtSearchName" class="form-control text-back" style="width:180px;" placeholder="输入姓名查找">
+                        </div>
+                }
+                }
+                <span class="input-group-btn">
+                    @{
+                    folderList = (List<string>)ViewBag.elementList;
+                    if (folderList.Contains("btnSearch"))
+                    {
+                            <button id="btnSearch" type="button" class="btn btn-w-m btn-primary">
+                                查找
+                            </button>
+                    }
+                    }
+                </span>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script>
+        $(function () {
+            //查询事件
+            $("#btnSearch").click(function () {
+                tableHelp.refresh(table);
+            });
+
+            //参数列表
+            function queryParams(params) {
+                var pageIndex = params.offset / params.limit + 1
+                var temp = {
+                    page: pageIndex,
+                    rows: params.limit,
+                    txtSearchName: $("#txtSearchName").val()
+                };
+                return temp;
+            }
+            //构建传入参数
+            var table = {
+                Columns: [
+                    {
+                        field: "Number",
+                        title: "序号",
+                        formatter: function (value, row, index) {
+                            return index + 1
+                        }
+                    },
+                    {
+                        field: "A0101",
+                        title: "姓　名",
+                        align: "center",
+                        formatter: function (value, row, index) {
+                            return "<a href='#' onclick=Person.Detail('" + row.PersonID + "')>" + value + "</a>";
+                        }
+                    },
+                    {
+                        field: "C0104",
+                        title: "移动电话",
+                        align: "center"
+                    }
+                    ,
+                    {
+                        field: "nation",
+                        title: "民族",
+                        align: "center"
+                    },
+                    {
+                        field: "A0178",
+                        title: "基本工资",
+                        align: "center"
+                    },
+                    {
+                        field: "C0104",
+                        title: "身份证号",
+                        align: "center"
+                    },
+                    {
+                        field: "UnitName",
+                        title: "所属项目",
+                        align: "center"
+                    },
+                    {
+                        field: "UnitGroup",
+                        title: "用工单位",
+                        align: "center"
+                    },
+                    {
+                        field: "E0386",
+                        title: "工　种",
+                        align: "center"
+                    }
+                ],
+                Contoller: "TableFromData",
+                Height: $.GetBodyHeight(),
+                url: $.GetIISName() + "/Person/GetReaptData",
+                tool: $("#repeat_tool")
+            };
+            //首次加载table
+            tableHelp.LoadData(table, queryParams);
+        });
+    </script>
+</body>
+</html>

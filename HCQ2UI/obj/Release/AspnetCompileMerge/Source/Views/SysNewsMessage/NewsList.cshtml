@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "新闻政策";
+}
+@section headerSection{
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+
+        #lab_value label {
+            float: left;
+            width: 15px;
+        }
+
+        #lab_value .form-group textarea {
+            float: left;
+            width: 380px;
+            margin-right: 3px;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 5px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            @{
+                                List<string> folderList = (List<string>)ViewBag.elementList;
+                                if (folderList.Contains("newsAdd"))
+                                {
+                                    <button id="newsAdd" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("newsEdit"))
+                                {
+                                    <button id="newsEdit" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("newsDel"))
+                                {
+                                    <button id="newsDel" type="button" class="btn btn-outline btn-danger">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("btnSearch"))
+                                {
+                                    <div class="form-group">
+                                        <input id="newsName" name="newsName" type="text" class="form-control" placeholder="请输入标题关键字">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="groupForm" style="width: 720px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="groupFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">标题<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="m_title" name="m_title" rows="2" placeholder="请输入标题" required="" aria-required="true"></textarea>
+                <input type="hidden" id="m_id" name="m_id" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">类别<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-9">
+                <select id="m_type" name="m_type" title="请选择人员类别" class="form-control show-tick selectpicker" placeholder="请选择所属模块" required="" aria-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">内容：</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="m_content" name="m_content" rows="3" placeholder="请输入内容" title="请输入内容"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">图片：</label>
+            <div class="col-sm-9">
+                <button id="upImg" type="button" class="btn btn-w-m btn-primary">上传新闻图片</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">新闻图片：</label>
+            <div class="col-sm-9">
+                <img id="img_focus_imgage" src="" style="height:auto;width:auto;">
+                <input type="hidden" id="focus_imgage" name="focus_imgage" />
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label class="col-sm-3 control-label">新闻列表图片：</label>
+            <div class="col-sm-9">
+                <img id="img_messList_imgage" src="" style="height:auto;width:auto;">
+                <input type="hidden" id="messList_imgage" name="messList_imgage" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">新闻详细图片：</label>
+            <div class="col-sm-9">
+                <img id="img_messDetail_imgage" src="" style="height:auto;width:auto;">
+                <input type="hidden" id="messDetail_imgage" name="messDetail_imgage" />
+            </div>
+        </div>*@
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/myScript/SysNewsMessage/newsManager.js"></script>
+    <script>
+        $(function () {
+            //初始化页面
+            newsManager.initPage();
+        });
+    </script>
+}
+

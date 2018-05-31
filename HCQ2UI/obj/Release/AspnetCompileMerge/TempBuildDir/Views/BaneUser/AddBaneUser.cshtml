@@ -1,0 +1,439 @@
+﻿@{
+    ViewBag.Title = "戒毒人员管理";
+}
+@section headerSection{
+    <style>
+        .col-sm-group {
+            width: 400px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+
+        .control-label {
+            padding-top: 0px;
+        }
+
+        .con-right {
+            float: right;
+        }
+
+        .line-span {
+            display: inline-block;
+            height: 47px;
+        }
+
+        .line-width {
+            /* width:250px;  */
+        }
+
+        .col-in-6 {
+            width: 110px;
+            /* width:50%; */
+            position: relative;
+            float: right;
+        }
+
+        .col-md-1-5 {
+            width: 110px;
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+        }
+
+        .col-ml-1 {
+            display: inline-block;
+            margin: 5px auto;
+            width: 60%;
+        }
+
+        .col-in-1 {
+            height: 28px;
+            padding: 3px 12px;
+        }
+
+        .lab-left-title {
+            float: left;
+            width: 100px;
+        }
+
+        .tooltip-demo {
+            float: right;
+            width: 200px;
+            height: 34px;
+        }
+
+        .div-photo {
+            display: inline-block;
+            float: left;
+            height: 200px;
+            width: 310px;
+            padding-left: 50px;
+        }
+
+        .div-photo img {
+            border: #000 solid 2px;
+            display: block;
+            margin: 0px auto;
+            border-radius: 50%;
+            transition: all 2.0s;
+            width: 180px;
+            height: 180px;
+        }
+
+            .div-photo img:hover {
+                transform: rotate(360deg);
+            }
+
+        .btn-oper {
+            text-align: center;
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+
+        .tooltip-demo input, .tooltip-demo select {
+            margin-top: 0;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight" style="overflow-y: auto;">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <div class="col-sm-12 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <form class="form-horizontal m-t" id="baneUserFormTable" method="post">
+                <div class="div-photo">
+                    <img id="head_img" src="" title="点击修改头像" />
+                </div>
+                <div>
+                    <span class="line-span line-width  has-error">
+                        <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">姓名</label>
+                        <div class="tooltip-demo">
+                            <input id="user_name" name="user_name" type="text" class="form-control input-sm" placeholder="请输入用户名" title="请输入用户名" required="" aria-required="true" />
+                            <input type="hidden" id="user_id" name="user_id" value="" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">别名</label>
+                        <div class="tooltip-demo">
+                            <input id="alias_name" name="alias_name" type="text" class="form-control input-sm" placeholder="请输入别名" title="请输入别名" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">性别</label>
+                        <div class="tooltip-demo">
+                            <select id="user_sex" name="user_sex" title="请选择性别" class="form-control show-tick selectpicker" placeholder="请选择性别">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width  has-error">
+                        <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">出生日期</label>
+                        <div class="tooltip-demo">
+                            <input id="user_birth" name="user_birth" type="text" class="laydate-icon form-control input-sm" required="" aria-required="true" placeholder="请输入出生日期" title="请输入出生日期" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">身高</label>
+                        <div class="tooltip-demo">
+                            <input id="user_height" name="user_height" type="text" class="form-control input-sm" placeholder="请输入身高单位厘米" title="请输入身高单位厘米" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width  has-error ">
+                        <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">身份证号</label>
+                        <div class="tooltip-demo">
+                            <input id="user_identify" name="user_identify" type="text" class="form-control input-sm" placeholder="请输入身份证号" title="请输入身份证号" required="" aria-required="true" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width has-error">
+                        <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">报到日期</label>
+                        <div class="tooltip-demo">
+                            <input id="start_date" name="start_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入报到日期" title="请输入报到日期" required="" aria-required="true" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">管控到期</label>
+                        <div class="tooltip-demo">
+                            <input id="control_date" name="control_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入管控到期" title="请输入管控到期" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width has-error ">
+                        <label class="col-md-1 control-label col-md-1-5 requiredtitle" style="padding-top:0px;">人员类别</label>
+                        <div class="tooltip-demo">
+                            <select id="user_type" name="user_type" title="请选择人员类别" class="form-control show-tick selectpicker" placeholder="请选择人员类别" required="" aria-required="true">
+                                <option value="社区戒毒" selected>社区戒毒</option>
+                                <option value="社区康复">社区康复</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">文化程度</label>
+                        <div class="tooltip-demo">
+                            <select id="user_edu" name="user_edu" title="请选择文化程度" class="form-control show-tick selectpicker" placeholder="请选择文化程度"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">就业情况</label>
+                        <div class="tooltip-demo">
+                            <select id="job_status" name="job_status" title="请选择就业情况" class="form-control show-tick selectpicker" placeholder="请选择就业情况"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">毒品种类</label>
+                        <div class="tooltip-demo">
+                            <select id="bane_type" name="bane_type" title="请选择毒品种类" class="form-control show-tick selectpicker" placeholder="请选择毒品种类"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">家庭电话</label>
+                        <div class="tooltip-demo">
+                            <input id="family_phone" name="family_phone" type="text" class="form-control input-sm" placeholder="请输入家庭电话" title="请输入家庭电话" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">户籍所在地</label>
+                        <div class="tooltip-demo" style="width:515px;">
+                            <input id="birth_url" name="birth_url" type="text" class="form-control input-sm" placeholder="请输入户籍所在地" title="请输入户籍所在地" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">现居住地</label>
+                        <div class="tooltip-demo" style="width:515px;">
+                            <input id="live_url" name="live_url" type="text" class="form-control input-sm" placeholder="请输入现居住地" title="请输入现居住地" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">移动电话</label>
+                        <div class="tooltip-demo">
+                            <input id="move_phone" name="move_phone" type="text" class="form-control input-sm" placeholder="请输入移动电话" title="请输入移动电话" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">主要联系人</label>
+                        <div class="tooltip-demo">
+                            <input id="attn_name" name="attn_name" type="text" class="form-control input-sm" placeholder="请输入主要联系人" title="请输入主要联系人" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">主要联系人地址</label>
+                        <div class="tooltip-demo" style="width:515px;">
+                            <input id="attn_url" name="attn_url" type="text" class="form-control input-sm" placeholder="请输入主要联系人地址" title="请输入主要联系人地址" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">主要联系人关系</label>
+                        <div class="tooltip-demo">
+                            <input id="attn_relation" name="attn_relation" type="text" class="form-control input-sm" placeholder="请输入主要联系人关系" title="请输入主要联系人关系" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">主要联系人电话</label>
+                        <div class="tooltip-demo">
+                            <input id="attn_phone" name="attn_phone" type="text" class="form-control input-sm" placeholder="请输入主要联系人电话" title="请输入主要联系人电话" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">婚姻状况</label>
+                        <div class="tooltip-demo">
+                            <select id="marital_status" name="marital_status" title="请选择婚姻状况" class="form-control show-tick selectpicker" placeholder="请选择婚姻状况"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">是否和父母居住</label>
+                        <div class="tooltip-demo">
+                            <select id="is_live_parent" name="is_live_parent" title="请选择是否和父母居住" class="form-control show-tick selectpicker" placeholder="请选择是否和父母居住">
+                                <option value=true selected>是</option>
+                                <option value=false>否</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">目前状态</label>
+                        <div class="tooltip-demo">
+                            <select id="user_status" name="user_status" title="请选择目前状态" class="form-control show-tick selectpicker" placeholder="请选择目前状态"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">是否参加职业培训</label>
+                        <div class="tooltip-demo">
+                            <select id="is_pro_train" name="is_pro_train" title="请选择是否参加职业培训" class="form-control show-tick selectpicker" placeholder="请选择是否参加职业培训">
+                                <option value=true selected>是</option>
+                                <option value=false>否</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">技能特长</label>
+                        <div class="tooltip-demo" style="width:515px;">
+                            <input id="user_skill" name="user_skill" type="text" class="form-control input-sm" placeholder="请输入技能特长" title="请输入技能特长" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">联系电话</label>
+                        <div class="tooltip-demo">
+                            <input id="user_phone" name="user_phone" type="text" class="form-control input-sm" placeholder="请输入联系电话" title="请输入联系电话" />
+                            <input type="hidden" id="ur_next_date" name="ur_next_date" />
+                            <input type="hidden" id="org_id" name="org_id" value="" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">执行地区</label>
+                        <div class="tooltip-demo">
+                            <input id="exec_area" name="exec_area" type="text" class="form-control input-sm" placeholder="请输入执行地区" title="请输入执行地区" />
+                            <input type="hidden" id="ri_id" name="ri_id" value="" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">执行单位详称</label>
+                        <div class="tooltip-demo">
+                            <input id="exec_unit" name="exec_unit" type="text" class="form-control input-sm" placeholder="请输入执行单位详称" title="请输入执行单位详称" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">责令单位详称</label>
+                        <div class="tooltip-demo">
+                            <input id="order_unit" name="order_unit" type="text" class="form-control input-sm" placeholder="请输入责令单位详称" title="请输入责令单位详称" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">是否感染艾滋病</label>
+                        <div class="tooltip-demo">
+                            <select id="is_aids" name="is_aids" title="请选择是否感染艾滋病" class="form-control show-tick selectpicker" placeholder="请选择是否感染艾滋病">
+                                <option value=true>是</option>
+                                <option value=false selected>否</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">隔离场所</label>
+                        <div class="tooltip-demo">
+                            <input id="isolation_url" name="isolation_url" type="text" class="form-control input-sm" placeholder="请输入隔离场所" title="请输入隔离场所" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">隔离场所出所日期</label>
+                        <div class="tooltip-demo">
+                            <input id="isolation_out_date" name="isolation_out_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入隔离场所出所日期" title="请输入隔离场所出所日期" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">参加药物治疗门诊</label>
+                        <div class="tooltip-demo">
+                            <input id="cure_ups" name="cure_ups" type="text" class="form-control input-sm" placeholder="请输入参加药物治疗门诊" title="请输入参加药物治疗门诊" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">是否进入康复场所</label>
+                        <div class="tooltip-demo">
+                            <select id="in_recovery" name="in_recovery" title="请选择是否进入康复场所" class="form-control show-tick selectpicker" placeholder="请选择是否进入康复场所">
+                                <option value=true selected>是</option>
+                                <option value=false>否</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">结束日期</label>
+                        <div class="tooltip-demo">
+                            <input id="start_date" name="start_date" type="text" class="laydate-icon form-control input-sm" placeholder="请输入结束日期" title="请输入结束日期" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">结束原因</label>
+                        <div class="tooltip-demo">
+                            <select id="end_reason" name="end_reason" title="请选择结束原因" class="form-control show-tick selectpicker" placeholder="请选择结束原因"></select>
+                        </div>
+                    </span>
+                    <span class="line-span line-width">
+                        <label class="col-md-1 control-label col-md-1-5" style="padding-top:0px;">个人简历</label>
+                        <div class="tooltip-demo" style="width:515px;">
+                            <textarea class="form-control" id="user_resume" name="user_resume" rows="3" placeholder="请输入个人简历" title="请输入个人简历"></textarea>
+                            <input type="hidden" id="iris_data1" name="iris_data1" />
+                            <input type="hidden" id="iris_data2" name="iris_data2" />
+                            <input type="hidden" id="user_photo" name="user_photo" />
+                        </div>
+                    </span>
+                </div>
+            </form>
+            <div class="col-sm-12 btn-oper">
+                <button id="btnCriminal" class="btn btn-primary btn-outline" type="button"><i class="fa fa-yelp"></i>&nbsp;&nbsp;违法犯罪记录</button>
+                <button id="btnFamily" class="btn btn-primary btn-outline" type="button"><i class="fa fa-users"></i>&nbsp;&nbsp;家庭成员</button>
+                <button id="btnSociety" class="btn btn-primary btn-outline" type="button"><i class="fa fa-star"></i>&nbsp;&nbsp;社会关系</button>
+                <button id="btnUrinalysis" class="btn btn-primary btn-outline" type="button"><i class="fa fa-heartbeat"></i>&nbsp;&nbsp;定期检测记录</button>
+                <button id="btnAdd" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;新 增</button>
+                <button id="btnIdentify" class="btn btn-primary" type="button" onclick="hxgc_OpenReader();"><i class="fa fa-save"></i>&nbsp;&nbsp;读取身份证</button>
+                <button id="btnIris" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;虹膜采集</button>
+                <button id="btnSave" class="btn btn-primary" type="button"><i class="fa fa-save"></i>&nbsp;&nbsp;保 存</button>
+                @*<button id="btnCancel" class="btn btn-default" type="button"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;返 回</button>*@
+            </div>
+        </div>
+
+    </div>
+    <!-- End Panel Other -->
+</div>
+<object id="objActiveX" classid="clsid:A66F5373-0A8A-4C42-814B-38A87B331D40"></object>
+<!--读取身份证-->
+<div id="divIris" class="row" style="display:none;">
+    
+</div>
+@section footSection{
+    <script src="~/Resources/myScript/BaneUser/addBaneManager.js"></script>
+    <script src="~/Resources/tools/imgTools.js"></script>
+    <script>
+        var g_iPort = 1001;											//端口号；USB = 1001 ~ 1016 ，COM端口 = 1~16
+        var g_strPHPath = "D:\\IdentifyCodeCardPhoto\\";			//保存照片路径初始值，路径结尾需添加'\\'
+        var g_strJpgPHName = "_PhotoB.jpg";    	//保存jpg照片名称
+
+        function hxgc_OpenReader() {
+            var iResult = 0;
+            iResult = objActiveX.hxgc_OpenReader(g_iPort);//打开设备
+            if (iResult == 0) {
+                hxgc_ReadIDCard();//打开成功，直接读取身份证
+            } else {
+                layer.msg("设备打开失败！请重试！");//打开失败
+            }
+        }
+
+        function hxgc_ReadIDCard() {
+            var iResult = 0;
+            iResult = objActiveX.hxgc_ReadIDCard(g_iPort);//读二代证
+            if (iResult == 0) {
+                $('#user_name').val(objActiveX.hxgc_GetName());//姓名
+                $('#user_sex').selectpicker('val', objActiveX.hxgc_GetSex());//性别
+                $('#user_birth').val(SetCharDate(objActiveX.hxgc_GetBirthDate()));//出生日期
+                $('#user_identify').val(objActiveX.hxgc_GetIDCode());//身份证号码
+                $('#birth_url').val(objActiveX.hxgc_GetAddress());//户籍所在地
+                //$("#A0101").val(objActiveX.hxgc_GetName());
+                //$("#A0107").val(objActiveX.hxgc_GetSex());
+                //$("#A0121").val(objActiveX.hxgc_GetNation() + "族");
+                //$("#A0111").val(SetCharDate(objActiveX.hxgc_GetBirthDate()));
+                //$("#A0109").val(objActiveX.hxgc_GetAddress());
+                //$("#A0177").val(objActiveX.hxgc_GetIDCode());
+                //$("#A0112").val(objActiveX.hxgc_GetIssuingAuthority());
+                //$("#A0116").val(SetCharDate(objActiveX.hxgc_GetBeginPeriodOfValidity()));
+                //$("#A0117").val(SetCharDate(objActiveX.hxgc_GetEndPeriodOfValidity()));
+                var strPhotoBase64 = objActiveX.hxgc_SavePhAsJpgBase64();
+                //$("#identifyCodeCardPhoto").val(strPhotoBase64);
+                $("#head_img").attr("src", "data:image/jpeg;base64," + strPhotoBase64);//显示图片
+                $('#user_photo').val(strPhotoBase64);
+            } else {
+                alert("读取身份证失败！错误代码：" + iResut);
+            }
+        }
+
+        function SetCharDate(value) {
+            if (value != "" && value != null && value != undefined) {
+                var text = value.substr(0, 4) + "-" + value.substr(4, 2) + "-" + value.substr(6, 2);
+                return text;
+            } else {
+                return "";
+            }
+        }
+
+    </script>
+    <script>
+        $(function () {
+            //初始化Page
+            addBaneManager.initPage();
+        });
+    </script>
+}
+

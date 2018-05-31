@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CompanyProject</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div id="divTree" class="col-sm-2" style="overflow:auto; margin:0;">
+            <div id="treeview"></div>
+        </div>
+        <div class="col-sm-10">
+            <div class="example">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="table-tool" class="row">
+        <input type="hidden" id="JianDie" />
+        <div class="col-sm-12" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input type="text" id="txtSearchName" style="width:150px;" class="form-control" placeholder="项目名称">
+                    <button type="button" id="btnSearch" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i>
+                        查询
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/myScript/CompProInfo/CompanyProject.js"></script>
+    <script>
+        $(function () {
+            $("#divTree").height($.GetBodyHeight());
+            treeHelp.BindTree("treeview",@Html.Raw(ViewBag.TreeJson),treeClick);
+        });
+        function treeClick (o){
+            $("#JianDie").val(o.com_id);
+            tableHelp.refresh(Table.SetTable());
+        }
+    </script>
+</body>
+</html>

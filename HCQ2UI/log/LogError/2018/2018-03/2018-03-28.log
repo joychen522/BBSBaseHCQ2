@@ -1,0 +1,80 @@
+﻿
+ 
+记录时间：2018-03-28 16:04:22,728 
+线程ID:[21] 
+日志级别：  ERROR 
+出错类：HCQ2UI_Logic.MyHandleErrorAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：59
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/BBSBaseHCQ2
+错误信息：Could not create ADO.NET connection for transaction
+错误源：Spring.Data
+异常方法：Void DoBegin(System.Object, Spring.Transaction.ITransactionDefinition)
+堆栈信息：   在 Spring.Data.Core.AdoPlatformTransactionManager.DoBegin(Object transaction, ITransactionDefinition definition)
+   在 Spring.Transaction.Support.AbstractPlatformTransactionManager.GetTransaction(ITransactionDefinition definition)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(ITransactionAttribute sourceAttr, String joinpointIdentification)
+   在 Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
+   在 CompositionAopProxy_8cb05e7ac0ec478a8b5808ed08b17b2b.GetBLLSession()
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2UI_Logic.BaseLogic.get_operateContext() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Logic\BaseController\BaseLogic.cs:行号 17
+   在 HCQ2UI_Logic.SysLoginController.Login() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Logic\BaseController\SysLoginController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+ 
+
+ 
+记录时间：2018-03-28 16:05:02,363 
+线程ID:[12] 
+日志级别：  ERROR 
+出错类：HCQ2UI_Logic.MyHandleErrorAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：59
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/BBSBaseHCQ2
+错误信息：Could not create ADO.NET connection for transaction
+错误源：Spring.Data
+异常方法：Void DoBegin(System.Object, Spring.Transaction.ITransactionDefinition)
+堆栈信息：   在 Spring.Data.Core.AdoPlatformTransactionManager.DoBegin(Object transaction, ITransactionDefinition definition)
+   在 Spring.Transaction.Support.AbstractPlatformTransactionManager.GetTransaction(ITransactionDefinition definition)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(ITransactionAttribute sourceAttr, String joinpointIdentification)
+   在 Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
+   在 CompositionAopProxy_8cb05e7ac0ec478a8b5808ed08b17b2b.GetBLLSession()
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2UI_Logic.BaseLogic.get_operateContext() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Logic\BaseController\BaseLogic.cs:行号 17
+   在 HCQ2UI_Logic.SysLoginController.Login() 位置 G:\NET项目\BaseHCQ2\BBSHCQ2\HCQ2UI_Logic\BaseController\SysLoginController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+ 

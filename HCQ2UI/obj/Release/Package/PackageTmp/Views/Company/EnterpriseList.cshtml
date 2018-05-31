@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "企业征信管理";
+}
+@section headerSection{
+    <style>
+    .float-unit {
+        height: 100%;
+        border: 1px solid #E7EAEC;
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+        margin-bottom: 0px;
+    }
+
+    .left-sm-3 {
+        padding-left: 0px;
+    }
+
+    .right-sm-9 {
+        padding-right: 0px;
+    }
+
+    .ibox-unit {
+        overflow-y: auto;
+        height: 89%;
+        padding: 0px;
+    }
+
+    #exampleToolbar div {
+        margin-bottom: 0px;
+    }
+
+    #exampleToolbar > .form-group {
+        float: left;
+        margin: 0;
+        margin-right: 5px;
+        margin-top: 1px;
+    }
+
+    .form-group > button {
+        margin-top: -2px;
+        margin-bottom: 2px;
+    }
+</style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        @*<div id="tree"></div>*@
+        <!--<div class="col-sm-10 col-sm-leftRight" style="padding-left: 5px; margin-top: 1px;">-->
+        <div class="col-sm-12 col-sm-leftRight" style="margin-top: 1px;">
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="unitName" name="unitName" type="text" class="form-control" placeholder="请输入企业名称">
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                    }
+                </div>
+                <table id="enterPanyTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加/编辑 -->
+<div id="ent_form" style="width: 600px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="entFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">企业名称<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="WGJG_ZX02" name="WGJG_ZX02" data-placeholder="选择企业名称..." class="selectpicker show-tick form-control" data-live-search="true" required="" aria-required="true"></select>
+            </div>
+        </div>
+        @*<div class="form-group">
+                <label class="col-sm-3 control-label">营业执照码<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+                <div class="col-sm-7">
+                    <input id="WGJG_ZX03" name="WGJG_ZX03" type="text" class="form-control input-sm" placeholder="请输入营业执照码" title="请输入营业执照码" required="" aria-required="true"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">法人：</label>
+                <div class="col-sm-7">
+                    <input id="WGJG_ZX04" name="WGJG_ZX04" type="text" class="form-control input-sm" placeholder="请输入法人" title="请输入法人"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">主营范围：</label>
+                <div class="col-sm-7">
+                    <input id="WGJG_ZX13" name="WGJG_ZX13" type="text" class="form-control input-sm" placeholder="请输入主营范围" title="请输入主营范围"/>
+                </div>
+            </div>*@
+        <div class="form-group">
+            <label class="col-sm-3 control-label">组织机构代码：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_ZX14" name="WGJG_ZX14" type="text" class="form-control input-sm" placeholder="请输入组织机构代码" title="请输入组织机构代码" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">征信状态：</label>
+            <div class="col-sm-7">
+                <select id=WGJG_ZX06 title="请选择征信状态" name="WGJG_ZX06" class="selectpicker show-tick bs-select-hidden" data-live-search="false" placeholder="请选择征信状态"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">隶属关系：</label>
+            <div class="col-sm-7">
+                <select id=WGJG_ZX16 title="请选择隶属关系" name="WGJG_ZX16" class="selectpicker show-tick bs-select-hidden" data-live-search="false" placeholder="请选择隶属关系"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">行业类别：</label>
+            <div class="col-sm-7">
+                <select id=WGJG_ZX17 title="请选择行业类别" name="WGJG_ZX17" class="selectpicker show-tick bs-select-hidden" data-live-search="false" placeholder="请选择行业类别"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系电话：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_ZX05" name="WGJG_ZX05" type="text" class="form-control input-sm" placeholder="请输入联系电话" title="请输入联系电话" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系人：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_ZX12" name="WGJG_ZX12" type="text" class="form-control input-sm" placeholder="请输入联系人" title="请输入联系人" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态变更原因：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="WGJG_ZX07" name="WGJG_ZX07" rows="4" placeholder="请输入状态变更原因" title="请输入状态变更原因"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">住所：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_ZX15" name="WGJG_ZX15" type="text" class="form-control input-sm" placeholder="请输入住所" title="请输入住所" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="WGJG_ZX09" name="WGJG_ZX09" rows="4" placeholder="请输入备注" title="请输入备注"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/Company/companyManager.js"></script>
+    <script>
+        $(function () {
+            //初始化页面
+            enterPriseManager.initPage();
+        });
+    </script>
+}

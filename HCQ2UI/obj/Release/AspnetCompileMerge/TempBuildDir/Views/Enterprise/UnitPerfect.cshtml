@@ -1,0 +1,699 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UnitPerfect</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        #add_area .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #add_area .hr-line-dashed {
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        #add_area .col-sm-10{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        #add_area .col-sm-2 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body class="panel-body" style="padding:5px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="example">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="table-tool" class="row">
+        <div class="col-sm-5" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input type="text" id="txtSearchName" style="width:150px;" class="form-control" placeholder="单位名称">
+                    <button type="button" id="btnSearch" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i>
+                        查询
+                    </button>
+                    <button type="button" id="editUnit" class="btn btn-primary" style="margin-left:2px;">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        编辑
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="add_area" style="display:none;" class="col-sm-12">
+        <div class="row form-horizontal">
+            @using (Html.BeginForm("AddUnit", "Enterprise", FormMethod.Post, new { @id = "unitAdd", @enctype = "multipart/form-data" }))
+            {
+                <h2>基本信息</h2>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目名称<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="UnitName" name="UnitName" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">工程类别</label>
+                    <div class="col-sm-4">
+                        <div>
+                            <input type="text" class="form-control" id="GCLB" name="GCLB" onclick="$('#GCLBDIV').show()" />
+                            <div id="GCLBDIV" style="display:none;background-color:#ffffff; margin-top:0px; z-index:99999; overflow:auto; position:  absolute; overflow-y:scroll; overflow:hidden;">
+                                <div id="treeview4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目所在地<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-10">
+                        <input type="text" id="B0112" name="B0112" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">合同金额（万元）<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="B0114" name="B0114" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">保障金（万元）<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="B0116" name="B0116" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">开工日期</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="B0109" name="B0109" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">计划竣工日期</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="B0110" name="B0110" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">建设单位</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="B0108" name="B0108" class="form-control" />
+                    </div>
+                    <label class="col-sm-1 control-label">联系人</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="JSDWLXR" name="JSDWLXR" class="form-control" />
+                    </div>
+                    <label class="col-sm-1 control-label">电话</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="JSDWLXRDH" name="JSDWLXRDH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">施工单位</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="in_compay" name="in_compay">
+                            <option> </option>
+                            @foreach (var item in ViewBag.in_compay)
+                            {
+                                <option value="@item.com_id">@item.dwmc</option>
+                            }
+                        </select>
+                    </div>
+                    <label class="col-sm-1 control-label">联系人</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="SGDWLXR" name="SGDWLXR" class="form-control" />
+                    </div>
+                    <label class="col-sm-1 control-label">电话</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="SGDWLXRDH" name="SGDWLXRDH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">劳资专管员一</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYYI" name="LZZGYYI" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">联系方式</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYYILXFS" name="LZZGYYILXFS" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">劳资专管员二</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYER" name="LZZGYER" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">联系方式</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYERLXFS" name="LZZGYERLXFS" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">劳资专管员三</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYSAN" name="LZZGYSAN" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">联系方式</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="LZZGYSANLXFS" name="LZZGYSANLXFS" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目状态</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="project_status" name="project_status">
+                            <option> </option>
+                            @foreach (var item in ViewBag.project_status)
+                            {
+                                <option>@item.code_name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">分包单位</label>
+                    <div class="col-sm-10">
+                        <textarea id="FBDW" name="FBDW" class="form-control" readonly="readonly" disabled="disabled"></textarea>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">上报项目名称</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="upLoadId" name="upLoadId" readonly="readonly" disabled="disabled">
+                            <option> </option>
+                            @foreach (var item in ViewBag.upLoadId)
+                            {
+                                <option value="@item.UnitID">@item.UnitName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <!--旧版本20170804-->
+                <div style="display:none;">
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">编码<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <input type="hidden" id="EditJianDie" name="EditJianDie" />
+                            <input type="hidden" id="JianDie" name="JianDie" />
+                            <input type="text" id="UnitID" name="UnitID" readonly="readonly" value="0000" class="form-control" placeholder="编码" />
+                        </div>
+                        <label class="col-sm-2 control-label">类型<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="UnitType" name="UnitType">
+                                @foreach (var item in ViewBag.UnitType)
+                                {
+                                    <option>@item.CodeItemName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">简称</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0107" name="B0107" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">建设单位地址</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0120" name="B0120" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">法定代表人</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="D010H" name="D010H" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">企业类型</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="B0175" name="B0175">
+                                <option> </option>
+                                @foreach (var item in ViewBag.B0175)
+                                {
+                                    <option>@item.CodeItemName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">注册地</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0111" name="B0111" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">项目负责人</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0180" name="B0180" class="form-control" />
+                        </div>
+                        <label class="col-sm-2 control-label">项目负责人电话</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="B0181" name="B0181" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-10" style="padding-left:15px; padding-right:15px;">
+                            <textarea id="B0118" name="B0118" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                </div>
+
+                <h2>上报信息</h2>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发包人<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBR" name="FBR" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">项目所属行业主管部门所在地区编号<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="hidden" class="form-control" id="LSJG1" name="LSJG1" />
+                        <input type="text" class="form-control" id="LSJG" name="LSJG" onclick="$('#SelectDivTree4').show()" />
+                        <div id="SelectDivTree4" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; position:  absolute; overflow:auto;">
+                            <div id="tree"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBR" name="CBR" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">工程立项批准文号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="GCLXPZWH" name="GCLXPZWH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">资金来源</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="ZJLY" name="ZJLY" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">合同编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="HTBH" name="HTBH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">招标编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="ZBBH" name="ZBBH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">项目计划总工期(天)</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="XMJHZGQ" name="XMJHZGQ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    
+                    <label class="col-sm-2 control-label">承包人项目经理姓名<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLXM" name="CBRXMJLXM" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人项目经理职称</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLZC" name="CBRXMJLZC" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人项目经理身份证号<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLSFZH" name="CBRXMJLSFZH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人项目经理注册建造师资格证书编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLZCJZSZGZSBH" name="CBRXMJLZCJZSZGZSBH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人项目经理注册建造师证书注册编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLZCJZSZSZCBH" name="CBRXMJLZCJZSZSZCBH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人项目经理注册建造师职业印章号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRXMJLZCJZSZYYZH" name="CBRXMJLZCJZSZYYZH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">项目合同签订日期</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="XMHTQDRQ" name="XMHTQDRQ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发包人住址</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRZZ" name="FBRZZ" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">发包人联系电话</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRDH" name="FBRDH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发包人法定代表人姓名</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRFDDBR" name="FBRFDDBR" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">发包人传真</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRCZ" name="FBRCZ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发包人开户银行</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRKHYH" name="FBRKHYH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">发包人银行账号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRYHZH" name="FBRYHZH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">发包人邮政编码</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRYZBM" name="FBRYZBM" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">发包人公司地址<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FBRDZ" name="FBRDZ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人住址</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRZZ" name="CBRZZ" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人电话<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRDH" name="CBRDH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人法定代表人<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRFDDBR" name="CBRFDDBR" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人传真</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRCZ" name="CBRCZ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人开户银行</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRKHYH" name="CBRKHYH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人银行账号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRYHZH" name="CBRYHZH" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">承包人邮政编码</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRYZBM" name="CBRYZBM" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">承包人地址<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="CBRDZ" name="CBRDZ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">所属行政主管部门<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <select id="SSXZZGBM" name="SSXZZGBM" class="form-control">
+                            <option> </option>
+                            @foreach (var item in ViewBag.SSXZZGBM)
+                            {
+                                <option value="@item.code_value">@item.code_name</option>
+                            }
+                        </select>
+                    </div>
+                    <label class="col-sm-2 control-label">备案设备类型</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="BASBLX" name="BASBLX" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">备案设备编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="BASBBH" name="BASBBH" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">所属网格</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="SSWG1" name="SSWG1" style="display:none;" />
+                        <input type="text" class="form-control" id="SSWG" name="SSWG" onclick="$('#SelectDivTree2').show()" />
+                        <div id="SelectDivTree2" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; position:  absolute; overflow:auto;">
+                            <div id="tree2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目创建人</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="XMCJR" name="XMCJR" class="form-control" />
+                    </div>
+                    
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否参加工伤保险</label>
+                    <div class="col-sm-4">
+                        <select id="SFCJGSBX" name="SFCJGSBX" class="form-control">
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-2 control-label">发薪日期<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="FXRQ" name="FXRQ" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目法人组织机构代码</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="ZZJGDM" name="ZZJGDM" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">项目法人工商登记证种类</label>
+                    <div class="col-sm-4">
+                        <select id="GSDJZZZL" name="GSDJZZZL" class="form-control">
+                            <option> </option>
+                            @foreach (var item in ViewBag.GSDJZZZL)
+                            {
+                                <option value="@item.code_value">@item.code_name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目法人工商登记证号码</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="GSDJZZHM" name="GSDJZZHM" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">项目法人社会信用代码<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <input type="text" id="SHXYDM" name="SHXYDM" class="form-control" />
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">单位工资发放账户所属银行<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                    <div class="col-sm-4">
+                        <select id="GZFFZHSSYH" name="GZFFZHSSYH" class="form-control">
+                            @foreach (var item in ViewBag.GZFFZHSSYH)
+                            {
+                                <option value="@item.code_value">@item.code_name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+            }
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/myScript/Enterprise/UnitPerfect.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#divTree").height($.GetBodyHeight());
+            treeHelp.BindTree("treeview",@Html.Raw(ViewBag.json),treeClick);
+
+            $("#LSJG").click(function () {
+                $("#SelectDivTree4").width($("#LSJG").width() + 24);
+                $("body").bind("mousedown",onBodyDown4);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.AB),
+                    onNodeSelected: function (event, data) {
+                        $("#LSJG1").val(data.codeitemid);
+                        $("#LSJG").val(data.text);
+                        $("#SelectDivTree4").hide();
+                    }
+                };
+                $("#tree").treeview(options);
+            });
+            var onBodyDown4 = function(event){
+                if (!(event.target.id == "SelectDivTree4" || $(event.target).parents("#SelectDivTree4").length > 0)) {
+                    //隐藏
+                    $("#SelectDivTree4").hide();
+                    //取消绑定的事件
+                    $("body").unbind("mousedown",onBodyDown4);
+                }
+            }
+
+            $("#GCLB").click(function(){
+                $("#GCLBDIV").width($("#GCLB").width() + 24);
+                $("body").bind("mousedown",onBodyDown1);
+                var data = @Html.Raw(ViewBag.GCLB);
+                var content = "<table border=0 style= 'border-collapse:collapse; width:"+$("#GCLB").width() + 24+"px;' height:200px; cellspacing=0 cellpadding=0>";
+                $.each(data,function(index,element){
+                    content += "<tr style=' height:30px;' class='9pt'>";
+                    content += "<td style=' height:30px; border-bottom:0px;border-top:0px;' onmouseover=$.myover() onmouseout=$.myout() onmousedown=CheckGCLB(\""+data[index]["code_name"]+"\")>"+data[index]["code_name"]+"</td>";
+                    content += "</tr>";
+                });
+                content += "</table>";
+                $("#GCLBDIV").html(content);
+            });
+            var onBodyDown1 = function(event){
+                if (!(event.target.id == "GCLBDIV" || $(event.target).parents("#GCLBDIV").length > 0)) {
+                    //隐藏
+                    $("#GCLBDIV").hide();
+                    //取消绑定的事件
+                    $("body").unbind("mousedown",onBodyDown1);
+                }
+            }
+
+            $("#SSWG").click(function () {
+                $("#SelectDivTree2").width($("#SSWG").width() + 24);
+                $("body").bind("mousedown",onBodyDown2);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.AB),
+                    onNodeSelected: function (event, data) {
+                        if(data.codeitemid.length >= 4){
+                            $("#SSWG1").val(data.codeitemid);
+                            $("#SSWG").val(data.text);
+                            $("#SelectDivTree2").hide();
+                        }else{
+                            layer.msg("请选择正确的所属网格！");
+                        }
+
+                    }
+                };
+                $("#tree2").treeview(options);
+            });
+            var onBodyDown2 = function(event){
+                if (!(event.target.id == "SelectDivTree2" || $(event.target).parents("#SelectDivTree2").length > 0)) {
+                    //隐藏
+                    $("#SelectDivTree2").hide();
+                    //取消绑定的事件
+                    $("body").unbind("mousedown",onBodyDown2);
+                }
+            }
+        });
+        function treeClick (o){
+            $("#JianDie").val(o.UnitID);
+            tableHelp.refresh(table);
+        }
+        function CheckGCLB(value){
+            $("#GCLB").val(value);
+            //隐藏
+            $("#GCLBDIV").hide();
+        }
+        function GetComName(com_id){
+            var data = @Html.Raw(ViewBag.ComName);
+            var value = "";
+            $.each(data,function(index,element){
+                if(data[index]["com_id"] == com_id){
+                    value = data[index]["dwmc"];
+                }
+            });
+            return value;
+        }
+    </script>
+</body>
+</html>

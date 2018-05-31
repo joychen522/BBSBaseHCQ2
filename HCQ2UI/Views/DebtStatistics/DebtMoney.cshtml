@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "欠薪金额统计";
+}
+@section headerSection{
+    <style>
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 90%;
+            padding: 0px;
+        }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="tree"></div>
+        <!--生成图表-->
+        <div class="col-sm-9 right-sm-9">
+            <!-- 数据 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div id="echarts-Moneybar-chart" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section footSection{
+    @Scripts.Render("~/bundles/echarts")
+    <script src="~/Resources/mainFrame/js/plugins/treeview/bootstrap-treeview-1.2.0.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/businessScript/Statistics/DebtItem.js"></script> 
+    <script>
+        $(function () {
+            //加载单位
+            DrawDebtMoney.initDebtUnit("DrawDebtMoney", "echarts-Moneybar-chart");
+            //DrawDebtMoney.DrawTableByData("@Url.Action("GetMoneyDataBySelUnit", "DebtStatistics")", "DrawDebtMoney", "echarts-Moneybar-chart");
+        });
+    </script>
+}

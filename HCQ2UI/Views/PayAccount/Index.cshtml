@@ -1,0 +1,177 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        #divPayAccount .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        #divPayAccount .hr-line-dashed {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="example">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+    <div id="table-tool" class="row">
+        <div class="col-sm-3" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input type="text" id="txtSearchName" class="form-control" placeholder="开户名称">
+                    <button type="button" id="btnSearch" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i>
+                        查询
+                    </button>
+                    <button type="button" id="addPay" class="btn btn-primary" style="margin-left: 2px;">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        新增
+                    </button>
+                    <button type="button" id="editPay" class="btn btn-primary" style="margin-left: 2px;">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        编辑
+                    </button>
+                    <button type="button" id="deletePay" class="btn btn-danger" style="margin-left: 2px;">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        删除
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="divPayAccount" class="row" style="display:none;">
+        <form id="payAccountForm" class="row form-horizontal">
+            <input type="hidden" id="JianDie" name="JianDie" />
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    所属项目
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <select id="UnitID" name="UnitID" class="form-control">
+                        @foreach (var item in ViewBag.project)
+                        {
+                            <option value="@item.UnitID">@item.UnitName</option>
+                        }
+                    </select>
+                </div>
+                <label class="col-sm-2 control-label">
+                    所属银行
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <select id="ssyh" name="ssyh" class="form-control">
+                        @foreach (var item in ViewBag.ssyh)
+                        {
+                            <option value="@item.code_value">@item.code_name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    开户名称
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="khmc" name="khmc" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">
+                    账户
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="zh" name="zh" class="form-control" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    开户行
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="khh" name="khh" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">
+                    凭证种类
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="pzzl" name="pzzl" class="form-control" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    凭证号码
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="pzhm" name="pzhm" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">
+                    余额
+                    <i class="glyphicon glyphicon-asterisk" style="color:red;"></i>
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" id="ye" name="ye" class="form-control" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+        </form>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Resources/myScript/PayAccount/Index.js"></script>
+    <script>
+        function GetBankName(bank_id) {
+            var text = "";
+            var data = @Html.Raw(ViewBag.ssyhJson);
+            $.each(data,function(index,element){
+                if(bank_id == data[index].code_value){
+                    text = data[index].code_name;
+                }
+            });
+            return text;
+        }
+    </script>
+</body>
+</html>

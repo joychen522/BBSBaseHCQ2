@@ -1,0 +1,277 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        #implementOption .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        #implementOption .hr-line-dashed {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="example">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+    <div id="table-tool" class="row">
+        <input type="hidden" id="JianDie" />
+        <div class="col-sm-3" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <input type="text" id="txtSearchName" class="form-control" placeholder="工地名称">
+                            <button type="button" id="btnSearch" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-search"></i>
+                                查询
+                            </button>
+                        }
+                        if (folderList.Contains("AddImplement"))
+                        {
+                            <button type="button" id="AddImplement" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                新增
+                            </button>
+                        }
+                        if (folderList.Contains("EditImplement"))
+                        {
+                            <button type="button" id="EditImplement" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                编辑
+                            </button>
+                        }
+                        if (folderList.Contains("DeleteImplement"))
+                        {
+                            <button type="button" id="DeleteImplement" class="btn btn-danger" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                删除
+                            </button>
+                        }
+                    }
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="implementOption" class="row" style="display:none;">
+        <form id="implementForm" class="row form-horizontal">
+            <input type="hidden" id="JianDieImplement" name="JianDieImplement" />
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">业主单位<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="owner_name" name="owner_name" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">总包单位<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="B0001" name="B0001" class="form-control" onclick="$('#SelectDivTree3').show()" />
+                    <div id="SelectDivTree3" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:99999; overflow:auto; position: fixed;">
+                        <div id="treeview3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">用工单位<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="B0002" name="B0002" class="form-control" onclick="$('#SelectDivTree').show()" />
+                    <div id="SelectDivTree" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:999; overflow:auto; position: fixed;">
+                        <div id="treeview"></div>
+                    </div>
+                </div>
+                <label class="col-sm-2 control-label">工地名称<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="B000201" name="B000201" class="form-control" onclick="$('#SelectDivTree1').show()" />
+                    <div id="SelectDivTree1" style="height:300px;display:none;background-color:#ffffff; margin-top:0px; z-index:999; overflow:auto; position: fixed;">
+                        <div id="treeview1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">责任人<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="respon_name" name="respon_name" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">联系电话<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="respon_phone" name="respon_phone" class="form-control" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">安装日期<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="install_date" name="install_date" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">采集日期<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="collect_date" name="collect_date" class="form-control" />
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">费用<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="cost_money" name="cost_money" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">状态<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="use_status" name="use_status">
+                        <option> </option>
+                        @foreach (var item in ViewBag.ImplementStatus)
+                        {
+                            <option>@item.code_name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">付费日期<i class="glyphicon glyphicon-asterisk" style="color:red;"></i></label>
+                <div class="col-sm-4">
+                    <input type="text" id="cost_date" name="cost_date" class="form-control" />
+                </div>
+                <label class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-4">
+                    <textarea id="impl_note" name="impl_note" class="form-control"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/myScript/Enterprise/ImplementManager.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $(function () {
+            Index.Init();
+
+
+            $("#B0002").click(function () {
+                $("#SelectDivTree").width($("#B0002").width() + 24);
+                $("body").bind("mousedown",onBodyDown);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    showCheckbox: true,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.TreeJson),
+                    onNodeSelected: function (event, data) {
+                        $("#B0002").val(data.text);
+                        $("#B00021").val(data.UnitID);
+                        $("#SelectDivTree").hide();
+                    }
+                };
+                $('#treeview').treeview(options);
+            })
+
+
+            $("#B000201").click(function () {
+                $("#SelectDivTree1").width($("#B000201").width() + 24);
+                $("body").bind("mousedown",onBodyDown1);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    showCheckbox: true,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.TreeJson),
+                    onNodeSelected: function (event, data) {
+                        $("#B000201").val(data.text);
+                        $("#B0002011").val(data.UnitID);
+                        $("#SelectDivTree1").hide();
+                    }
+                };
+                $('#treeview1').treeview(options);
+            })
+
+
+            $("#B0001").click(function () {
+                $("#SelectDivTree3").width($("#B0001").width() + 24);
+                $("body").bind("mousedown",onBodyDown3);
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    showCheckbox: true,
+                    checkedIcon: "glyphicon glyphicon-check",
+                    data: @Html.Raw(ViewBag.TreeJson),
+                    onNodeSelected: function (event, data) {
+                        $("#B0001").val(data.text);
+                        $("#B00011").val(data.UnitID);
+                        $("#SelectDivTree3").hide();
+                    }
+                };
+                $("#treeview3").treeview(options);
+            })
+
+        });
+
+        var onBodyDown3 = function(event){
+            if (!(event.target.id == "SelectDivTree3" || $(event.target).parents("#SelectDivTree3").length > 0)) {
+                //隐藏
+                $("#SelectDivTree3").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown3);
+            }
+        }
+
+        var onBodyDown1 = function(event){
+            if (!(event.target.id == "SelectDivTree1" || $(event.target).parents("#SelectDivTree1").length > 0)) {
+                //隐藏
+                $("#SelectDivTree1").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown1);
+            }
+        }
+
+        var onBodyDown = function(event){
+            if (!(event.target.id == "SelectDivTree" || $(event.target).parents("#SelectDivTree").length > 0)) {
+                //隐藏
+                $("#SelectDivTree").hide();
+                //取消绑定的事件
+                $("body").unbind("mousedown",onBodyDown);
+            }
+        }
+
+    </script>
+</body>
+</html>

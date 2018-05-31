@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "个人征信管理";
+}
+@section headerSection{
+<style>
+    #exampleToolbar > .form-group {
+        float: left;
+        margin: 0;
+        margin-left: 5px;
+    }
+    .bar {
+        height: 18px;
+        background: green;
+    }
+</style>
+}
+<div class="animated fadeInRight">
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            @{
+                                List<string> folderList = (List<string>)ViewBag.elementList;
+                                if (folderList.Contains("ownAdd"))
+                                {
+                                    <button id="ownAdd" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("ownEdit"))
+                                {
+                                    <button id="ownEdit" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("ownDel"))
+                                {
+                                    <button id="ownDel" type="button" class="btn btn-outline btn-danger">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("btnSearch"))
+                                {
+                                    <div class="form-group">
+                                        <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入用户名">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <table id="ownPanyTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加/编辑 -->
+<div id="own_form" style="width: 600px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="ownFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">姓名<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_GRZX02" name="WGJG_GRZX02" type="text" class="form-control input-sm" placeholder="请输入姓名" title="请输入姓名" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">身份证<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_GRZX03" name="WGJG_GRZX03" type="text" class="form-control input-sm" placeholder="请输入身份证" title="请输入身份证" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">籍贯：</label>
+            <div class="col-sm-7">
+                <select id=WGJG_GRZX04 title="请选择籍贯" name="WGJG_GRZX04" class="selectpicker show-tick bs-select-hidden" data-live-search="false" required="" aria-required="true" placeholder="请选择籍贯"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系电话：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_GRZX05" name="WGJG_GRZX05" type="text" class="form-control input-sm" placeholder="请输入联系电话" title="请输入联系电话"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">变更原因：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_GRZX07" name="WGJG_GRZX07" type="text" class="form-control input-sm" placeholder="请输入变更原因" title="请输入变更原因"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">征信状态<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id=WGJG_GRZX06 title="请选择征信状态" name="WGJG_GRZX06" class="selectpicker show-tick bs-select-hidden" data-live-search="false" required="" aria-required="true" placeholder="请选择征信状态"></select>
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label class="col-sm-3 control-label">附件：</label>
+            <div class="col-sm-7">
+                <input id="WGJG_GRZX08" type="file" name="file[]" placeholder="请输入附件" title="请输入附件" multiple/>
+                <div id="progress">
+                    <div class="bar" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="WGJG_GRZX09" name="WGJG_GRZX09" rows="4" placeholder="请输入籍贯" title="请输入籍贯"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/fileupload/jquery.ui.widget.js"></script>
+    <script src="~/Resources/fileupload/jquery.iframe-transport.js"></script>
+    <script src="~/Resources/fileupload/jquery.fileupload.js"></script>
+    <script src="~/Resources/myScript/Company/companyManager.js"></script>
+    <script>
+        $(function () {
+            //初始化页面
+            companyManager.initPage();
+        });
+    </script>
+}

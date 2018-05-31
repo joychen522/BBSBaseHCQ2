@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache,no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1"/>
+    <!--H+必备样式-->
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet"/>
+    <!--表格，日期-->
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet"/>
+    <link href="~/Resources/layer-3.0.1/mobile/need/layer.css" rel="stylesheet" />
+    <link href="~/Resources/css/publicStyle.css" rel="stylesheet"/>
+    <title>@ViewBag.Title</title>
+    <!--H+必备js-->
+    <script src="~/Resources/myScript/loadWindow.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery.min.js?v=2.1.4"></script>
+    <script src="~/Resources/mainFrame/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="~/Resources/mainFrame/js/content.min.js?v=1.0.0"></script>
+    <!--验证-->
+    <script src="~/Resources/mainFrame/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="~/Resources/mainFrame/js/demo/form-validate-demo.min.js"></script>
+    <!--表格-->
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery.form.min.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery-validate.bootstrap-tooltip.js"></script>
+
+    <script src="~/Resources/mainFrame/js/Cookies.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/select/bootstrap-select.min.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/layer/laydate/laydate.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="~/Resources/tools/bootstrap-table-custom.js"></script>
+    <script src="~/Resources/tools/jquery-hcq2-extend.js"></script>
+    <script src="~/Resources/tools/custom.js"></script>
+    <!--<script src="~/Resources/tools/jqueryExtend.js"></script>-->
+    <style type="text/css">
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+    <script>
+        var ctx = "@Request.ApplicationPath";
+    </script>
+    <!--加载通用合并 js,css-->
+    @*@Scripts.Render("~/bundles/baseScript")*@
+    <!--自定义js,css，非必填-->
+    @RenderSection("headerSection", required: false)
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/html5shiv.min.js"></script>
+        <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="app">
+    @RenderBody()
+    <!--标检加载完毕后加载的js填充-->
+    @RenderSection("footSection", required: false)
+    <script src="~/Resources/mainFrame/js/plugins/iCheck/icheck.min.js"></script>
+</body>
+</html>

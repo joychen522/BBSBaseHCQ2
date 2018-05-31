@@ -1,0 +1,181 @@
+﻿@model HCQ2_Model.T_Role
+@{
+    ViewBag.Title = "发放管理";
+}
+@section headerSection{
+    <link href="~/Resources/x-editable/css/bootstrap-editable.css" rel="stylesheet" />
+    <link href="~/Resources/duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" />
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+        #bootstrap-duallistbox-selected-list_duallistbox_demo1 option , bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option{
+            height: 30px;
+            line-height: 30px;
+            padding-top: 5px;
+        }
+        #bootstrap-duallistbox-selected-list_duallistbox_demo1 option:hover, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 1px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            <button id="TempEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                            <button id="TempDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                            <button id="TempAdd" class="btn btn-outline btn-primary dropdown" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true">选人</i><span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" style="left: 50px; right: auto;">
+                                <li><a id="selUnit" href="#">用工单位</a></li>
+                                <li><a id="selPerson" href="#">手动选择</a></li>
+                            </ul>
+                            <div class="form-group">
+                                <input id="userName" name="userName" type="text" class="form-control" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnImport" class="btn btn-primary" type="button"><i class="fa fa-upload"></i>&nbsp;导入Excel</button>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnDownloadTemplate" class="btn btn-primary" type="button"><i class="fa fa-download"></i>&nbsp;下载Excel模板</button>
+                            </div>
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="wageTemp_form" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="wageTempFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">姓名<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="A0101" name="A0101" type="text" class="form-control input-sm" required="" aria-required="true" disabled="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">身份证<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="A0177" name="A0177" type="text" class="form-control input-sm" required="" aria-required="true" disabled="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用工单位<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="UnitID" name="UnitID" type="text" class="form-control input-sm" disabled="true" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">工种：</label>
+            <div class="col-sm-7">
+                <input id="E0386" name="E0386" type="text" class="form-control input-sm" disabled="true" required="" aria-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">工资：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0204" name="WGJG0204" type="text" class="form-control input-sm" placeholder="请输入工资" title="请输入工资"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">打卡天数：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0205" name="WGJG0205" type="text" class="form-control input-sm" placeholder="请输入打卡天数" title="请输入打卡天数"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">实际工作天数：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0206" name="WGJG0206" type="text" class="form-control input-sm" placeholder="请输入打卡天数" title="请输入打卡天数"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">应发工资：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0207" name="WGJG0207" type="text" class="form-control input-sm" placeholder="请输入应发工资" title="请输入应发工资"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">实际发放：</label>
+            <div class="col-sm-7">
+                <input id="WGJG0208" name="WGJG0208" type="text" class="form-control input-sm" placeholder="请输入实际发放" title="请输入实际发放"/>
+            </div>
+        </div>
+    </form>
+</div>
+<!--手动选择生成人员信息-->
+<div id="createDataBySel" style="width: 650px;overflow: hidden; display: none;">
+    <div class="col-md-12">
+        <select multiple="multiple" size="15" name="duallistbox_demo1" style="height: 200px;" class="demo1 listSel">
+        </select>
+    </div>
+</div>
+<!--导入模板-->
+<div id="wageImport" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="wageImportFormTable" style="margin-left:30px;" method="post" enctype="multipart/form-data" >
+        <div class="form-group">
+            <input id="filePerson" name="filePerson" type="file" style="width:95%; height:35px; font-size:15px; border:1px solid" required="" aria-required="true" >
+            <label style="color:red;">温馨提示：导入必须先下载导入模板编辑后再导入，重复导入将被覆盖！</label>
+        </div>
+        <div class="form-group">
+            <button id="btnImportPerson" class="btn btn-primary" type="button"><i class="fa fa-upload"></i>&nbsp;导入Excel</button>
+        </div>
+    </form>    
+</div>
+<!--下载模板-->
+<div id="wageDownload" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="wageDownloadFormTable" style="margin-left:30px;" method="post" enctype="multipart/form-data">
+        <div class="form-group" style="margin:15px auto;">
+            <label class="col-sm-3 control-label">所属队伍：</label>
+            <div class="col-sm-7">
+                <select id="in_team" name="in_team" title="请选择所属队伍" class="chosen-select" style="border:1px solid #E7EAEC;border-radius:3px;width:100%;height:35px;" placeholder="请选择所属队伍">
+                    <option value="00">全部</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" style="margin:15px auto;">
+            <label class="col-sm-3 control-label">工种：</label>
+            <div class="col-sm-7">
+                <select id="post0386" name="post0386" title="请选择工种" class="chosen-select" style="border:1px solid #E7EAEC;border-radius:3px;width:100%;height:35px;" placeholder="请选择工种">
+                    <option value="00">全部</option>
+                </select>
+            </div>
+        </div>
+        <a id="personExport" class="btn btn-success btn-outline" href="#" style="display: none;">导出</a>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/x-editable/js/bootstrap-editable.js"></script>
+    <script src="~/Resources/duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Resources/myScript/finance/financeManager.js"></script>
+    <script src="~/Resources/mainFrame/js/content.min.js?v=1.0.0"></script>
+    <script>
+        $(function () {
+            //初始化Table
+            wageDetailManager.initWageTempTable();
+            wageDetailManager.initSelect();
+            wageDetailManager.initEvent();
+        });
+    </script>
+}

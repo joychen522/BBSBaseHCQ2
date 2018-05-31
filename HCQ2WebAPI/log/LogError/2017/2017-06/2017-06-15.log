@@ -1,0 +1,40 @@
+﻿
+ 
+记录时间：2017-06-15 13:42:36,794 
+线程ID:[9] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Unknown
+浏览器版本：0
+操作系统：Unknown
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/WorkerManager/GetWorkAllList
+错误信息：Could not create ADO.NET connection for transaction
+错误源：Spring.Data
+异常方法：Void DoBegin(System.Object, Spring.Transaction.ITransactionDefinition)
+堆栈信息：   在 Spring.Data.Core.AdoPlatformTransactionManager.DoBegin(Object transaction, ITransactionDefinition definition)
+   在 Spring.Transaction.Support.AbstractPlatformTransactionManager.GetTransaction(ITransactionDefinition definition)
+   在 Spring.Transaction.Interceptor.TransactionAspectSupport.CreateTransactionIfNecessary(ITransactionAttribute sourceAttr, String joinpointIdentification)
+   在 Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
+   在 CompositionAopProxy_792f5460ee4341c196ad788d7b8497af.GetBLLSession()
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 G:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 G:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.WeiXinApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 G:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\WeiXinApiAuthorizeFilterAttribute.cs:行号 67
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

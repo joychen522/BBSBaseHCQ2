@@ -1,0 +1,210 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <!--编辑器-->
+    <link href="~/Resources/mainFrame/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+    <style>
+        #basicArea .form-group {
+            margin: 0px;
+            padding: 0px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body class="panel-body" style="padding:2px;">
+    <div class="row">
+        <div id="divTree" class="col-sm-2" style="overflow:auto; ">
+            <div id="toDotreeview"></div>
+        </div>
+        <div class="col-sm-10">
+            <div class="example">
+                <table id="TableFromData" data-mobile-responsive="true"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="table-tool" class="row">
+        <input type="hidden" id="JianDie" />
+        <div class="col-sm-3" style="padding:0;">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        <input type="text" id="txtSearchName" style="width:180px;" class="form-control" placeholder="标题">
+                        if (folderList.Contains("addTodo"))
+                        {
+                            <button type="button" id="addTodo" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                发布
+                            </button>
+                        }
+                        if (folderList.Contains("editDetail"))
+                        {
+                            <button type="button" id="editDetail" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                详细
+                            </button>
+                        }
+                        if (folderList.Contains("reTodo"))
+                        {
+                            <button type="button" id="reTodo" class="btn btn-primary" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-retweet"></i>
+                                回复
+                            </button>
+                        }
+                        if (folderList.Contains("deleteTodo"))
+                        {
+                            <button type="button" id="deleteTodo" class="btn btn-danger" style="margin-left: 2px;">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                删除
+                            </button>
+                        }
+                        if (folderList.Contains("deleteTodo"))
+                        {
+                            <button type="button" id="btnSearch" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-search"></i>查询
+                            </button>
+                        }
+                    }
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="add_area" style="display:none;" class="col-sm-12">
+        <div id="divCon" class="col-sm-10">
+            <div id="basicArea" style="overflow:auto; margin:0px; height:300px;">
+                <form id="todoForm" class="row form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">标题</label>
+                        <div class="col-sm-11">
+                            <input class="form-control" type="text" name="to_title" id="to_title" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">收件人</label>
+                        <div class="col-sm-11">
+                            <input class="form-control" type="text" name="to_user_id" id="to_user_id" />
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            <label class="col-sm-1 control-label">抄送</label>
+                            <div class="col-sm-11">
+                                <input class="form-control" type="text" name="to_copy_to_user" id="to_copy_to_user" />
+                            </div>
+                        </div>*@
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">内容</label>
+                        <div class="col-sm-11">
+                            <input type="hidden" id="content" name="content">
+                            <div style="width:100%;" id="to_content" name="to_content" placeholder="这里输入内容">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="re_grounp" style="display:none;">
+                        <label class="col-sm-1 control-label">回复</label>
+                        <div class="col-sm-11">
+                            <input class="form-control" type="text" name="to_content_d" id="to_content_d" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row" style="height:60px; border-top:1px solid gray; margin-bottom:0px; align-content:center; text-align:center;">
+                <div class="row" style="margin-top:10px;">
+                    <button id="btnSave" class="btn btn-primary" style="width:100px;">保存</button>
+                    <button id="btnClose" class="btn btn-primary" style="width:100px;">返回</button>
+                </div>
+            </div>
+        </div>
+        <div id="divPerson" class="col-sm-2" style="overflow:auto; margin:0px; padding:0px;">
+            <div id="userTree"></div>
+        </div>
+    </div>
+
+    <div id="re_area" class="row" style="display:none;">
+        <textarea id="re_content" name="re_content" placeholder="在此输入回复内容..." style="width:500px; height:200px;">
+
+        </textarea>
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Resources/myScript/Person/TodoManager.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/summernote/summernote.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        $(function () {
+
+            $("#divPerson").height($.GetBodyHeight() - 40);
+            $("#basicArea").height($.GetBodyHeight() - 100);
+
+            $("#divTree").height($.GetBodyHeight());
+            treeHelp.BindTree("toDotreeview",@Html.Raw(ViewBag.TreeItemCode),treeClick);
+            treeHelp.BindTree("userTree",@Html.Raw(ViewBag.TreeUser),LoadPage.UserTreeClick);
+
+            $("#to_content").summernote({
+                lang: "zh-CN",
+                height: 300,
+                onImageUpload: function (files,editor,welEditable) {
+                    sendFile(files[0]);
+                }
+            });
+
+            $('#to_content').summernote('insertImage',"~/Upload/222.png",'img');
+        });
+
+        function treeClick (o){
+            $("#JianDie").val(o.code_value);
+            Table.refresh();
+        }
+
+        //summernote 编辑器上传图片
+        function sendFile(file,editor,welEditable){
+            data = new FormData();
+            //这里的file命名必须和action里面参数的名字一致
+            data.append("file", file);
+            $.ajax({
+                dataType:"text",
+                data: data,
+                type: "post",
+                url: $.GetIISName() + "/Todo/UploadImage",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

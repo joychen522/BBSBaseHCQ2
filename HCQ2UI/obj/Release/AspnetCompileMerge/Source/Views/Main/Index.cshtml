@@ -1,0 +1,384 @@
+﻿@using HCQ2_Model.ExtendsionModel
+@{
+    ViewBag.Title = "社区戒毒/康复人员定期认证系统";
+    //ViewBag.Title = "双龙航空港经济区政法与群众工作局";
+    Layout = null;
+}
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <title>社区戒毒/康复人员定期认证系统</title>
+    <!--<title>双龙航空港经济区政法与群众工作局</title>-->
+    <!--加载通用合并 js,css-->
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/style.min862f.css?v=4.1.0" rel="stylesheet"/>
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="~/Resources/myScript/loadWindow.js"></script>
+    @Scripts.Render("~/bundles/mainScript")
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/tools/custom.js"></script>
+    <script src="~/Resources/tools/jquery-hcq2-extend.js"></script>
+    <script src="~/Resources/myScript/Main/mainIndex.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/select/bootstrap-select.min.js"></script>
+    <script src="~/Resources/mainFrame/js/Cookies.js"></script>
+    <!--验证-->
+    <script src="~/Resources/mainFrame/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="~/Resources/mainFrame/js/demo/form-validate-demo.min.js"></script>
+    <script src="~/Resources/mainFrame/js/jquery.form.min.js"></script>
+    <style>
+        .nav > li > a {
+            font-family: "微软雅黑";
+            font-size: 15px;
+        }
+    </style>
+    <script>
+        showLoadBoxs();
+    </script>
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow: hidden">
+<div id="wrapper">
+<!--左侧导航开始-->
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close">
+        <i class="fa fa-times-circle"></i>
+    </div>
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header" style="padding-top: 20px;">
+                <div class="dropdown profile-element" style="text-align: center;">
+                    <span>
+                        @{
+                            if (!string.IsNullOrEmpty(ViewBag.ownHead))
+                            {
+                                <img alt="image" id="ownHead" class="img-circle" style="width: 100px; height: 100px;" src="@ViewBag.ownHead" />
+                            }
+                            else
+                            {
+                                <img alt="image" id="ownHead" class="img-circle" style="width: 100px; height: 100px;" src="~/Resources/mainFrame/img/head.png" />
+                            }
+                        }
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear" style="padding-top: 6px;">
+                                    <span class="text-muted text-xs block">@ViewBag.myUser.user_name<b class="caret"></b></span>
+                                </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li>
+                            <a class="J_menuItem" href="@Url.Action("HeadImgList", "Main")">修改头像</a>
+                        </li>
+                        <li><a href="#" onclick="mainManager.editUser()">个人信息</a></li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("Login", "SysLogin")">安全退出</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    HCQ2
+                </div>
+            </li>
+            <script type="text/javascript">
+                mainManager.initMenuList();
+            </script>
+        </ul>
+    </div>
+</nav>
+<!--左侧导航结束-->
+<!--右侧部分开始-->
+<div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                <div>
+                    <img src="~/Resources/mainFrame/img/main/main_head.png" width="600" height="60"/>
+                </div>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown hidden-xs">
+                    <a class="right-sidebar-toggle" aria-expanded="false">
+                        <i class="fa fa-tasks"></i> 设置
+                    </a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="~/error.html?40" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 联系我们</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row content-tabs">
+        <button class="roll-nav roll-left J_tabLeft">
+            <i class="fa fa-backward"></i>
+        </button>
+        <nav class="page-tabs J_menuTabs">
+            <div class="page-tabs-content">
+                <a href="javascript:;" class="active J_menuTab" data-id="@Url.Action("List", "Index")">首页</a>
+                <!--<a href="javascript:;" class="active J_menuTab" data-id="@Url.Action("DocList", "DocManager")">首页</a>-->
+            </div>
+        </nav>
+        <button class="roll-nav roll-right J_tabRight">
+            <i class="fa fa-forward"></i>
+        </button>
+        <div class="btn-group roll-nav roll-right">
+            <button class="dropdown J_tabClose" data-toggle="dropdown">
+                关闭操作<span class="caret"></span>
+            </button>
+            <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                <li class="J_tabShowActive">
+                    <a>定位当前选项卡</a>
+                </li>
+                <li class="divider"></li>
+                <li class="J_tabCloseAll">
+                    <a>关闭全部选项卡</a>
+                </li>
+                <li class="J_tabCloseOther">
+                    <a>关闭其他选项卡</a>
+                </li>
+            </ul>
+        </div>
+        <a href="@Url.Action("Login", "SysLogin")" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+    </div>
+    <div class="row J_mainContent" id="content-main">
+        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="@Url.Action("List", "Index")" frameborder="0" data-id="@Url.Action("List", "Index")" seamless></iframe>
+        <!--<iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="@Url.Action("DocList", "DocManager")" frameborder="0" data-id="@Url.Action("DocList", "DocManager")" seamless></iframe>-->
+    </div>
+    <div class="footer gray-bg" style="border-top: 1px solid;">
+        <div class="pull-right">
+            &copy; 2017 系统版本：<a class="J_menuItem" href="@Url.Action("Index", "SoftVersion")">V1.3.2</a>
+            <span id="nowTime"></span>
+        </div>
+    </div>
+</div>
+<!--右侧部分结束-->
+<!--右侧边栏：设置开始-->
+<div id="right-sidebar">
+    <div class="sidebar-container">
+        <ul class="nav nav-tabs navs-3">
+            <li class="active" style="width:100px;">
+                <a data-toggle="tab" href="#tab-1" style="font-size:15px;">
+                    <i class="fa fa-gear"></i>系统设置
+                </a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#tab-2">
+                     主题
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane active">
+                <div class="sidebar-title">
+                    <h3>
+                        <i class="fa fa-comments-o"></i> 模块选择
+                    </h3>
+                    <small><i class="fa fa-tim"></i> 你可以在这里选择模块，选中相应的模块后，系统设置将按其选择的模块进行设置，注意：这并不会保存到数据库重新登录或者刷新页面后需要重新选择相应模块设置，这里仅仅是便于集中管理。</small>
+                </div>
+                <div class="skin-setttings">
+                    <select id="sm_code" name="sm_code" title="请选择模块" class="form-control show-tick selectpicker" placeholder="请选择模块"></select>
+                </div>
+            </div>
+            <div id="tab-2" class="tab-pane">
+                <div class="sidebar-title">
+                    <h3>
+                        <i class="fa fa-comments-o"></i> 主题设置
+                    </h3>
+                    <small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>
+                </div>
+                <div class="skin-setttings">
+                    <div class="title">主题设置</div>
+                    <div class="setings-item">
+                        <span>收起左侧菜单</span>
+                        <div class="switch">
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu">
+                                <label class="onoffswitch-label" for="collapsemenu">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setings-item">
+                        <span>固定顶部</span>
+                        <div class="switch">
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar">
+                                <label class="onoffswitch-label" for="fixednavbar">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setings-item">
+                        <span>
+                                    固定宽度
+                                </span>
+                        <div class="switch">
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout">
+                                <label class="onoffswitch-label" for="boxedlayout">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title">皮肤选择</div>
+                    <div class="setings-item default-skin nb">
+                        <span class="skin-name ">
+                                    <a href="#" class="s-skin-0">
+                                        默认皮肤
+                                    </a>
+                                </span>
+                    </div>
+                    <div class="setings-item blue-skin nb">
+                        <span class="skin-name ">
+                                    <a href="#" class="s-skin-1">
+                                        蓝色主题
+                                    </a>
+                                </span>
+                    </div>
+                    <div class="setings-item yellow-skin nb">
+                        <span class="skin-name ">
+                                    <a href="#" class="s-skin-3">
+                                        黄色/紫色主题
+                                    </a>
+                                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--右侧边栏：设置结束-->
+</div>
+<!--登录信息-->
+<div id="loginMessage" style="width: 300px; overflow: hidden; display: none;">
+    <form class="form-horizontal" style="margin-left: 8px;" id="orgLoginTable" method="post">
+        <div>
+            <label class="control-label">总登录次数：</label>
+            <label id="login_count" name="login_count" class="control-label"></label>
+        </div>
+        <div>
+            <label class="control-label">本次登录IP：</label>
+            <label id="login_ip" name="login_count" class="control-label"></label>
+        </div>
+        <div>
+            <label class="control-label">本次登录时间：</label>
+            <label id="login_time" name="login_count" class="control-label"></label>
+        </div>
+        <div>
+            <label class="control-label">上次登录IP：</label>
+            <label id="last_ip" name="login_count" class="control-label"></label>
+        </div>
+        <div>
+            <label class="control-label">上次登录时间：</label>
+            <label id="last_time" name="login_count" class="control-label"></label>
+        </div>
+        <div>
+            <label class="control-label"><font color="red">若有疑问请尽快更改密码：</font>
+                <a id="btnChangePwd" class="J_menuItem" href="@Url.Action("List", "SysUser")">修改密码</a>
+            </label>
+        </div>
+    </form>
+</div>
+<!-- 用户添加/编辑 -->
+<div id="org_form" style="width: 460px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="orgFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用户名<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="user_name" name="user_name" type="text" class="form-control input-sm" placeholder="请输入用户名" title="请输入用户名" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">登录名<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="login_name" name="login_name" type="text" class="form-control input-sm" placeholder="请输入登录名" title="请输入登录名" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">密码<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="user_pwd" name="user_pwd" type="password" class="form-control input-sm" placeholder="请输入密码" title="请输入密码" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">性别<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="user_sex" name="user_sex" title="请选择性别" class="form-control input-sm selectcontrol" required="" aria-required="true" placeholder="请选择性别" style="padding: 5px 10px;">
+                    <option value="男" selected>男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">QQ：</label>
+            <div class="col-sm-7">
+                <input id="user_qq" name="user_qq" type="text" class="form-control input-sm" placeholder="请输入QQ" title="请输入QQ" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">电子邮件：</label>
+            <div class="col-sm-7">
+                <input id="user_email" name="user_email" type="text" class="form-control input-sm" placeholder="请输入电子邮件" title="请输入电子邮件" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">生日：</label>
+            <div class="col-sm-7">
+                <input id="user_birth" name="user_birth" type="text" class="laydate-icon form-control input-sm" placeholder="请输入生日" title="请输入生日" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">电话号码：</label>
+            <div class="col-sm-7">
+                <input id="user_phone" name="user_phone" type="text" class="form-control input-sm" placeholder="请输入电话号码" title="请输入电话号码" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">住址：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="user_address" name="user_address" rows="3" placeholder="请输入住址信息" title="请输入住址信息"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="user_note" name="user_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@Scripts.Render("~/bundles/indexScript")
+<script>
+    //系统时间显示
+    setInterval("document.getElementById('nowTime').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());", 1000);
+    $(function () {
+        $('#sm_code').initModuleSelectpicker();
+        //$('#sm_code').on('change', function () {
+        //    var str = $('#sm_code').val();
+        //    if(str)
+        //        $.cookie("sm_code", str);
+        //    else
+        //        $.cookie("sm_code", "");
+        //});
+    });
+    //在主页通过url打开窗口
+    function main_openWindowByLink(options) {
+        return window.parent.custom.DialogIframe(options);
+    }
+</script>
+</body>
+</html>

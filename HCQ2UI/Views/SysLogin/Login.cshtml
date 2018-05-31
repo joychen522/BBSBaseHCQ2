@@ -1,0 +1,110 @@
+﻿@model HCQ2_Model.ViewModel.LoginUser
+@{
+    ViewBag.Title = "社区戒毒/康复人员定期认证系统";//流动务工人员工资支付监管平台，双龙航空港经济区政法与群众工作局
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>社区戒毒/康复人员定期认证系统</title>
+    <link href="~/Resources/lanse/css/pintuer.css" rel="stylesheet" />
+    <link href="~/Resources/lanse/css/admin.css" rel="stylesheet"/>
+    @Scripts.Render("~/bundles/baseScript")
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+    <script src="~/Resources/lanse/js/pintuer.js"></script>
+    <script src="~/Resources/myScript/Login.js"></script>
+    <script>
+        if (window != top)
+            window.parent.location.href = location.href;//在顶层打开，跳出框架
+            //top.location.href = location.href;//在顶层打开，跳出框架
+        var index;
+        function Success(data) {
+            $.Login(data, function (data) {
+                var url = "@Url.Content("~/")" + data.Url;
+                window.location.href = url;
+            }, function (data) {
+                changeImg();
+                layer.close(index);
+                layer.open({
+                    icon: 5,
+                    shade: false,
+                    title: false, //不显示标题
+                    btn: '',
+                    content: "<font color='#E85141'>登录失败：" + data.Msg+"</font>"
+                });
+                return false;
+            });
+        }
+        function tips() {
+            index = layer.msg('登录中......', { icon:6, time: 12000 });
+        }
+        //点击重新生成图片
+        function changeImg() {
+            var codeImg = $('#imgCode').attr("src");
+            $('#imgCode').attr("src", codeImg + "1");
+        }
+        $(function() {
+            //背景随机数
+            //setInterval(function() {
+            //    var random = Math.floor(Math.random() * 4 + 1);
+            //    $('#bgImg').css("background", "url(Resources/lanse/images/bg" + random + ".png)");
+            //},5000);
+        });
+    </script>
+</head>
+<body>
+<div  id="bgImg" class="bg"></div>
+    <div class="container">
+        <div class="line bouncein" style="text-align: center;">
+            <div class="xs6 xm4 xs3-move xm4-move"  style="width: 410px; ">
+                @using (Ajax.BeginForm("Login",null, new AjaxOptions()
+                {
+                    HttpMethod = "post",
+                    LoadingElementId= "divMsg",
+                    OnSuccess = "Success",
+                    OnBegin="tips"
+                }, new { @style = "margin-top: 120px" }))
+                {
+                    <div class="panel loginbox">
+                        <div class="text-center margin-big padding-big-top">
+                            <h1>系统登录</h1>
+                        </div>
+                        <div class="panel-body" style="padding: 30px; padding-bottom: 10px; padding-top: 10px;">
+                            <div class="form-group">
+                                <div class="field field-icon-right">
+                                    @Html.TextBoxFor(s => s.LoginName, new {
+                                   @class = "input input-big",
+                                   @name = "name",
+                                    placeholder = "登录账号",
+                                   @data_validate = "required:请填写账号"
+                               })
+                                <span class="icon icon-user margin-small"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="field field-icon-right">
+                                    @Html.PasswordFor(s => s.UserPwd, new { @class = "input input-big", @name = "password", placeholder = "登录密码", @data_validate = "required:请填写密码" })
+                                    <span class="icon icon-key margin-small"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="field">
+                                    @Html.TextBoxFor(s => s.ReCode, new { @class = "input input-big", name = "code",placeholder = "填写右侧的验证码", @data_validate = "required:请填写右侧的验证码" })
+                                    <img id="imgCode" src="@Url.Action("CreateValidateCode","SysLogin")?ID=new Date()" alt="" width="100" height="32" class="passcode" style="height: 43px; cursor: pointer;" onclick="changeImg();"  title="点击重置验证码~">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 30px;">
+                            <input type="submit" class="button button-block bg-main text-big input-big" value="登录">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

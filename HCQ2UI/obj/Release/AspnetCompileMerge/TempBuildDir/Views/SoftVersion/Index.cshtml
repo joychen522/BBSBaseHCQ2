@@ -1,0 +1,455 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>更新说明</title>
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet" />
+</head>
+<body>
+    <!--更新日志-->
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>更新日志</h5>
+            </div>
+            <div class="ibox-content no-padding">
+                <div class="panel-body">
+                    <div class="panel-group" id="version">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v132" name="v132">v1.3.2</a><code class="pull-right">2017.05.24</code>
+                                </h4>
+                            </div>
+                            <div id="v132" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>新增 发送给个人的代办事宜现在可以回复。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v131" name="v131">v1.3.1</a><code class="pull-right">2017.05.24</code>
+                                </h4>
+                            </div>
+                            <div id="v130" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>新增 新闻通知。</li>
+                                        <li>更改 更新说明迁移到首页右下角的版本号，点击查看。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v130" name="v130">v1.3.0</a><code class="pull-right">2017.04.21</code>
+                                </h4>
+                            </div>
+                            <div id="v130" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>更新 首页统计数字能点击</li>
+                                        <li>新增 首页待办事宜为信箱功能，可以正常使用</li>
+                                        <li>修正 监管信息修正部分BUG</li>
+                                        <li>修正 个人信息人员管理头像能正常上传以及预览</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v129" name="v129">v1.2.9</a><code class="pull-right">2017.04.14</code>
+                                </h4>
+                            </div>
+                            <div id="v129" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>更新 账号登录同一个账号在相同时间不能同时登录，第二个登录成功后将强制退出第一个登录；</li>
+                                        <li>更新 薪资模板 一级目录添加成功后不显示问题；</li>
+                                        <li>更新 登录名重复问题；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v128" name="v128">v1.2.8</a><code class="pull-right">2017.04.01</code>
+                                </h4>
+                            </div>
+                            <div id="v128" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>更新 账号登录同一个账号在相同时间不能同时登录，第二个登录成功后将强制退出第一个登录；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v127" name="v127">v1.2.7</a><code class="pull-right">2017.03.24</code>
+                                </h4>
+                            </div>
+                            <div id="v127" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        提示 > 新增的六中服务 请求地址、请求方式、提交参数、返回值等数据参见《流动务工项目数据接口定义API.docx》；
+                                    </div>
+                                    <ol>
+                                        <li>更新 用户管理>代管配置，权限管理>单位代管权限配置新增对单位树的查询检索 并高亮显示功能；</li>
+                                        <li>更新 月趋势图数据统计不完整的问题；</li>
+                                        <li>更新 用户管理和组织结构结合，新增用户可以存储为系统用户，组织机构用户，两类用户具有相同的权限分配，组织机构用户主要用于硬件请求API服务；</li>
+                                        <li>新增服务： 用户登录、员工入职登记、员工考勤登记、员工工资信息下发、员工工资发放登记、人员和虹膜信息下发； </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v126" name="v126">v1.2.6</a><code class="pull-right">2017.03.17</code>
+                                </h4>
+                            </div>
+                            <div id="v126" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        提示>1：新增的发放人员手工选择 未选择数据，已选择数据都提供查询功能，并支持多个关键字同时检索，关键字之间用 | 符号分割、如果有数字的情况下支持正则表达式检索 如：ion ([7-9]|[1][0-1]) 表示的是关键数字7-10以内检索<br />
+                                        2：新增 员工工资发放登记API 传递方式、参数、返回均按照 流动务工人员工资支付监管平台《虹膜设备对接API手册》v2.4.docx文档设计，其中的请求地址：http://域名或IP/IIS项目名/api/Finance/AffirmWageByPerson; 其中文档上要求返回本次签到的内部编号salarysignid，不知为何物
+                                    </div>
+                                    <ol>
+                                        <li>更新 薪资监管>薪资模板 管理页面1：新增条件查询（按姓名查询）、2：工资，打卡等数据可直接在表格上点击数字修改、3：工资，应发工资，实发工资等初始化读取A01表基本工资；</li>
+                                        <li>更新 薪资监管>薪资发放 新增查询功能（按发放原因，状态，开始发放时间，截止发放时间）查询；</li>
+                                        <li>更新 薪资监管>薪资发放 管理页面新增查询（按用户名查询）；</li>
+                                        <li>新增 工资监管>薪资发放 管理生成数据选人添加：手工选择 如果有数据的情况下再生成将覆盖之前的数据；</li>
+                                        <li>新增 WebService 虹膜设备对接API（员工工资发放登记），根据文档传递的信息更新 WGJG02表已确认，登记时间</li>
+                                        <li>
+                                            新增实施管理，地址：Implement/Index，按钮元素：查询（btnSearch）、新增（AddImplement）、编辑（EditImplement）、删除（DeleteImplement）
+                                            需要添加数据字典：实施状态(ImplementStatus) 及其子节点：未付（0001）、已付（0002）、完工（0003）
+                                        </li>
+                                        <li>新增 点击人员姓名，可以正确的查询“维权凭证”，暂时还不能打印。</li>
+                                        <li>修正 不能添加工地的问题，在企业信息>企业管理 功能下可以正确的添加单位以及工地。</li>
+                                        <li>修正 员工信息>信息管理 这里可以正确的添加、编辑、删除人员信息。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v125" name="v125">v1.2.5</a><code class="pull-right">2017.03.10</code>
+                                </h4>
+                            </div>
+                            <div id="v125" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        注意：新增的单位代管权限 和 用户管理下的代管配置同时有效获取数据时将其合并
+                                        代管配置：主要针对个别人员特殊的情况；
+                                        单位代管权限：针对具有通用性的人员配置，允许将其分配给角色；
+                                    </div>
+                                    <ol>
+                                        <li>新增 征信信息>企业征信 包含(新增、编辑、删除、查询)等；</li>
+                                        <li>新增 单位代管权限 ：在新增权限时权限类别新增单位代管，将单位代管作为一种资源进行权限管理，设置后和原来的用户管理里边的代管配置 同时有效；</li>
+                                        <li>更新 单位目录树左右线条粗的问题；</li>
+                                        <li>更新 单位目录树默认进入页面时选中第一个节点，并且高亮显示；</li>
+                                        <li>更新 薪资监管>薪资模板 1、首次进如默认选择第一个单位并且高亮显示，2、单位选择树线条重合导致过粗的问题，3、发放主题左对齐，4、状态为“发起”背景为淡绿色，“冻结”淡红色，5、人数统计并非有误，问题在于在管理里边生成数据后关闭窗口模板也未及时刷新页面更新数据造成，已做更新处理，6、单位选择树图标和用工记录保持一致；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v124" name="v124">v1.2.4</a><code class="pull-right">2017.03.03</code>
+                                </h4>
+                            </div>
+                            <div id="v124" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        注：新增的功能中部分添加数据中存在下拉型选择，下拉值的修改请到系统管理下的字典管理中修改
+                                    </div>
+                                    <ol>
+                                        <li>新增 统计分析>汇总统计 提供单位、开始-结束日期查询并生成图表；</li>
+                                        <li>新增 监管信息>月趋势图 提供单位、开始-结束日期查询每月打卡人数，并动态生成图表；</li>
+                                        <li>新增 监管信息>请假管理 指定单位添加、编辑、删除请假数据，并提供按名称、开始请假时间-结束请假时间查询；</li>
+                                        <li>新增 征信信息>个人征信 提供个人征信信息的添加、编辑、删除、查询功能；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v123" name="v123">v1.2.3</a><code class="pull-right">2017.02.24</code>
+                                </h4>
+                            </div>
+                            <div id="v123" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>更新 主页目录树只有一层菜单的情况下链接失效bug；</li>
+                                        <li>新增 修改头像功能包括：本地上传，在线摄像头拍照两种上传方式~头像大小允许剪切尺寸要求200*200，并且允许调整图片的亮度、对比度、饱和度等；</li>
+                                        <li>新增 用户信息查看编辑功能，并且登录名只能唯一；</li>
+                                        <li>
+                                            新增 薪资监管>发放汇总 可根据用户以及发放时间查询，允许被导出，两种导出方式：表格右上方的导出只能导出当前分页数据，
+                                            “全部导出”按钮可以导出根据条件检索到的所有数据；
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v122" name="v122">v1.2.2</a><code class="pull-right">2017.02.17</code>
+                                </h4>
+                            </div>
+                            <div id="v122" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>更新 工资管理 其中模板数据允许重复发放，只替换未确认的数据，已确认的数据不受影响；</li>
+                                        <li>更新 工资管理 发放方式：两种发放方式第一种手动点击发放，需要录入约定发薪日期，第二种如果模板中填写了约定发薪日，到达每月的这一天如果没有手动点击发放，后台将自动发放；</li>
+                                        <li>更新 工资管理 发放算法，将原来在C#后台代码转移至SQL存储过程中执行，提高运行效率以及采用事务保证数据的一致性；</li>
+                                        <li>更新 工资发放 添加编辑，撤销功能；</li>
+                                        <li>添加 封装树控件查询功能插件：treeview-search-custom.js研发人员有需要的可参考，财务管理，统计信息，系统管理部分页面已添加了对树控件的查询功能；</li>
+                                        <li>添加 人员管理 可以对人员以及人员档案进行增、删、改、查；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v121" name="v121">v1.2.1</a><code class="pull-right">2017.02.14</code>
+                                </h4>
+                            </div>
+                            <div id="v121" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>新增 工资监管>工资发放 包含查看工资发放状态以及人员；</li>
+                                        <li>新增 工资监管>工资管理 模板的(新增，编辑，删除，发放)，人员管理中通过 用工单位生成数据 ；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v120" name="v120">v1.2.0</a><code class="pull-right">2017.01.20</code>
+                                </h4>
+                            </div>
+                            <div id="v120" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>完成权限判断，根据权限的分配可实现控制；</li>
+                                        <li>对于页面元素的控制新增特性：ElementAttribute用于在过滤器中控制是否封装元素页面使用：ViewBag.elementList，开发人员注意使用</li>
+                                        <li>更新 登录成功后IP地址记录错误问题</li>
+                                        <li>更新 权限管理设置bug</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v119" name="v119">v1.1.9</a><code class="pull-right">2017.01.13</code>
+                                </h4>
+                            </div>
+                            <div id="v119" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        此版本发布的后台权限设置 仅仅是设置项，对权限的验证将在下一个版本中实现
+                                    </div>
+                                    <ol>
+                                        <li>首页新增显示登录记录；</li>
+                                        <li>新增 系统管理>角色管理 包括功能（新增，编辑，删除，权限分配等）；</li>
+                                        <li>新增 系统管理>权限管理 包括功能（新增，编辑，删除，权限设置），其中权限设置分为：菜单权限，元素权限；</li>
+                                        <li>新增 系统管理>菜单管理 包括功能（添加同级节点，添加子节点，上移，下移，编辑，删除等）；</li>
+                                        <li>新增 系统管理>元素管理 包括功能（新增，编辑，删除等）；</li>
+                                        <li>新增 系统管理>组管理 包括功能（新增，编辑，删除，权限设置）并且提供对应组查询角色，用户；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v118" name="v118">v1.1.8</a><code class="pull-right">2017.01.06</code>
+                                </h4>
+                            </div>
+                            <div id="v118" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>新增登录权限控制，密码错误不能超过5次，超过5次将被禁用1小时；</li>
+                                        <li>更新>用户管理，当用户被禁止一小时候管理员可在用户管理处：激活；</li>
+                                        <li>新增系统设置>菜单管理：新增，编辑，删除，排序等操作，并且可以修改目录菜单前的图标；</li>
+                                        <li>更新框架页菜单目录树，动态读取数据库存储数据；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v117" name="v117">v1.1.7</a><code class="pull-right">2016.12.30</code>
+                                </h4>
+                            </div>
+                            <div id="v117" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>新增系统管理>用户管理；</li>
+                                        <li>新增系统管理>角色管理；</li>
+                                        <li>新增系统管理>权限管理；</li>
+                                        <li>登录信息采用用户管理中的正式数据>管理员登录信息账号：admin，密码：admin；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v116" name="v116">v1.1.6</a><code class="pull-right">2016.12.23</code>
+                                </h4>
+                            </div>
+                            <div id="v116" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>首页改版升级正在进行，新增欠薪金额，欠薪人数统计，点击统计图可查看具体数据；</li>
+                                        <li>各查询统计点击人员姓名均可查看该人员详细信息；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v115" name="v115">v1.1.5</a><code class="pull-right">2016.12.16</code>
+                                </h4>
+                            </div>
+                            <div id="v115" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        业务功能以及底层代码更新日志：
+                                    </div>
+                                    <ol>
+                                        <li class="text-danger">
+                                            <b>增加统计分析>欠薪时间统计功能，根据选择不同单位或者区域进行按时间统计；</b> <a href="@Url.Action("DebtTime", "DebtStatistics")" title="去看看"><i class="fa fa-eye"></i></a>
+                                        </li>
+                                        <li>
+                                            修改统计分析>欠薪金额中的样式问题(高度，宽度)；<a href="@Url.Action("DebtMoney", "DebtStatistics")" title="去看看"><i class="fa fa-eye"></i></a>
+                                        </li>
+                                        <li>Common层新增Ado.net数据访问(SqlHelper)，弥补EF执行复杂SQL，存储过程等的复杂问题；</li>
+                                        <li>处理EF，Ado.net配置文件中数据库访问连接字符串配置不统一问题(最终统一采用一个配置)；</li>
+                                        <li>新增日志记录功能：异常日志；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v114" name="v114">v1.1.4</a><code class="pull-right">2016.12.09</code>
+                                </h4>
+                            </div>
+                            <div id="v114" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>监管信息 > 工时月统计 已经能够正常预览。</li>
+                                        <li>监管信息 > 发放明细 已经能够正常预览。</li>
+                                        <li>监管信息 > 用工信息 已经能够正常预览。</li>
+                                        <li>监管信息 > 重复数据 已经能够正常预览。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v113" name="v113">v1.1.3</a><code class="pull-right">2016.12.02</code>
+                                </h4>
+                            </div>
+                            <div id="v113" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>监管信息 > 工时记录 已经能够正常预览。</li>
+                                        <li>在以后类似的界面中，我们将采用通用的方式来进行布局.</li>
+                                        <li>因为页面采用布局大致相同，所以我们需要完善非常多的底层信息，所以能够预览界面设计不是很多。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v112" name="v112">v1.1.2</a><code class="pull-right">2016.11.25</code>
+                                </h4>
+                            </div>
+                            <div id="v112" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>修复bug：登录页成功登录后，点击浏览器回退再次登录提示验证码不正确异常；</li>
+                                        <li>企业信息>企业管理 以及 员工管理>人员信息 更改加载页面方式。</li>
+                                        <li>监管信息>工时记录，设计了一个大体的模型（还再不断完善中），其他类似页面将统一采用此模型。</li>
+                                        <li>我们还再不断的完善底层数据，能够预览界面设计不是很多。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v111" name="v110">v1.1.1</a><code class="pull-right">2016.11.18</code>
+                                </h4>
+                            </div>
+                            <div id="v111" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li>首页验证码采用动态生成；</li>
+                                        <li>首页新增更新日志记录；</li>
+                                        <li>点击目录连接加载效果；</li>
+                                        <li>企业信息>企业管理简单实现(查询/显示企业信息)；</li>
+                                        <li>员工管理>个人信息简单实现(查询/显示个人信息)；</li>
+                                        <li>统计分析>欠薪金额 实现动态统计欠薪金额/保证金额；</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#version" href="#v100" name="v100">v1.0.0</a><code class="pull-right">2016.11.11</code>
+                                </h4>
+                            </div>
+                            <div id="v100" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="alert alert-warning">
+                                        此版本是一个静态演示效果版本，主要包含登录页，首页目录连接， 首页静态欠薪情况统计图
+                                    </div>
+                                    <ol>
+                                        <li>HCQ2首次发布静态简单版本。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/mainScript")
+</body>
+</html>

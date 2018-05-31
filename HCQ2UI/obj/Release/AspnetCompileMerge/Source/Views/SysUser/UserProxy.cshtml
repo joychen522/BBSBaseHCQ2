@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "UserProxy";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/demo.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/metroStyle.css" rel="stylesheet"/>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.core.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.excheck.min.js"></script>
+    <script src="~/Resources/tools/search_zTree.js"></script>
+    <style>
+        #userTree {
+            font-size: 16px;
+        }
+    </style>
+}
+<div id="unitTree"  style="width: 450px; height: 400px;"></div>
+@section footSection{
+    <script src="~/Resources/myScript/SysUser/userManager.js"></script>
+    <script>
+        $(function () {
+            userzTree.initzTree();
+        });
+    </script>
+}
+

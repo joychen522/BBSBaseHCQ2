@@ -1,0 +1,142 @@
+﻿@model HCQ2_Model.T_PageElement
+@{
+    ViewBag.Title = "元素管理";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+<style>
+    .float-unit {
+        height: 100%;
+        border: 1px solid #E7EAEC;
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+        margin-bottom: 0px;
+    }
+
+    .left-sm-3 {
+        padding-left: 0px;
+    }
+
+    .right-sm-9 {
+        padding-right: 0px;
+    }
+
+    .ibox-unit {
+        overflow-y: auto;
+        height: 90%;
+        padding: 0px;
+    }
+</style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择模块-->
+        <div class="col-sm-2 autoHeight left-sm-3" style="padding-right: 0;">
+            <div class="ibox float-e-margins float-unit">
+                <div class="ibox-title" style="border-width: 0">
+                    <select id="smCode" name="smCode" title="请选择所属模块" class="form-control show-tick selectpicker" placeholder="请选择所属模块"></select>
+                    <div class="ibox-tools">
+                        <a class="dropdown-toggle" onclick=' elementManager.initMenu("@Url.Action("GetMenuData", "SysMenu")") ' data-toggle="dropdown" href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ibox-unit">
+                    <div id="MenuTreeview" class="test"></div>
+                </div>
+            </div>
+        </div>
+        <!--生成图表-->
+        <div class="col-sm-10 right-sm-9" style="padding-left: 5px;">
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("elementAdd"))
+                        {
+                            <button id="elementAdd" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                            </button>
+                        }
+                        if (folderList.Contains("elementEdit"))
+                        {
+                            <button id="elementEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                        }
+                        if (folderList.Contains("elementDel"))
+                        {
+                            <button id="elementDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                        }
+                    } 
+                </div>
+                <table id="elementTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加/编辑-->
+<div id="elementForm" style="width: 430px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="elementFormTable" method="post">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">元素名称<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="pe_name" name="pe_name" type="text" class="form-control input-sm" placeholder="请输入元素名称" title="请输入元素名称" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">元素ID<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="pe_code" name="pe_code" type="text" class="form-control input-sm" placeholder="请输入元素ID" title="请输入元素ID" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">事件名称<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id=pe_event title="请选择事件" name="pe_event" class="selectpicker show-tick bs-select-hidden" data-live-search="false" required="" aria-required="true" placeholder="请选择事件">
+                    <option value="click" selected>单击事件</option>
+                    <option value="dblclick">双击事件</option>
+                    <option value="blur">失去焦点事件</option>
+                </select>
+                @*<select id="per_type" name="per_type" title="请选择权限类别" class="form-control input-sm selectcontrol" required="" aria-required="true" placeholder="请选择权限类别" style="padding: 5px 10px;">
+                        <option value="菜单权限" selected>菜单权限</option>
+                        <option value="元素权限">元素权限</option>
+                    </select>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">方法名称<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="pe_func" name="pe_func" type="text" class="form-control input-sm" placeholder="请输入方法名称" title="请输入方法名称" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="pe_note" name="pe_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/bootstrap-treeview-min.js"></script>
+    <script src="~/Resources/myScript/SysAdmin/elementManager.js"></script>
+    <script>
+        $(function () {
+            //初始化菜单
+            parent.showLoadBoxs();
+            elementManager.initSelect();
+            elementManager.initMenu();
+            elementManager.bindEvent();
+            elementManager.initTable();
+            parent.delLoadBoxs();
+        });
+    </script>
+}
+

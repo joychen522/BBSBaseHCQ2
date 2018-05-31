@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Resources/mainFrame/js/bootstrap.min.js"></script>
+    <script src="~/Resources/layer-3.0.1/layer.js"></script>
+</head>
+<body>
+    <form id="form1" method="POST" action="">
+        <object classid="clsid:BCC0CDFA-676A-43F2-B1D7-B4CD3FF72B6A" id="sy305" style="width: 670px; height: 200px; border:1px solid gray;">
+            <param name="_Version" value="65536" />
+            <param name="_ExtentX" value="24262" />
+            <param name="_ExtentY" value="16219" />
+            <param name="_StockProps" value="0" />
+        </object>
+        <input id="ButtonSmall" type="button" value="注册Small虹膜" onclick="return GetSmallIris()" style="display:none;" class="btn btn-primary" />
+        <input id="ButtonBig" type="button" value="注册Big虹膜" onclick="return GetBigIris()" class="btn btn-primary" />
+        <input id="btnShibie" type="button" value="识别" onclick="return Matchiris()" />
+        <input id="ButtonClose" type="button" value="关闭设备" onclick="return js_closeiris()" class="btn btn-primary" />
+        <input id="ButtonOver" type="button" value="采集完成" class="btn btn-primary" />
+        <br />
+        <label id="lblSmall" style="color:red; font-family:楷体; font-size:14px;"></label>
+        <br />
+        <label id="lblBig" style="color:red; font-family:楷体;font-size:14px;"></label>
+        <p>
+            <textarea id="TextArea_Enroll_Small" style="width: 338px; height: 129px;display:none;"></textarea><br />
+            <textarea id="TextArea_Enroll_Big" style="width: 338px; height: 129px;display:none;"></textarea><br />
+        </p>
+        <code></code>
+    </form>
+    <script language="javascript" type="text/javascript" for="sy305" event="EnrollBothIrisStrEvent(sIrisLeft_Small,sIrisRight_Small,sIrisLeft_Big,sIrisRight_Big,sIrisLeft_I8,sIrisRight_I8,EnrollResult)">
+        if (EnrollResult == 1) {
+            if (result == 0) {
+                form1.TextArea_Enroll_Small.value = sIrisRight_Small + sIrisLeft_Small;//<!-- 保存好SMALL虹膜信息,如果有的话-->
+                document.getElementById("lblSmall").innerHTML = "Small虹膜采集成功！";
+            }
+            if (result == 1) {
+                form1.TextArea_Enroll_Big.value = sIrisRight_Big + sIrisLeft_Big;//<!-- 保存好BIG虹膜信息,如果有的话-->
+                document.getElementById("lblBig").innerHTML = "Big虹膜采集成功！";
+
+                var small = form1.TextArea_Enroll_Small.value;
+                var big = form1.TextArea_Enroll_Big.value;
+                window.parent.addBaneManager.Iris(small, big);
+                parent.layer.closeAll();//关闭所有layer窗口
+            }
+        } else {
+            alert("注册失败");
+        }
+    </script>
+    <!--
+        虹膜识别事件,识别完成后会自动跳转到该脚本
+    -->
+    <script language="javascript" type="text/javascript" for="sy305" event="MatchIrisEvent(MatchIndex_Small, MatchIndex_Big, MatchIndex_I8,  MatchResult)">
+        //第六步：返回识别成功的虹膜索引（在提示成功或失败时，提供使用人员知晓）
+        if (MatchResult == 1) {
+            alert("识别成功,和第" + String(MatchIndex_Big) + "个虹膜匹配");
+        }
+        else {
+            alert("识别失败;")
+        }
+    </script>
+    <script>
+
+        $(function () {
+            document.getElementById("lblSmall").innerHTML = "";
+            document.getElementById("lblBig").innerHTML = "";
+            $("#ButtonOver").click(function () {
+                var small = form1.TextArea_Enroll_Small.value;
+                var big = form1.TextArea_Enroll_Big.value;
+                if (big == null || big == "" || big == undefined) {
+                    alert("采集失败，请重新采集！");
+                } else {
+                    window.parent.IdentifyCodeCard.Set(small, big);
+                    parent.layer.closeAll();//关闭所有layer窗口
+                }
+                
+            })
+        });
+
+        //识别事件
+        function Matchiris() {
+            if (comm_initIris() == 0)
+                return;
+
+            //第二步：初始化虹膜库，规则：一个眼睛的虹膜数据长度为1024字节
+            if (form1.TextArea_Enroll_Big.value.length < 1024) {
+                alert('BIG虹膜代码不对');
+                return;
+            }
+
+            //第三步：按照《识别规则》的要求写就可以。
+            var ret = document.getElementById('sy305').MatchIrisStr(
+                    "", 0,
+                    form1.TextArea_Enroll_Big.value, form1.TextArea_Enroll_Big.value.length / 1024,
+                    "", 0,
+                    0, 0
+            );
+
+            //第四步：启动验证流程,只是启动验证过程,具体识别结果要等事件响应，找事件：MatchIrisEvent（）；
+            if (ret != 1)
+                alert("启动验证失败" + ret);
+            else
+                alert("启动验证成功" + ret);
+        }
+
+        //虹膜获取标识
+        var result = 0;
+
+        //双目虹膜注册--采集small虹膜
+        function GetSmallIris() {
+            result = 0;
+            var small_iris_json = "{\"client_id\":\"lutaikeji\",\"capture_realtime_iris\":\"0\",\"with_small_iris\":\"1\",\"with_big_iris\":\"0\",\"with_i8_iris\":\"0\",\"iris_with_bkcapture\":\"0\",\"iris_bkcapture_camera\":\"1\",\"capture_path\":\"\",\"bkcapture_path\":\"\"}";
+            document.getElementById("sy305").Burger = small_iris_json;
+            //注册人员id 不能为空
+            var enrollId = "123";
+            document.getElementById("sy305").EnrollID = enrollId;
+
+            //第二步：设置字符串模式，必须
+            document.getElementById("sy305").StringMode = 1;
+            document.getElementById("sy305").EnableVoice = 1;
+
+            //初始化虹膜库
+            if (comm_initIris() == 0)
+                return;
+
+            //第三步：启动虹膜注册，调用注册方法：EnrollBothIris();
+            ret = document.getElementById('sy305').EnrollBothIris();
+
+            // 第四步：显示启动结果
+            //if(ret !=1 )
+            //    alert("启动注册失败" + ret);
+            //else
+            //    alert("启动注册成功" + ret);
+        }
+
+        //初始化设备
+        function comm_initIris() {
+            var r = document.getElementById("sy305").InitIris;
+            if (r == 2 || r == 3)	//等待拍照摄像头关闭或者已经初始化过
+            {
+
+            }
+            else if (r != 1) {
+                alert("初始化虹膜失败:" + String(r));
+                return 0;
+            }
+            return 1;
+        }
+
+        //关闭设备
+        function js_closeiris() {
+            document.getElementById('sy305').CloseIris();
+        }
+
+        //双目虹膜注册--采集big虹膜
+        function GetBigIris() {
+            result = 1;
+            var BigIrisJson = "{\"client_id\":\"lutaikeji\",\"capture_realtime_iris\":\"0\",\"with_small_iris\":\"0\",\"with_big_iris\":\"1\",\"with_i8_iris\":\"0\",\"iris_with_bkcapture\":\"0\",\"iris_bkcapture_camera\":\"1\",\"capture_path\":\"\",\"bkcapture_path\":\"\"}";
+            document.getElementById("sy305").Burger = BigIrisJson;
+            //第一步：初始化保存数据的值，这个是用来写I显示到页面的时候，用来放数据的，如果是实际开发中，可以保存下来，后续提交到后台
+            //注册人员id 不能为空
+            var enrollId = "lutai_big_123";
+            document.getElementById("sy305").EnrollID = enrollId;
+
+            //第二步：设置字符串模式，必须
+            document.getElementById("sy305").StringMode = 1;
+            document.getElementById("sy305").EnableVoice = 1;
+
+            //var cc = "{ \"camera_brightness\": \"0\", \"camera_contrast\": \"32\", \"camera_hue\": \"0\", \"camera_sat uration\": \"0\", \"camera_sharpness\": \"3\", \"camera_gamma\": \"100\", \"camera_gain\": \"100\", \"camera_backlight\": \"950\", \"camera_exposure_auto\": \"1\", \"camera_exposure_manual _val\": \"-6\" }";
+            //document.getElementById("sy305").SetCameraParams(1, cc);
+
+            //初始化虹膜库
+            if (comm_initIris() == 0)
+                return;
+
+            //第三步：启动虹膜注册，调用注册方法：EnrollBothIris();
+
+            ret = document.getElementById('sy305').EnrollBothIris();
+
+            // 第四步：显示启动结果
+            //if (ret != 1)
+            //    alert("启动注册失败" + ret);
+            //else
+            //    alert("启动注册成功" + ret);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "戒毒人员管理";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/demo.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/metroStyle.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.core.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.excheck.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.exedit.min.js"></script>
+    <script src="~/Resources/tools/search_zTree.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/bootstrap-table/export/tableExport.js"></script>
+    <script src="~/Resources/tools/jsExportToExecl.js"></script>
+    <style>
+        body {
+            font-family: '微软雅黑';
+            font-size: 14px;
+            color: #676a6c;
+        }
+
+        a {
+            font-size: 15px;
+        }
+
+        .float-unit {
+            height: 100%;
+            border: 1px solid #E7EAEC;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+        }
+
+        .left-sm-3 {
+            padding-left: 0px;
+        }
+
+        .right-sm-9 {
+            padding-right: 0px;
+        }
+
+        .ibox-unit {
+            overflow-y: auto;
+            height: 89%;
+            padding: 0px;
+        }
+
+        #exampleToolbar div {
+            margin-bottom: 0px;
+        }
+
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-right: 5px;
+            margin-top: 1px;
+        }
+
+        .form-group > button {
+            margin-top: -2px;
+            margin-bottom: 2px;
+        }
+
+        #unitTreezTreeData {
+            border: 0;
+            border-top: 1px solid #E7EAEC;
+            background: #FFFFFF;
+        }
+
+            #unitTreezTreeData li {
+                line-height: 28px;
+            }
+
+                #unitTreezTreeData li:hover {
+                    background: #F5F5F5;
+                }
+
+        #search_condition {
+            width: 99%;
+        }
+
+        .selectTreezTreeLI {
+            background-color: #2DC1C3;
+            color: #fff;
+        }
+
+        #nodeFormTable label {
+            font-weight: bold;
+        }
+
+        .fileClass label {
+            text-align: right;
+        }
+
+        #upFileForm .col-sm-7 {
+            margin-bottom: 8px;
+        }
+
+        #bootstrap-duallistbox-selected-list_duallistbox_demo1 option, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option {
+            height: 30px;
+            line-height: 30px;
+            padding-top: 5px;
+        }
+
+            #bootstrap-duallistbox-selected-list_duallistbox_demo1 option:hover, bootstrap-duallistbox-nonselected-list_duallistbox_demo1 option:hover {
+                background-color: antiquewhite;
+            }
+
+        .buttons {
+            width: 100%;
+        }
+
+            .buttons button {
+                width: 50%;
+            }
+    </style>
+}
+<div class="wrapper animated fadeInRight autoHeight">
+    <!-- Panel Other -->
+    <div class="row autoHeight" style="background-color: #fff;">
+        <!--选择单位-->
+        <div id="unitTree" class="col-sm-2" style="height:100%;padding:0;border:1px solid #E7EAEC;"></div>
+        <div class="col-sm-10 col-sm-leftRight" style="padding-left: 5px; margin-top: 2px;">
+            <!-- Example Toolbar -->
+            <div class="example">
+                <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                    @{
+                        List<string> folderList = (List<string>)ViewBag.elementList;
+                        if (folderList.Contains("baneAdd"))
+                        {
+                            <button id="baneAdd" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true">添加</i>
+                            </button>
+                        }
+                        if (folderList.Contains("baneEdit"))
+                        {
+                            <button id="baneEdit" type="button" class="btn btn-outline btn-primary">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                            </button>
+                        }
+                        if (folderList.Contains("baneDel"))
+                        {
+                            <button id="baneDel" type="button" class="btn btn-outline btn-danger">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                            </button>
+                        }
+                        if (folderList.Contains("btnSearch"))
+                        {
+                            <div class="form-group">
+                                <input id="baneName" name="baneName" type="text" class="form-control" placeholder="请输入用户名">
+                            </div>
+                            <div class="form-group" style="width:150px;margin-top:-1px;">
+                                <select id="baneType" name="baneType" title="请选择人员类别" class="form-control show-tick selectpicker" placeholder="请选择所属模块">
+                                    <option value="">全部</option>
+                                    <option value="社区戒毒">社区戒毒</option>
+                                    <option value="社区康复">社区康复</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="width:200px;margin-top:-1px;">
+                                <select id="baneEnd" name="baneEnd" title="请选择结束监管" class="form-control show-tick selectpicker" placeholder="请选择所属模块">
+                                    <option value="">全部</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        }
+                        if (folderList.Contains("baneExportExcel"))
+                        {
+                            <button id="baneExportExcel" type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-trash" aria-hidden="true">导出Excel</i>
+                            </button>
+                        }
+                    }
+                </div>
+                <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+            </div>
+            <!-- End Example Toolbar -->
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+@section footSection{
+    <script src="~/Resources/mainFrame/js/plugins/treeview/v1.2.0/bootstrap-treeview.js"></script>
+    <script src="~/Resources/tools/treeview-search-custom.js"></script>
+    <script src="~/Resources/myScript/BaneUser/baneManager.js"></script>
+    <script>
+        var isBaneShow;
+        $(function () {
+            isBaneShow=@ViewBag.isBaneShow;
+                //初始化Page
+                baneManager.initPage();
+            });
+    </script>
+}

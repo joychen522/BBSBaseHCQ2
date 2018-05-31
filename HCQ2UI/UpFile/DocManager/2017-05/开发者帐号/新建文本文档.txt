@@ -1,0 +1,55 @@
+//添加新的节点
+        function addHoverDom(treeId, treeNode) {
+            var sObj = $("#" + treeNode.tId + "_span");
+            if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+                + "' title='add node' onfocus='this.blur();'></span>";
+            sObj.after(addStr);
+            var btn = $("#addBtn_" + treeNode.tId);
+            if (btn) btn.bind("click", function () {
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                if (confirm("确认为 " + treeNode.name + " 添加子节点吗？")) {
+ 
+                    // zTree.addNodes(treeNode, { id: (100 + newCount), pId: treeNode.id, name: "new node" + (newCount++) });
+                    var treeInfo = treeNode.id;
+                    $.ajax({
+                        url: "Ajax.aspx?_Pid=" + treeInfo + "&action=Insert",
+                        type: "POST",
+                        async: false,
+                        success: function (res) {
+                            if (res = "success") {
+                                alert('添加成功!');
+                                window.location.reload();
+                            } else {
+                                alert('添加失败!');
+                                window.location.reload();
+                            }
+                        }
+                    });
+                }
+            });
+        };
+
+
+ //修改节点信息
+        function beforeRename(treeId, treeNode, newName) {
+            if (newName.length == 0) {
+                alert("节点名称不能为空.");
+                return false;
+            }
+            var treeInfo = treeNode.id;
+            $.ajax({
+                url: "Ajax.aspx?_tid=" + treeInfo + "&_newname=" + newName + "&action=ReName",
+                type: "POST",
+                async: false,
+                success: function (res) {
+                    if (res = "success") {
+                        alert('修改成功!');
+                        window.location.reload();
+                    } else {
+                        alert('修改失败!');
+                        window.location.reload();
+                    }
+                }
+            });
+        }

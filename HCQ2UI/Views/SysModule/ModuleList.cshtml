@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "模块管理";
+}
+@section headerSection{
+    <style>
+        #exampleToolbar > .form-group {
+            float: left;
+            margin: 0;
+            margin-left: 5px;
+        }
+    </style>
+}
+<div class="animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins" style="margin-bottom: 0px;">
+        <div class="ibox-content" style="padding: 5px 20px 0px 20px;">
+            <div class="row row-lg">
+                <div class="col-sm-12 col-sm-leftRight">
+                    <!-- Example Toolbar -->
+                    <div class="example">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            @{
+                                List<string> folderList = (List<string>)ViewBag.elementList;
+                                if (folderList.Contains("moduleDetail"))
+                                {
+                                    <button id="moduleDetail" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-th-large" aria-hidden="true">详细</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("moduleAdd"))
+                                {
+                                    <button id="moduleAdd" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-plus" aria-hidden="true">新增</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("moduleEdit"))
+                                {
+                                    <button id="moduleEdit" type="button" class="btn btn-outline btn-primary">
+                                        <i class="glyphicon glyphicon-pencil" aria-hidden="true">编辑</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("moduleDel"))
+                                {
+                                    <button id="moduleDel" type="button" class="btn btn-outline btn-danger">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true">删除</i>
+                                    </button>
+                                }
+                                if (folderList.Contains("btnSearch"))
+                                {
+                                    <div class="form-group">
+                                        <input id="moduleName" name="moduleName" type="text" class="form-control" placeholder="请输入模块名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSearch" class="btn btn-primary" type="button"><i class="fa fa-search"></i>&nbsp;查询</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <table id="exampleTableToolbar" data-mobile-responsive="true" data-radio="true"></table>
+                    </div>
+                    <!-- End Example Toolbar -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Other -->
+</div>
+<!-- 添加/编辑 -->
+<div id="groupForm" style="width: 430px; overflow: hidden; display: none;">
+    <form class="form-horizontal m-t" id="groupFormTable" method="post"  enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">模块名称<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="sm_name" name="sm_name" type="text" class="form-control input-sm" placeholder="请输入模块名称" title="请输入模块名称" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">模块代码<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <input id="sm_code" name="sm_code" type="text" class="form-control input-sm" placeholder="请输入模块代码" title="请输入模块代码" required="" aria-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">菜单图标：</label>
+            <div class="col-sm-7">
+                <input type="hidden" id="sm_image1" name="sm_image1" value="fa-adjust" />
+                <a href="#"><i id="iconSelect" class="fa fa-adjust"></i></a>
+                <button id="btnSetIcon" type="button" class="btn btn-outline btn-danger">
+                    <i class="glyphicon glyphicon-trash" aria-hidden="true">设置图标</i>
+                </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">模块图标：</label>
+            <div class="col-sm-7">
+                <div id="file-pretty">
+                    <input id="sm_image2" name="sm_image2" type="file" multiple class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">是否启用<span class="glyphicon glyphicon-asterisk requiredtitle"></span>：</label>
+            <div class="col-sm-7">
+                <select id="if_start" name="if_start" title="请选择是否启用" class="form-control input-sm selectpicker" required="" aria-required="true" placeholder="请选择是否启用" style="padding: 5px 10px;">
+                    <option value=true selected>启用</option>
+                    <option value=false>停用</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">备注：</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" id="sm_note" name="sm_note" rows="3" placeholder="请输入备注信息" title="请输入备注信息"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+@section footSection{
+    <script src="~/Resources/myScript/SysAdmin/moduleManager.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/prettyfile/bootstrap-prettyfile.js"></script>
+    <script>
+        $(function () {
+            //初始化页面
+            moduleManager.initPage();
+            $('#file-pretty input[type="file"]').prettyFile();
+        });
+    </script>
+}
+

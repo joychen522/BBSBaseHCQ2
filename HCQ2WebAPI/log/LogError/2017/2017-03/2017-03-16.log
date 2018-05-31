@@ -1,0 +1,982 @@
+﻿
+ 
+记录时间：2017-03-16 15:14:21,004 
+线程ID:[22] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.MyApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\MyApiAuthorizeFilterAttribute.cs:行号 35
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 15:21:44,994 
+线程ID:[23] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts
+错误信息：Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.
+错误源：HCQ2WebAPI_Logic
+异常方法：Void MyHandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext, System.Object)
+堆栈信息：   在 HCQ2WebAPI_Logic.MyApiAuthorizeFilterAttribute.MyHandleUnauthorizedRequest(HttpActionContext actionContext, Object obj) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\MyApiAuthorizeFilterAttribute.cs:行号 56
+   在 HCQ2WebAPI_Logic.MyApiAuthorizeFilterAttribute.OnAuthorization(HttpActionContext actionContext) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\Filters\MyApiAuthorizeFilterAttribute.cs:行号 35
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:12,058 
+线程ID:[20] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:14,231 
+线程ID:[23] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:14,248 
+线程ID:[20] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:25,480 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:25,617 
+线程ID:[20] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:51,800 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:23:51,842 
+线程ID:[20] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：IE
+浏览器版本：7
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:24:01,849 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：192.168.0.254
+浏览器：Chrome
+浏览器版本：55
+操作系统：WinNT
+错误信息：
+错误页面：http://192.168.0.115/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:26:09,698 
+线程ID:[18] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:31:21,794 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'Spring.Data.Config.DatabaseNamespaceParser, Spring.Data'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:34:51,687 
+线程ID:[14] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'HCQ2_DAL_MSSQL.DBSessionFactory,HCQ2_DAL_MSSQL'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:37:51,589 
+线程ID:[28] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'HCQ2_DAL_MSSQL.DBSessionFactory,HCQ2_DAL_MSSQL'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:40:31,733 
+线程ID:[25] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'HCQ2_DAL_MSSQL.DBSessionFactory,HCQ2_DAL_MSSQL'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:41:56,586 
+线程ID:[26] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'HCQ2_DAL_MSSQL.DBSessionFactory,HCQ2_DAL_MSSQL'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 
+
+ 
+记录时间：2017-03-16 16:48:46,608 
+线程ID:[8] 
+日志级别：  ERROR 
+出错类：HCQ2WebAPI_Logic.DExceptionFilterAttribute property: [(null)] - 
+错误描述：
+.捕获异常信息：
+IP：::1
+浏览器：Firefox
+浏览器版本：51
+操作系统：WinNT
+错误信息：
+错误页面：http://localhost/HCQ2WebAPI/api/Test/GetAllProducts?match_signature=af895dc00e502574d82c9cd9a9f7cfcb&match_timestamp=20170316144611&match_nonce=123
+错误信息：Error creating context 'spring.root': Could not load type from string value 'HCQ2_BLL.BLLSessionFactory,HCQ2_BLL'.
+错误源：System.Configuration
+异常方法：System.Object EvaluateOne(System.String[], System.Configuration.SectionInput, Boolean, System.Configuration.FactoryRecord, System.Configuration.SectionRecord, System.Object)
+堆栈信息：   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Web.HttpContext.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.GetSection(String sectionName)
+   在 System.Web.Configuration.HttpConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   在 Spring.Util.ConfigurationUtils.GetSection(String sectionName)
+   在 Spring.Context.Support.ContextRegistry.InitializeContextIfNeeded()
+   在 Spring.Context.Support.ContextRegistry.GetContext()
+   在 HCQ2_DI.SpringHelper.get_SpringContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 22
+   在 HCQ2_DI.SpringHelper.GetObject[T](String objName) 位置 F:\NET项目\TaoCode\HCQ2\HCQ2_DI\SpringHelper.cs:行号 31
+   在 HCQ2UI_Helper.OperateContext..ctor() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 101
+   在 HCQ2UI_Helper.OperateContext.get_Current() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2UI_Helper\OperateContext.cs:行号 116
+   在 HCQ2WebAPI_Logic.BaseAPILogic.get_operateContext() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\BaseAPIController\BaseAPILogic.cs:行号 20
+   在 HCQ2WebAPI_Logic.TestController.GetAllProducts() 位置 F:\NET项目\TaoCode\HCQ2\HCQ2WebAPI_Logic\WageAPIController\TestController.cs:行号 23
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+
+ 

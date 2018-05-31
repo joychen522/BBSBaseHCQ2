@@ -1,0 +1,12 @@
+#region 1.1 获取文档结构树 数据 + ActionResult GetDocTreeData()
+        /// <summary>
+        ///  1.1 获取文档结构树 数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetDocTreeData()
+        {
+            string pageType = RequestHelper.GetStrByName("pageType");//页面类别
+            return Json(operateContext.bllSession.T_DocumentFolder.GetDocTreeData(pageType));
+        }
+        #endregion

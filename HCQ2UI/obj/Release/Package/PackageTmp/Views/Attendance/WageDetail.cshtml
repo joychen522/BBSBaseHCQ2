@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WageDetail</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="~/Resources/mainFrame/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/animate.min.css" rel="stylesheet">
+    <link href="~/Resources/mainFrame/css/style.min862f.css" rel="stylesheet">
+
+    <!--treeview需要的css-->
+    <link href="~/Resources/mainFrame/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+
+    <!--日期需要的css和js-->
+    <link href="~/Resources/mainFrame/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/zTreeStyle.css" rel="stylesheet" />
+    <link href="~/Resources/css/BootTableHelp/pagination.css" rel="stylesheet" />
+</head>
+<body class="panel-body">
+    <div class="row">
+        <div id="divTree" class="col-sm-2" style="overflow:auto; border-right:1px solid gray;">
+            <input type="text" name="searchArea" id="searchArea" style="width:100%;height:30px;" placeholder="请输入项目名称" />
+            <select id="seSheng" style="width:100%;height:30px;"></select>
+            <select id="seShi" style="width:100%;height:30px;"></select>
+            <div id="divtreeDetail" style="overflow-y:auto; overflow-x:hidden;">
+                <ul id="testTree" style="padding:0px;" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div style="overflow:auto;" class="table-responsive">
+                <table id="TableFromData" data-mobile-responsive="true" class="table" style="width:1200px;"></table>
+            </div>
+        </div>
+    </div>
+    <div id="wagedetail_tool" class="row">
+        @{
+            List<string> folderList = (List<string>)ViewBag.elementList;
+            if (folderList.Contains("btnSearch"))
+            {
+                <div class="col-sm-3">
+                    <input id="NodeUnitID" type="hidden" name="name" value="" />
+                    <input id="txtSearchName" class="form-control text-back" placeholder="输入姓名查找">
+                </div>
+                <div class="col-sm-3">
+                    <button id="btnSearch" type="button" class="btn btn-w-m btn-primary">查找</button>
+                </div>
+            }
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/mainScript")
+    @Scripts.Render("~/bundles/bootstrap-table")
+    @Scripts.Render("~/bundles/TreeViewItem")
+    @Scripts.Render("~/bundles/z-tree")
+    <!--引入bootstrap-table-help.JS文件。该文件包含一个table基类-->
+    <script src="~/Scripts/bootstrap-table-help.js"></script>
+    <script src="~/Scripts/bootstrap-tree-help.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/url-help.js"></script>
+    <script src="~/Resources/myScript/Attendance/WageDetail.js"></script>
+    <script>
+        $(function () {
+            $("#divTree").height($.GetBodyHeight());
+            $("#divtreeDetail").height($.GetBodyHeight() - 90);
+            Lutai.Load("seSheng", "seShi", "searchArea", "testTree", 1, treeClick);
+            @*treeHelp.BindTree("treeview",@Html.Raw(ViewBag.TreeJson),treeClick);*@
+        });
+        function treeClick(event, treeId,o) {
+            $("#NodeUnitID").val(o.unit_id);
+            tableHelp.refresh(SetTableParam());
+        }
+    </script>
+</body>
+</html>

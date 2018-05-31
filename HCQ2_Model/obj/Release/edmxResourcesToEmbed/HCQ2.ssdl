@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HCQ2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bane_CriminalRecord">
+    <Key>
+      <PropertyRef Name="cr_id" />
+    </Key>
+    <Property Name="cr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="start_drug_date" Type="date" />
+    <Property Name="drug_year" Type="nvarchar" MaxLength="10" />
+    <Property Name="force_time" Type="int" />
+    <Property Name="force_insulate" Type="int" />
+    <Property Name="other_record" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Bane_FamilyRecord">
+    <Key>
+      <PropertyRef Name="fr_id" />
+    </Key>
+    <Property Name="fr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fr_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fr_sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="fr_birth" Type="date" />
+    <Property Name="fr_edu" Type="nvarchar" MaxLength="20" />
+    <Property Name="fr_family_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="fr_job" Type="nvarchar" MaxLength="100" />
+    <Property Name="fr_unit" Type="nvarchar" MaxLength="200" />
+    <Property Name="fr_relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="fr_phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="fr_type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_HistoryScore">
+    <Key>
+      <PropertyRef Name="hs_id" />
+    </Key>
+    <Property Name="hs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="hs_time" Type="date" Nullable="false" />
+    <Property Name="hs_score" Type="int" Nullable="false" />
+    <Property Name="hs_title" Type="nvarchar" MaxLength="100" />
+    <Property Name="hs_total" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_HistoryScoreDetial">
+    <Key>
+      <PropertyRef Name="hd_id" />
+    </Key>
+    <Property Name="hd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hs_id" Type="int" Nullable="false" />
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="hd_value" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="sub_value" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_IntegralScoreDetial">
+    <Key>
+      <PropertyRef Name="his_id" />
+    </Key>
+    <Property Name="his_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="his_title" Type="nvarchar" MaxLength="100" />
+    <Property Name="his_time" Type="datetime" Nullable="false" />
+    <Property Name="his_total" Type="int" Nullable="false" />
+    <Property Name="his_note" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Bane_LogDetail">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="20" />
+    <Property Name="log_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="log_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="log_title" Type="nvarchar" MaxLength="100" />
+    <Property Name="log_context" Type="nvarchar" MaxLength="1000" />
+    <Property Name="log_date" Type="datetime" Nullable="false" />
+    <Property Name="log_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Bane_QuestionInfo">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_title" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="sub_value" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="sub_score" Type="int" Nullable="false" />
+    <Property Name="sub_date" Type="date" Nullable="false" />
+    <Property Name="sub_note" Type="nvarchar" MaxLength="1000" />
+    <Property Name="sub_essay" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="Bane_QuestionValue">
+    <Key>
+      <PropertyRef Name="score_id" />
+    </Key>
+    <Property Name="score_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="score_option" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="score_value" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_RecoveryInfo">
+    <Key>
+      <PropertyRef Name="ri_id" />
+    </Key>
+    <Property Name="ri_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="exec_area" Type="nvarchar" MaxLength="200" />
+    <Property Name="exec_unit" Type="nvarchar" MaxLength="200" />
+    <Property Name="order_unit" Type="nvarchar" MaxLength="200" />
+    <Property Name="is_aids" Type="bit" Nullable="false" />
+    <Property Name="isolation_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="isolation_out_date" Type="date" />
+    <Property Name="cure_ups" Type="nvarchar" MaxLength="100" />
+    <Property Name="in_recovery" Type="bit" />
+    <Property Name="start_date" Type="date" />
+    <Property Name="end_date" Type="date" />
+    <Property Name="end_reason" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Bane_UrinalysisRecord">
+    <Key>
+      <PropertyRef Name="ur_id" />
+    </Key>
+    <Property Name="ur_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ur_code" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ur_should_date" Type="datetime" Nullable="false" />
+    <Property Name="ur_reality_date" Type="datetime" Nullable="false" />
+    <Property Name="ur_site" Type="nvarchar" MaxLength="200" />
+    <Property Name="ur_method" Type="nvarchar" MaxLength="200" />
+    <Property Name="ur_manager" Type="nvarchar" MaxLength="50" />
+    <Property Name="ur_result" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ur_result_show" Type="nvarchar" MaxLength="50" />
+    <Property Name="ur_file_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ur_attach" Type="nvarchar" MaxLength="2000" />
+    <Property Name="ur_input_date" Type="date" />
+    <Property Name="ur_note" Type="nvarchar" MaxLength="1000" />
+    <Property Name="approve_status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_UrinalysisTimeSet">
+    <Key>
+      <PropertyRef Name="ut_id" />
+    </Key>
+    <Property Name="ut_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_type" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="min_month" Type="int" Nullable="false" />
+    <Property Name="max_month" Type="int" Nullable="false" />
+    <Property Name="gap_month" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="alias_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="user_birth" Type="date" />
+    <Property Name="user_height" Type="nvarchar" MaxLength="20" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="user_edu" Type="nvarchar" MaxLength="20" />
+    <Property Name="job_status" Type="nvarchar" MaxLength="20" />
+    <Property Name="bane_type" Type="nvarchar" MaxLength="20" />
+    <Property Name="birth_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="family_phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="live_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="move_phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="attn_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="attn_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="attn_relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="attn_phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="marital_status" Type="nvarchar" MaxLength="20" />
+    <Property Name="is_live_parent" Type="bit" Nullable="false" />
+    <Property Name="user_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="is_pro_train" Type="bit" Nullable="false" />
+    <Property Name="user_skill" Type="nvarchar" MaxLength="500" />
+    <Property Name="user_type" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="ur_next_date" Type="date" Nullable="false" />
+    <Property Name="user_photo" Type="nvarchar" MaxLength="500" />
+    <Property Name="user_note" Type="nvarchar" MaxLength="1000" />
+    <Property Name="org_id" Type="int" Nullable="false" />
+    <Property Name="is_send" Type="bit" Nullable="false" />
+    <Property Name="user_resume" Type="nvarchar" MaxLength="2000" />
+    <Property Name="iris_data1" Type="nvarchar" MaxLength="4000" />
+    <Property Name="iris_data2" Type="nvarchar" MaxLength="4000" />
+    <Property Name="update_date" Type="datetime" Nullable="false" />
+    <Property Name="user_guid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_pwd" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="user_total" Type="int" Nullable="false" />
+    <Property Name="last_score" Type="int" Nullable="false" />
+    <Property Name="the_score" Type="int" Nullable="false" />
+    <Property Name="the_num" Type="int" Nullable="false" />
+    <Property Name="control_date" Type="date" />
+    <Property Name="is_control" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_UserPermissRelation">
+    <Key>
+      <PropertyRef Name="tb_id" />
+    </Key>
+    <Property Name="tb_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BMQ_Document">
+    <Key>
+      <PropertyRef Name="CatalogModule" />
+      <PropertyRef Name="CatalogID" />
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="RowID" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="CatalogModule" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CatalogID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocTitle" Type="nvarchar" MaxLength="300" />
+    <Property Name="DocContent" Type="nvarchar(max)" />
+    <Property Name="DocPublishDate" Type="datetime2" Precision="7" />
+    <Property Name="DocAuthor" Type="nvarchar" MaxLength="100" />
+    <Property Name="DocNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="PublishDate" Type="datetime2" Precision="7" />
+    <Property Name="Timeliness" Type="varchar" MaxLength="10" />
+    <Property Name="ExecDate" Type="datetime2" Precision="7" />
+    <Property Name="DocOrg" Type="nvarchar" MaxLength="100" />
+    <Property Name="DisableDate" Type="datetime2" Precision="7" />
+    <Property Name="DocYear" Type="varchar" MaxLength="10" />
+    <Property Name="DocLevel" Type="varchar" MaxLength="10" />
+    <Property Name="DocGroupValue" Type="nvarchar" MaxLength="100" />
+    <Property Name="DocGroupText" Type="nvarchar" MaxLength="200" />
+    <Property Name="PublishState" Type="varchar" MaxLength="10" />
+    <Property Name="TotalViews" Type="bigint" />
+    <Property Name="IsActivity" Type="varchar" MaxLength="10" />
+    <Property Name="DocAttach" Type="image" />
+    <Property Name="DocImage" Type="image" />
+    <Property Name="IsHotDoc" Type="varchar" MaxLength="10" />
+    <Property Name="DispOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="T_AreaInfo">
+    <Key>
+      <PropertyRef Name="area_id" />
+    </Key>
+    <Property Name="area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area_pid" Type="int" Nullable="false" />
+    <Property Name="area_code" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="area_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="create_id" Type="int" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="20" />
+    <Property Name="create_time" Type="date" Nullable="false" />
+    <Property Name="area_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_AreaPermissRelation">
+    <Key>
+      <PropertyRef Name="ap_id" />
+    </Key>
+    <Property Name="ap_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area_code" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_AskManager">
+    <Key>
+      <PropertyRef Name="ask_id" />
+    </Key>
+    <Property Name="ask_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ask_unit" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ask_startDate" Type="date" Nullable="false" />
+    <Property Name="ask_endDate" Type="date" />
+    <Property Name="ask_day" Type="nvarchar" MaxLength="10" />
+    <Property Name="ask_title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ask_context" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ask_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ask_status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ask_operUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="ask_operDate" Type="date" />
+  </EntityType>
+  <EntityType Name="T_CheckGroup">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_pid" Type="int" />
+    <Property Name="unit_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="group_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="person_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="person_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="person_identifycode" Type="nvarchar" MaxLength="50" />
+    <Property Name="if_leader" Type="int" />
+    <Property Name="create_time" Type="datetime" />
+    <Property Name="create_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="xMin" Type="nvarchar" MaxLength="50" />
+    <Property Name="yMin" Type="nvarchar" MaxLength="50" />
+    <Property Name="xyAoe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_Complaints">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="c_content" Type="text" />
+    <Property Name="c_image" Type="image" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_guid" Type="nvarchar" MaxLength="100" />
+    <Property Name="create_personid" Type="nvarchar" MaxLength="100" />
+    <Property Name="create_identifycode" Type="nvarchar" MaxLength="100" />
+    <Property Name="re_date" Type="datetime" />
+    <Property Name="re_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="re_user_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_CompProInfo">
+    <Key>
+      <PropertyRef Name="com_id" />
+    </Key>
+    <Property Name="com_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dwbh" Type="nvarchar" MaxLength="20" />
+    <Property Name="dwmc" Type="nvarchar" MaxLength="100" />
+    <Property Name="tyshxydm" Type="nvarchar" MaxLength="200" />
+    <Property Name="zzjgdm" Type="nvarchar" MaxLength="200" />
+    <Property Name="gsdjzzhm" Type="nvarchar" MaxLength="200" />
+    <Property Name="xxly" Type="nvarchar" MaxLength="200" />
+    <Property Name="gsdjzzzl" Type="nvarchar" MaxLength="200" />
+    <Property Name="gsdjyxqxqs" Type="nvarchar" MaxLength="200" />
+    <Property Name="qsdjyxqxzz" Type="nvarchar" MaxLength="200" />
+    <Property Name="Shbxdjzbm" Type="nvarchar" MaxLength="200" />
+    <Property Name="Fddbrxm" Type="nvarchar" MaxLength="200" />
+    <Property Name="Fddbrsfzhm" Type="nvarchar" MaxLength="200" />
+    <Property Name="Fddbrdh" Type="nvarchar" MaxLength="200" />
+    <Property Name="Dwlx" Type="nvarchar" MaxLength="200" />
+    <Property Name="Jjlx" Type="nvarchar" MaxLength="200" />
+    <Property Name="Lsgx" Type="nvarchar" MaxLength="200" />
+    <Property Name="Jyfs" Type="nvarchar" MaxLength="200" />
+    <Property Name="Zczb" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZYFW" Type="nvarchar" MaxLength="200" />
+    <Property Name="JYFW" Type="nvarchar" MaxLength="200" />
+    <Property Name="XZQHDM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DJZCLX" Type="nvarchar" MaxLength="200" />
+    <Property Name="FDDBRZW" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWFZRXM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWFZRZW" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWFZRDH" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZCDZ" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZFZR" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZFZRSFZHM" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZFZRZW" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZFZRDH" Type="nvarchar" MaxLength="200" />
+    <Property Name="SSHY" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWQTLXFS" Type="nvarchar" MaxLength="200" />
+    <Property Name="LXR" Type="nvarchar" MaxLength="200" />
+    <Property Name="LXDH" Type="nvarchar" MaxLength="200" />
+    <Property Name="BGDZ" Type="nvarchar" MaxLength="200" />
+    <Property Name="YZBM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWJBZHKHYH" Type="nvarchar" MaxLength="3000" />
+    <Property Name="DWJBZHKHMC" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWJBZHZH" Type="nvarchar" MaxLength="200" />
+    <Property Name="CZHM" Type="nvarchar" MaxLength="200" />
+    <Property Name="DZYX" Type="nvarchar" MaxLength="200" />
+    <Property Name="WZ" Type="nvarchar" MaxLength="200" />
+    <Property Name="JGZSBH" Type="nvarchar" MaxLength="200" />
+    <Property Name="LYYJY" Type="nvarchar" MaxLength="200" />
+    <Property Name="JGLB" Type="nvarchar" MaxLength="200" />
+    <Property Name="SSWG" Type="nvarchar" MaxLength="200" />
+    <Property Name="DWMCPY" Type="nvarchar" MaxLength="200" />
+    <Property Name="FDDBRZJHM" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZGBM" Type="nvarchar" MaxLength="200" />
+    <Property Name="tiISYLWPQJYXMtle" Type="nvarchar" MaxLength="200" />
+    <Property Name="BZ" Type="nvarchar" MaxLength="200" />
+    <Property Name="SSKS" Type="nvarchar" MaxLength="200" />
+    <Property Name="CZRXM" Type="nvarchar" MaxLength="200" />
+    <Property Name="CZRDZ" Type="nvarchar" MaxLength="200" />
+    <Property Name="CZRLXDH" Type="nvarchar" MaxLength="200" />
+    <Property Name="ZLQX" Type="nvarchar" MaxLength="200" />
+    <Property Name="CZRFBDR" Type="nvarchar" MaxLength="200" />
+    <Property Name="ISYYZX" Type="nvarchar" MaxLength="200" />
+    <Property Name="YRDWWHSJ" Type="date" />
+    <Property Name="SJDW" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZJBRXM" Type="nvarchar" MaxLength="200" />
+    <Property Name="LZJBRDH" Type="nvarchar" MaxLength="200" />
+    <Property Name="LDJCBH" Type="nvarchar" MaxLength="200" />
+    <Property Name="STDJZH" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sjdwmc" Type="nvarchar" MaxLength="200" />
+    <Property Name="QXLB" Type="nvarchar" MaxLength="50" />
+    <Property Name="COMPATH" Type="nvarchar" MaxLength="200" />
+    <Property Name="area_id" Type="int" />
+    <Property Name="bus_nature" Type="nvarchar" MaxLength="10" />
+    <Property Name="bus_scale" Type="nvarchar" MaxLength="10" />
+    <Property Name="bus_note" Type="nvarchar" MaxLength="200" />
+    <Property Name="UnitID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_Contract">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RowID" Type="nvarchar" MaxLength="100" />
+    <Property Name="PersonID" Type="nvarchar" MaxLength="200" />
+    <Property Name="UnitID" Type="nvarchar" MaxLength="50" />
+    <Property Name="isModel" Type="int" />
+    <Property Name="sType" Type="int" />
+    <Property Name="s1StartDate" Type="date" />
+    <Property Name="s1EndDate" Type="date" />
+    <Property Name="s1TestStartDate" Type="date" />
+    <Property Name="s1TestEndDate" Type="date" />
+    <Property Name="s2StartDate" Type="date" />
+    <Property Name="s2TestStartDate" Type="date" />
+    <Property Name="s2TestEndDate" Type="date" />
+    <Property Name="s3StartDate" Type="date" />
+    <Property Name="s3EndReason" Type="nvarchar" MaxLength="500" />
+    <Property Name="post_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="work_address" Type="nvarchar" MaxLength="500" />
+    <Property Name="sWageType" Type="nvarchar" MaxLength="500" />
+    <Property Name="s1Wage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="s2Wage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="s3Wage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="s3WagePrice" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="other_reason" Type="nvarchar" MaxLength="500" />
+    <Property Name="create_id" Type="int" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="update_id" Type="int" />
+    <Property Name="update_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="userContract" Type="image" />
+    <Property Name="witheContract" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T_DocFolderPermissRelation">
+    <Key>
+      <PropertyRef Name="fp_id" />
+    </Key>
+    <Property Name="fp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_DocumentFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="folder_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_pid" Type="int" Nullable="false" />
+    <Property Name="folder_image" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_order" Type="int" />
+    <Property Name="was_share" Type="bit" Nullable="false" />
+    <Property Name="if_create_child" Type="bit" Nullable="false" />
+    <Property Name="read_only" Type="bit" Nullable="false" />
+    <Property Name="if_sys" Type="bit" Nullable="false" />
+    <Property Name="doc_type" Type="int" Nullable="false" />
+    <Property Name="create_id" Type="int" Nullable="false" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_time" Type="date" Nullable="false" />
+    <Property Name="have_child" Type="bit" Nullable="false" />
+    <Property Name="page_type" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_DocumentFolderRelation">
+    <Key>
+      <PropertyRef Name="fr_id" />
+    </Key>
+    <Property Name="fr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_id" Type="int" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="create_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_DocumentInfo">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="alias_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="font_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="file_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="file_size" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="file_money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="down_number" Type="int" />
+    <Property Name="file_classify" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="file_status" Type="int" Nullable="false" />
+    <Property Name="issue_start" Type="date" />
+    <Property Name="doc_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="doc_number" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="issue_end" Type="date" />
+    <Property Name="issue_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="create_id" Type="int" Nullable="false" />
+    <Property Name="create_time" Type="date" Nullable="false" />
+    <Property Name="attach_url" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="if_remove" Type="bit" Nullable="false" />
+    <Property Name="file_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_DocumentSetType">
+    <Key>
+      <PropertyRef Name="ft_id" />
+    </Key>
+    <Property Name="ft_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_id" Type="int" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="share_id" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="T_ElementPermissRelation">
+    <Key>
+      <PropertyRef Name="e_id" />
+    </Key>
+    <Property Name="e_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pe_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_EnterDetail">
+    <Key>
+      <PropertyRef Name="ed_id" />
+    </Key>
+    <Property Name="ed_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ent_id" Type="int" Nullable="false" />
+    <Property Name="ed_title" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ed_reason" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ed_create" Type="nvarchar" MaxLength="20" />
+    <Property Name="ed_createId" Type="int" />
+    <Property Name="ed_time" Type="date" Nullable="false" />
+    <Property Name="ed_note" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ent_type" Type="nvarchar" MaxLength="10" />
+    <Property Name="is_success" Type="int" Nullable="false" />
+    <Property Name="case_type" Type="int" Nullable="false" />
+    <Property Name="pay_money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="pay_person" Type="int" Nullable="false" />
+    <Property Name="solve_type" Type="int" Nullable="false" />
+    <Property Name="update_name" Type="nvarchar" MaxLength="10" />
+    <Property Name="update_time" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Equipment">
+    <Key>
+      <PropertyRef Name="ep_id" />
+    </Key>
+    <Property Name="ep_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="equipment_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="equipment_code" Type="nvarchar" MaxLength="200" />
+    <Property Name="equipment_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="equipment_num" Type="nvarchar" MaxLength="200" />
+    <Property Name="install_date" Type="datetime" />
+    <Property Name="equipment_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="if_remove" Type="int" />
+  </EntityType>
+  <EntityType Name="T_ExceptionLog">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="log_ip" Type="nvarchar" MaxLength="100" />
+    <Property Name="log_browse" Type="nvarchar" MaxLength="50" />
+    <Property Name="browse_versions" Type="nvarchar" MaxLength="50" />
+    <Property Name="log_sys" Type="nvarchar" MaxLength="50" />
+    <Property Name="log_url" Type="nvarchar" MaxLength="500" />
+    <Property Name="log_title" Type="nvarchar" MaxLength="500" />
+    <Property Name="log_source" Type="nvarchar" MaxLength="100" />
+    <Property Name="log_func" Type="nvarchar" MaxLength="200" />
+    <Property Name="log_stack" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="created_time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_FilePermissRelation">
+    <Key>
+      <PropertyRef Name="f_id" />
+    </Key>
+    <Property Name="f_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_FolderPermissRelation">
+    <Key>
+      <PropertyRef Name="fp_id" />
+    </Key>
+    <Property Name="fp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Function">
+    <Key>
+      <PropertyRef Name="fun_id" />
+    </Key>
+    <Property Name="fun_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fun_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="fun_code" Type="nvarchar" MaxLength="100" />
+    <Property Name="fun_url" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fun_pid" Type="int" />
+    <Property Name="fun_order" Type="int" />
+  </EntityType>
+  <EntityType Name="T_Implement">
+    <Key>
+      <PropertyRef Name="imp_id" />
+    </Key>
+    <Property Name="imp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="owner_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="B0001" Type="nvarchar" MaxLength="200" />
+    <Property Name="B0002" Type="nvarchar" MaxLength="200" />
+    <Property Name="B000201" Type="nvarchar" MaxLength="200" />
+    <Property Name="respon_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="respon_phone" Type="nvarchar" MaxLength="100" />
+    <Property Name="install_date" Type="datetime" />
+    <Property Name="collect_date" Type="datetime" />
+    <Property Name="clockin_date" Type="datetime" />
+    <Property Name="use_days" Type="int" />
+    <Property Name="cost_money" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="use_status" Type="nvarchar" MaxLength="100" />
+    <Property Name="cost_date" Type="datetime" />
+    <Property Name="impl_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_Instructions">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="in_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="in_note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="in_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="create_id" Type="int" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_ItemCode">
+    <Key>
+      <PropertyRef Name="item_id" />
+    </Key>
+    <Property Name="item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="item_code" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="item_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="creator_date" Type="date" Nullable="false" />
+    <Property Name="creator_id" Type="int" />
+    <Property Name="creator_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T_ItemCodeMenum">
+    <Key>
+      <PropertyRef Name="code_id" />
+    </Key>
+    <Property Name="code_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="code_value" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="code_order" Type="int" />
+    <Property Name="code_pid" Type="int" />
+    <Property Name="if_child" Type="int" />
+    <Property Name="if_system" Type="int" />
+    <Property Name="code_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="code_type" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_JobResumeRelation">
+    <Key>
+      <PropertyRef Name="job_id" />
+    </Key>
+    <Property Name="job_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="com_id" Type="int" Nullable="false" />
+    <Property Name="use_id" Type="int" Nullable="false" />
+    <Property Name="A0177" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="UnitID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="send_date" Type="date" Nullable="false" />
+    <Property Name="job_notes" Type="nvarchar" MaxLength="1000" />
+    <Property Name="job_status" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_LimitUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="from_time" Type="datetime" Nullable="false" />
+    <Property Name="to_time" Type="datetime" Nullable="false" />
+    <Property Name="limit_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="login_count" Type="int" Nullable="false" />
+    <Property Name="error_count" Type="int" Nullable="false" />
+    <Property Name="login_ip" Type="nvarchar" MaxLength="100" />
+    <Property Name="login_time" Type="datetime" Nullable="false" />
+    <Property Name="last_ip" Type="nvarchar" MaxLength="100" />
+    <Property Name="last_time" Type="datetime" />
+    <Property Name="note" Type="nvarchar" MaxLength="500" />
+    <Property Name="if_false" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_LogSeting">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="business_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="table_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="primary_key" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="log_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="log_date" Type="datetime" />
+    <Property Name="log_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_LogSetingDetail">
+    <Key>
+      <PropertyRef Name="detail_id" />
+    </Key>
+    <Property Name="detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="table_field" Type="int" />
+    <Property Name="field_text" Type="nvarchar" MaxLength="200" />
+    <Property Name="field_datetype" Type="nvarchar" MaxLength="200" />
+    <Property Name="field_oldvalue" Type="nvarchar" MaxLength="200" />
+    <Property Name="field_newvalue" Type="int" />
+  </EntityType>
+  <EntityType Name="T_MessageNotice">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="m_content" Type="text" />
+    <Property Name="m_image" Type="image" />
+    <Property Name="m_image_src" Type="nvarchar" MaxLength="200" />
+    <Property Name="m_type" Type="nvarchar" MaxLength="100" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_user_id" Type="int" />
+    <Property Name="create_user_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="browse_num" Type="int" Nullable="false" />
+    <Property Name="focus_imgage" Type="nvarchar" MaxLength="200" />
+    <Property Name="messList_imgage" Type="nvarchar" MaxLength="200" />
+    <Property Name="messDetail_imgage" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T_ModulePermissRelation">
+    <Key>
+      <PropertyRef Name="pr_id" />
+    </Key>
+    <Property Name="pr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sm_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Org_User">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="UnitID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="org_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_OrgFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="folder_pid" Type="int" Nullable="false" />
+    <Property Name="folder_image" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_order" Type="int" />
+    <Property Name="if_sys" Type="bit" Nullable="false" />
+    <Property Name="create_id" Type="int" Nullable="false" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_time" Type="date" Nullable="false" />
+    <Property Name="have_child" Type="bit" Nullable="false" />
+    <Property Name="folder_path" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_OrgUserRelation">
+    <Key>
+      <PropertyRef Name="or_id" />
+    </Key>
+    <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PageElement">
+    <Key>
+      <PropertyRef Name="pe_id" />
+    </Key>
+    <Property Name="pe_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_id" Type="int" Nullable="false" />
+    <Property Name="pe_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="pe_code" Type="nvarchar" MaxLength="200" />
+    <Property Name="pe_event" Type="nvarchar" MaxLength="100" />
+    <Property Name="pe_func" Type="nvarchar" MaxLength="200" />
+    <Property Name="pe_order" Type="int" Nullable="false" />
+    <Property Name="pe_create_time" Type="date" />
+    <Property Name="pe_create_id" Type="int" />
+    <Property Name="pe_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_PageFile">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="file_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="file_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_id" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T_PageFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="folder_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_pid" Type="int" Nullable="false" />
+    <Property Name="folder_image" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_order" Type="int" />
+    <Property Name="folder_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="folder_state" Type="nvarchar" MaxLength="200" />
+    <Property Name="create_id" Type="int" />
+    <Property Name="create_time" Type="datetime" />
+    <Property Name="have_child" Type="bit" Nullable="false" />
+    <Property Name="sm_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PayAccount">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ssyh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="khmc" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="zh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="khh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pzzl" Type="nvarchar" MaxLength="50" />
+    <Property Name="pzhm" Type="nvarchar" MaxLength="50" />
+    <Property Name="ye" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="if_remove" Type="int" Nullable="false" />
+    <Property Name="create_name" Type="int" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="update_name" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_PerFuncRelation">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fun_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PermissConfig">
+    <Key>
+      <PropertyRef Name="pc_id" />
+    </Key>
+    <Property Name="pc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="per_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="per_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="pc_openUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="pc_saveUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="pc_width" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pc_height" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pc_note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_Permissions">
+    <Key>
+      <PropertyRef Name="per_id" />
+    </Key>
+    <Property Name="per_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="per_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="per_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="per_code" Type="nvarchar" MaxLength="100" />
+    <Property Name="per_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="creator_date" Type="date" />
+    <Property Name="creator_id" Type="int" />
+    <Property Name="creator_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="sm_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="role_code" Type="nvarchar" MaxLength="200" />
+    <Property Name="role_order" Type="int" Nullable="false" />
+    <Property Name="creator_date" Type="date" Nullable="false" />
+    <Property Name="creator_id" Type="int" />
+    <Property Name="creator_name" Type="int" />
+    <Property Name="role_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="sm_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_RoleGroupRelation">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_RolePermissRelation">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="per_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SetMainPage">
+    <Key>
+      <PropertyRef Name="main_id" />
+    </Key>
+    <Property Name="main_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="main_url" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="file_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_Synchronous">
+    <Key>
+      <PropertyRef Name="sy_id" />
+    </Key>
+    <Property Name="sy_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sy_unit_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="sy_user_id" Type="int" />
+    <Property Name="sy_date" Type="datetime" />
+    <Property Name="deviceid" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SysModule">
+    <Key>
+      <PropertyRef Name="sm_id" />
+    </Key>
+    <Property Name="sm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sm_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sm_code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="sm_image1" Type="nvarchar" MaxLength="200" />
+    <Property Name="sm_image2" Type="nvarchar" MaxLength="200" />
+    <Property Name="sm_order" Type="int" />
+    <Property Name="if_start" Type="bit" Nullable="false" />
+    <Property Name="create_id" Type="int" Nullable="false" />
+    <Property Name="create_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_time" Type="date" Nullable="false" />
+    <Property Name="sm_note" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="T_Table">
+    <Key>
+      <PropertyRef Name="table_id" />
+    </Key>
+    <Property Name="table_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="table_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="table_cname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="table_key" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="table_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="create_time" Type="datetime" />
+    <Property Name="update_time" Type="datetime" />
+    <Property Name="table_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_TableField">
+    <Key>
+      <PropertyRef Name="field_id" />
+    </Key>
+    <Property Name="field_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="table_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="field_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="field_cname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="data_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="not_null" Type="bit" Nullable="false" />
+    <Property Name="field_len" Type="int" />
+    <Property Name="create_time" Type="datetime" />
+    <Property Name="update_time" Type="datetime" />
+    <Property Name="field_note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="T_TodoList">
+    <Key>
+      <PropertyRef Name="to_id" />
+    </Key>
+    <Property Name="to_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="to_user_id" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="to_user_name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="to_copy_to_user" Type="nvarchar" MaxLength="300" />
+    <Property Name="to_title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="to_content" Type="text" />
+    <Property Name="to_file" Type="nvarchar" MaxLength="1000" />
+    <Property Name="to_send_user_id" Type="int" />
+    <Property Name="to_send_user_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="to_send_date" Type="datetime" />
+    <Property Name="is_system" Type="int" />
+    <Property Name="to_remove" Type="int" />
+    <Property Name="re_content" Type="text" />
+    <Property Name="re_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="login_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_pwd" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_sex" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_qq" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_phone" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_address" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_birth" Type="date" />
+    <Property Name="user_note" Type="nvarchar" MaxLength="1000" />
+    <Property Name="user_img" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_guid" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="reg_from" Type="int" Nullable="false" />
+    <Property Name="user_type" Type="nvarchar" MaxLength="10" />
+    <Property Name="user_identify" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_UserGroup">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="group_cname" Type="nvarchar" MaxLength="200" />
+    <Property Name="group_order" Type="int" Nullable="false" />
+    <Property Name="creator_date" Type="date" Nullable="false" />
+    <Property Name="creator_id" Type="int" />
+    <Property Name="creator_name" Type="int" />
+    <Property Name="update_id" Type="int" />
+    <Property Name="update_date" Type="date" />
+    <Property Name="group_note" Type="nvarchar" MaxLength="500" />
+    <Property Name="sm_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserGroupRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserRoleRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserUnitPersonRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="person_id" Type="int" Nullable="false" />
+    <Property Name="org_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserUnitRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="unit_id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_UseWorker">
+    <Key>
+      <PropertyRef Name="use_id" />
+    </Key>
+    <Property Name="use_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="use_title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="com_id" Type="int" Nullable="false" />
+    <Property Name="work_type" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="trade_type" Type="nvarchar" MaxLength="100" />
+    <Property Name="work_city" Type="nvarchar" MaxLength="50" />
+    <Property Name="addr" Type="nvarchar" MaxLength="200" />
+    <Property Name="use_wage_start" Type="int" Nullable="false" />
+    <Property Name="use_wage_end" Type="int" Nullable="false" />
+    <Property Name="use_sex" Type="nvarchar" MaxLength="2" />
+    <Property Name="use_age" Type="nvarchar" MaxLength="20" />
+    <Property Name="use_edu" Type="nvarchar" MaxLength="20" />
+    <Property Name="use_ageLimit" Type="nvarchar" MaxLength="10" />
+    <Property Name="use_major" Type="nvarchar" MaxLength="50" />
+    <Property Name="work_start" Type="nvarchar" MaxLength="20" />
+    <Property Name="issue_start" Type="date" Nullable="false" />
+    <Property Name="use_status" Type="int" Nullable="false" />
+    <Property Name="postNote" Type="nvarchar" MaxLength="2000" />
+    <Property Name="use_note" Type="nvarchar" MaxLength="2000" />
+    <Property Name="header_img" Type="image" />
+  </EntityType>
+  <Function Name="P_CreateDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Column" Type="nvarchar" Mode="In" />
+    <Parameter Name="Value" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="P_CreateIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Columns" Type="nvarchar" Mode="In" />
+    <Parameter Name="Unique" Type="bit" Mode="In" />
+    <Parameter Name="Clustered" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="P_CreateTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+    <Parameter Name="TableCName" Type="nvarchar" Mode="In" />
+    <Parameter Name="TableCols" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Drop" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="HCQ2ModelStoreContainer">
+    <EntitySet Name="Bane_CriminalRecord" EntityType="Self.Bane_CriminalRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_FamilyRecord" EntityType="Self.Bane_FamilyRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_HistoryScore" EntityType="Self.Bane_HistoryScore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_HistoryScoreDetial" EntityType="Self.Bane_HistoryScoreDetial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_IntegralScoreDetial" EntityType="Self.Bane_IntegralScoreDetial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_LogDetail" EntityType="Self.Bane_LogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_QuestionInfo" EntityType="Self.Bane_QuestionInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_QuestionValue" EntityType="Self.Bane_QuestionValue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_RecoveryInfo" EntityType="Self.Bane_RecoveryInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_UrinalysisRecord" EntityType="Self.Bane_UrinalysisRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_UrinalysisTimeSet" EntityType="Self.Bane_UrinalysisTimeSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_User" EntityType="Self.Bane_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bane_UserPermissRelation" EntityType="Self.Bane_UserPermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BMQ_Document" EntityType="Self.BMQ_Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AreaInfo" EntityType="Self.T_AreaInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AreaPermissRelation" EntityType="Self.T_AreaPermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_AskManager" EntityType="Self.T_AskManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_CheckGroup" EntityType="Self.T_CheckGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Complaints" EntityType="Self.T_Complaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_CompProInfo" EntityType="Self.T_CompProInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Contract" EntityType="Self.T_Contract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DocFolderPermissRelation" EntityType="Self.T_DocFolderPermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DocumentFolder" EntityType="Self.T_DocumentFolder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DocumentFolderRelation" EntityType="Self.T_DocumentFolderRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DocumentInfo" EntityType="Self.T_DocumentInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DocumentSetType" EntityType="Self.T_DocumentSetType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ElementPermissRelation" EntityType="Self.T_ElementPermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_EnterDetail" EntityType="Self.T_EnterDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Equipment" EntityType="Self.T_Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ExceptionLog" EntityType="Self.T_ExceptionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_FilePermissRelation" EntityType="Self.T_FilePermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_FolderPermissRelation" EntityType="Self.T_FolderPermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Function" EntityType="Self.T_Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Implement" EntityType="Self.T_Implement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Instructions" EntityType="Self.T_Instructions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ItemCode" EntityType="Self.T_ItemCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ItemCodeMenum" EntityType="Self.T_ItemCodeMenum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_JobResumeRelation" EntityType="Self.T_JobResumeRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_LimitUser" EntityType="Self.T_LimitUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Login" EntityType="Self.T_Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_LogSeting" EntityType="Self.T_LogSeting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_LogSetingDetail" EntityType="Self.T_LogSetingDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_MessageNotice" EntityType="Self.T_MessageNotice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ModulePermissRelation" EntityType="Self.T_ModulePermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Org_User" EntityType="Self.T_Org_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrgFolder" EntityType="Self.T_OrgFolder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrgUserRelation" EntityType="Self.T_OrgUserRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PageElement" EntityType="Self.T_PageElement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PageFile" EntityType="Self.T_PageFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PageFolder" EntityType="Self.T_PageFolder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PayAccount" EntityType="Self.T_PayAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PerFuncRelation" EntityType="Self.T_PerFuncRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PermissConfig" EntityType="Self.T_PermissConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Permissions" EntityType="Self.T_Permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Role" EntityType="Self.T_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_RoleGroupRelation" EntityType="Self.T_RoleGroupRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_RolePermissRelation" EntityType="Self.T_RolePermissRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SetMainPage" EntityType="Self.T_SetMainPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Synchronous" EntityType="Self.T_Synchronous" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SysModule" EntityType="Self.T_SysModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Table" EntityType="Self.T_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TableField" EntityType="Self.T_TableField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TodoList" EntityType="Self.T_TodoList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_User" EntityType="Self.T_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserGroup" EntityType="Self.T_UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserGroupRelation" EntityType="Self.T_UserGroupRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserRoleRelation" EntityType="Self.T_UserRoleRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserUnitPersonRelation" EntityType="Self.T_UserUnitPersonRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserUnitRelation" EntityType="Self.T_UserUnitRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UseWorker" EntityType="Self.T_UseWorker" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

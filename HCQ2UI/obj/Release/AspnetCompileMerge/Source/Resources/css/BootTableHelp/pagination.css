@@ -1,0 +1,64 @@
+﻿body {
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+
+.wrapper {
+    padding:2px;
+}
+
+.panel-body {
+    padding: 2px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+
+.row {
+    margin: 0px;
+}
+/*
+    布局单元格边距设置
+*/
+.col-left-margin {
+    padding-left: 2px;
+}
+
+.col-right-margin {
+    padding-right: 2px;
+}
+
+.col-sm-2 {
+    padding: 0px;
+}
+
+.col-sm-12 {
+    padding: 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.col-sm-10 {
+    padding: 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.col-sm-3 {
+    padding: 0px;
+}
+/*
+    bootstrap table 分页控件的边距设置
+*/
+.clearfix {
+    padding: 0;
+}
+
+.fixed-table-pagination .pagination-detail,
+.fixed-table-pagination div.pagination {
+    margin: 0;
+}
+
+.fixed-table-pagination .pagination-detail,
+.fixed-table-pagination div.pagination {
+    margin: 0;
+}

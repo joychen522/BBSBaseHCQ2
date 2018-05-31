@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "模块权限设置";
+}
+@section headerSection{
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/demo.css" rel="stylesheet" />
+    <link href="~/Resources/mainFrame/js/plugins/zTree3/css/metroStyle/metroStyle.css" rel="stylesheet" />
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.core.min.js"></script>
+    <script src="~/Resources/mainFrame/js/plugins/zTree3/js/jquery.ztree.excheck.min.js"></script>
+    <script src="~/Resources/tools/search_zTree.js"></script>
+}
+<div id="moduleTree" style="width: 450px; height: 400px;"></div>
+@section footSection{
+    <script src="~/Resources/myScript/SysAdmin/moduleManager.js"></script>
+    <script>
+        $(function () {
+            menuLimitManager.initzTree();
+        });
+    </script>
+}
+

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:aop = "http://www.springframework.net/aop"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx">
+
+  <!--spring.net的事务管理器  但是要用到spring.net自身dao实现-->
+  <db:provider id="DbProvider"
+            provider="System.Data.SqlClient"
+            connectionString="server=.;database=BBSHCQ2;user id=sa;password=chenhao112;Pooling=true;Min Pool Size=10;Max Pool Size=50;Connection Lifetime=30;Connection Timeout=30;"/>
+  <object id="DBContextFactory" type="HCQ2_DAL_MSSQL.DBContextFactory, HCQ2_DAL_MSSQL" singleton="false" />
+  <!--DAO-->
+  <object id="iDalSessFactory" type="HCQ2_DAL_MSSQL.DBSessionFactory,HCQ2_DAL_MSSQL">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+
+  <!--BLL-->
+  <object id="BLLSessionFactory" parent="txProxyTemplate">
+    <property name="Target">
+      <object type="HCQ2_BLL.BLLSessionFactory,HCQ2_BLL">
+      </object>
+    </property>
+  </object>
+
+  <object id="adoTemplate" type="Spring.Data.Core.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="DataReaderWrapperType" value="Spring.Data.Support.NullMappingDataReader, Spring.Data"/>
+  </object>
+
+  <!--事务管理器-->
+  <object id="transactionManager"
+         type="Spring.Data.Core.AdoPlatformTransactionManager, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+
+  <object id="txProxyTemplate" abstract="true"
+            type="Spring.Transaction.Interceptor.TransactionProxyFactoryObject, Spring.Data">
+    <property name="PlatformTransactionManager" ref="transactionManager"/>
+    <property name="TransactionAttributes">
+      <name-values>
+        <add key="Save*" value="PROPAGATION_REQUIRED"/>
+        <add key="Edit*" value="PROPAGATION_REQUIRED"/>
+        <add key="Modify*" value="PROPAGATION_REQUIRED"/>
+        <add key="Add*" value="PROPAGATION_REQUIRED"/>
+        <add key="Del*" value="PROPAGATION_REQUIRED"/>
+        <add key="Delete*" value="PROPAGATION_REQUIRED"/>
+        <add key="Get*" value="PROPAGATION_REQUIRED,readOnly"/>
+        <add key="Select*" value="PROPAGATION_REQUIRED,readOnly"/>
+      </name-values>
+    </property>
+  </object>
+
+</objects>

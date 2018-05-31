@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HCQ2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bane_CriminalRecord">
+    <Key>
+      <PropertyRef Name="cr_id" />
+    </Key>
+    <Property Name="cr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_drug_date" Type="DateTime" Precision="0" />
+    <Property Name="drug_year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="force_time" Type="Int32" />
+    <Property Name="force_insulate" Type="Int32" />
+    <Property Name="other_record" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bane_FamilyRecord">
+    <Key>
+      <PropertyRef Name="fr_id" />
+    </Key>
+    <Property Name="fr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fr_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fr_sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="fr_birth" Type="DateTime" Precision="0" />
+    <Property Name="fr_edu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="fr_family_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="fr_job" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fr_unit" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="fr_relation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fr_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="fr_type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_HistoryScore">
+    <Key>
+      <PropertyRef Name="hs_id" />
+    </Key>
+    <Property Name="hs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hs_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hs_score" Type="Int32" Nullable="false" />
+    <Property Name="hs_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="hs_total" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_HistoryScoreDetial">
+    <Key>
+      <PropertyRef Name="hd_id" />
+    </Key>
+    <Property Name="hd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hs_id" Type="Int32" Nullable="false" />
+    <Property Name="sub_id" Type="Int32" Nullable="false" />
+    <Property Name="hd_value" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sub_value" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_IntegralScoreDetial">
+    <Key>
+      <PropertyRef Name="his_id" />
+    </Key>
+    <Property Name="his_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="his_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="his_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="his_total" Type="Int32" Nullable="false" />
+    <Property Name="his_note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bane_LogDetail">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="user_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="log_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="log_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="log_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="log_context" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="log_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bane_QuestionInfo">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sub_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sub_title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sub_value" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sub_score" Type="Int32" Nullable="false" />
+    <Property Name="sub_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sub_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="sub_essay" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bane_QuestionValue">
+    <Key>
+      <PropertyRef Name="score_id" />
+    </Key>
+    <Property Name="score_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sub_id" Type="Int32" Nullable="false" />
+    <Property Name="score_option" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="score_value" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_RecoveryInfo">
+    <Key>
+      <PropertyRef Name="ri_id" />
+    </Key>
+    <Property Name="ri_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="exec_area" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="exec_unit" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="order_unit" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="is_aids" Type="Boolean" Nullable="false" />
+    <Property Name="isolation_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="isolation_out_date" Type="DateTime" Precision="0" />
+    <Property Name="cure_ups" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="in_recovery" Type="Boolean" />
+    <Property Name="start_date" Type="DateTime" Precision="0" />
+    <Property Name="end_date" Type="DateTime" Precision="0" />
+    <Property Name="end_reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bane_UrinalysisRecord">
+    <Key>
+      <PropertyRef Name="ur_id" />
+    </Key>
+    <Property Name="ur_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ur_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ur_should_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ur_reality_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ur_site" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ur_method" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ur_manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ur_result" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ur_result_show" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ur_file_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ur_attach" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="ur_input_date" Type="DateTime" Precision="0" />
+    <Property Name="ur_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="approve_status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_UrinalysisTimeSet">
+    <Key>
+      <PropertyRef Name="ut_id" />
+    </Key>
+    <Property Name="ut_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="min_month" Type="Int32" Nullable="false" />
+    <Property Name="max_month" Type="Int32" Nullable="false" />
+    <Property Name="gap_month" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="alias_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="user_birth" Type="DateTime" Precision="0" />
+    <Property Name="user_height" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_edu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="job_status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bane_type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="birth_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="family_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="live_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="move_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="attn_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="attn_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="attn_relation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="attn_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="marital_status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="is_live_parent" Type="Boolean" Nullable="false" />
+    <Property Name="user_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="is_pro_train" Type="Boolean" Nullable="false" />
+    <Property Name="user_skill" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="user_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ur_next_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="user_photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="user_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="org_id" Type="Int32" Nullable="false" />
+    <Property Name="is_send" Type="Boolean" Nullable="false" />
+    <Property Name="user_resume" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="iris_data1" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="iris_data2" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="user_guid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="user_total" Type="Int32" Nullable="false" />
+    <Property Name="last_score" Type="Int32" Nullable="false" />
+    <Property Name="the_score" Type="Int32" Nullable="false" />
+    <Property Name="the_num" Type="Int32" Nullable="false" />
+    <Property Name="control_date" Type="DateTime" Precision="0" />
+    <Property Name="is_control" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bane_UserPermissRelation">
+    <Key>
+      <PropertyRef Name="tb_id" />
+    </Key>
+    <Property Name="tb_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BMQ_Document">
+    <Key>
+      <PropertyRef Name="CatalogModule" />
+      <PropertyRef Name="CatalogID" />
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="RowID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CatalogModule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CatalogID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocTitle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DocContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocPublishDate" Type="DateTime" Precision="7" />
+    <Property Name="DocAuthor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Precision="7" />
+    <Property Name="Timeliness" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ExecDate" Type="DateTime" Precision="7" />
+    <Property Name="DocOrg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DisableDate" Type="DateTime" Precision="7" />
+    <Property Name="DocYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DocLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DocGroupValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocGroupText" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PublishState" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TotalViews" Type="Int64" />
+    <Property Name="IsActivity" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DocAttach" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DocImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsHotDoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DispOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_AreaInfo">
+    <Key>
+      <PropertyRef Name="area_id" />
+    </Key>
+    <Property Name="area_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="area_pid" Type="Int32" Nullable="false" />
+    <Property Name="area_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="area_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="create_id" Type="Int32" />
+    <Property Name="create_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="area_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_AreaPermissRelation">
+    <Key>
+      <PropertyRef Name="ap_id" />
+    </Key>
+    <Property Name="ap_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="area_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_AskManager">
+    <Key>
+      <PropertyRef Name="ask_id" />
+    </Key>
+    <Property Name="ask_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ask_unit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ask_startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ask_endDate" Type="DateTime" Precision="0" />
+    <Property Name="ask_day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ask_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ask_context" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ask_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ask_status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ask_operUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ask_operDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_CheckGroup">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_pid" Type="Int32" />
+    <Property Name="unit_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="group_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="person_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="person_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="person_identifycode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="if_leader" Type="Int32" />
+    <Property Name="create_time" Type="DateTime" Precision="3" />
+    <Property Name="create_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="create_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="xMin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="yMin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="xyAoe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Complaints">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="c_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="c_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_guid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="create_personid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="create_identifycode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="re_date" Type="DateTime" Precision="3" />
+    <Property Name="re_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="re_user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unit_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_CompProInfo">
+    <Key>
+      <PropertyRef Name="com_id" />
+    </Key>
+    <Property Name="com_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dwbh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dwmc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="tyshxydm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="zzjgdm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="gsdjzzhm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="xxly" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="gsdjzzzl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="gsdjyxqxqs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="qsdjyxqxzz" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Shbxdjzbm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Fddbrxm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Fddbrsfzhm" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Fddbrdh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Dwlx" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Jjlx" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Lsgx" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Jyfs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Zczb" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ZYFW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="JYFW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="XZQHDM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DJZCLX" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FDDBRZW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWFZRXM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWFZRZW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWFZRDH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ZCDZ" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZFZR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZFZRSFZHM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZFZRZW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZFZRDH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SSHY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWQTLXFS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LXR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LXDH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BGDZ" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="YZBM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWJBZHKHYH" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="DWJBZHKHMC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWJBZHZH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CZHM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DZYX" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WZ" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="JGZSBH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LYYJY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="JGLB" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SSWG" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DWMCPY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FDDBRZJHM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ZGBM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tiISYLWPQJYXMtle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BZ" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SSKS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CZRXM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CZRDZ" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CZRLXDH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ZLQX" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CZRFBDR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ISYYZX" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="YRDWWHSJ" Type="DateTime" Precision="0" />
+    <Property Name="SJDW" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZJBRXM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LZJBRDH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LDJCBH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="STDJZH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sjdwmc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="QXLB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COMPATH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="area_id" Type="Int32" />
+    <Property Name="bus_nature" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="bus_scale" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="bus_note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UnitID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Contract">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RowID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PersonID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UnitID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isModel" Type="Int32" />
+    <Property Name="sType" Type="Int32" />
+    <Property Name="s1StartDate" Type="DateTime" Precision="0" />
+    <Property Name="s1EndDate" Type="DateTime" Precision="0" />
+    <Property Name="s1TestStartDate" Type="DateTime" Precision="0" />
+    <Property Name="s1TestEndDate" Type="DateTime" Precision="0" />
+    <Property Name="s2StartDate" Type="DateTime" Precision="0" />
+    <Property Name="s2TestStartDate" Type="DateTime" Precision="0" />
+    <Property Name="s2TestEndDate" Type="DateTime" Precision="0" />
+    <Property Name="s3StartDate" Type="DateTime" Precision="0" />
+    <Property Name="s3EndReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="post_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="work_address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="sWageType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="s1Wage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="s2Wage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="s3Wage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="s3WagePrice" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="other_reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="create_id" Type="Int32" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_id" Type="Int32" />
+    <Property Name="update_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="userContract" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="witheContract" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_DocFolderPermissRelation">
+    <Key>
+      <PropertyRef Name="fp_id" />
+    </Key>
+    <Property Name="fp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_DocumentFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="folder_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_pid" Type="Int32" Nullable="false" />
+    <Property Name="folder_image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_order" Type="Int32" />
+    <Property Name="was_share" Type="Boolean" Nullable="false" />
+    <Property Name="if_create_child" Type="Boolean" Nullable="false" />
+    <Property Name="read_only" Type="Boolean" Nullable="false" />
+    <Property Name="if_sys" Type="Boolean" Nullable="false" />
+    <Property Name="doc_type" Type="Int32" Nullable="false" />
+    <Property Name="create_id" Type="Int32" Nullable="false" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="have_child" Type="Boolean" Nullable="false" />
+    <Property Name="page_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_DocumentFolderRelation">
+    <Key>
+      <PropertyRef Name="fr_id" />
+    </Key>
+    <Property Name="fr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_id" Type="Int32" Nullable="false" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="create_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_DocumentInfo">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="alias_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="font_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="file_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_size" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="file_money" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="down_number" Type="Int32" />
+    <Property Name="file_classify" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_status" Type="Int32" Nullable="false" />
+    <Property Name="issue_start" Type="DateTime" Precision="0" />
+    <Property Name="doc_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="doc_number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="issue_end" Type="DateTime" Precision="0" />
+    <Property Name="issue_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="create_id" Type="Int32" Nullable="false" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="attach_url" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="if_remove" Type="Boolean" Nullable="false" />
+    <Property Name="file_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_DocumentSetType">
+    <Key>
+      <PropertyRef Name="ft_id" />
+    </Key>
+    <Property Name="ft_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_id" Type="Int32" Nullable="false" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="share_id" Type="Int32" Nullable="false" />
+    <Property Name="role_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_ElementPermissRelation">
+    <Key>
+      <PropertyRef Name="e_id" />
+    </Key>
+    <Property Name="e_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pe_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_EnterDetail">
+    <Key>
+      <PropertyRef Name="ed_id" />
+    </Key>
+    <Property Name="ed_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ent_id" Type="Int32" Nullable="false" />
+    <Property Name="ed_title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ed_reason" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ed_create" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ed_createId" Type="Int32" />
+    <Property Name="ed_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ed_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ent_type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="is_success" Type="Int32" Nullable="false" />
+    <Property Name="case_type" Type="Int32" Nullable="false" />
+    <Property Name="pay_money" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="pay_person" Type="Int32" Nullable="false" />
+    <Property Name="solve_type" Type="Int32" Nullable="false" />
+    <Property Name="update_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="update_time" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_Equipment">
+    <Key>
+      <PropertyRef Name="ep_id" />
+    </Key>
+    <Property Name="ep_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="equipment_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="equipment_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="equipment_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="equipment_num" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="install_date" Type="DateTime" Precision="3" />
+    <Property Name="equipment_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="if_remove" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_ExceptionLog">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="log_ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="log_browse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="browse_versions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="log_sys" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="log_url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="log_title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="log_source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="log_func" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="log_stack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_time" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_FilePermissRelation">
+    <Key>
+      <PropertyRef Name="f_id" />
+    </Key>
+    <Property Name="f_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_FolderPermissRelation">
+    <Key>
+      <PropertyRef Name="fp_id" />
+    </Key>
+    <Property Name="fp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Function">
+    <Key>
+      <PropertyRef Name="fun_id" />
+    </Key>
+    <Property Name="fun_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fun_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fun_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fun_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fun_pid" Type="Int32" />
+    <Property Name="fun_order" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_Implement">
+    <Key>
+      <PropertyRef Name="imp_id" />
+    </Key>
+    <Property Name="imp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="owner_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="B0001" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="B0002" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="B000201" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="respon_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="respon_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="install_date" Type="DateTime" Precision="3" />
+    <Property Name="collect_date" Type="DateTime" Precision="3" />
+    <Property Name="clockin_date" Type="DateTime" Precision="3" />
+    <Property Name="use_days" Type="Int32" />
+    <Property Name="cost_money" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="use_status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cost_date" Type="DateTime" Precision="3" />
+    <Property Name="impl_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Instructions">
+    <Key>
+      <PropertyRef Name="in_id" />
+    </Key>
+    <Property Name="in_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="in_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="in_note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="in_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="create_id" Type="Int32" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ItemCode">
+    <Key>
+      <PropertyRef Name="item_id" />
+    </Key>
+    <Property Name="item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="item_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="item_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="creator_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="creator_id" Type="Int32" />
+    <Property Name="creator_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_ItemCodeMenum">
+    <Key>
+      <PropertyRef Name="code_id" />
+    </Key>
+    <Property Name="code_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="code_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="code_value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="code_order" Type="Int32" />
+    <Property Name="code_pid" Type="Int32" />
+    <Property Name="if_child" Type="Int32" />
+    <Property Name="if_system" Type="Int32" />
+    <Property Name="code_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="code_type" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_JobResumeRelation">
+    <Key>
+      <PropertyRef Name="job_id" />
+    </Key>
+    <Property Name="job_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="com_id" Type="Int32" Nullable="false" />
+    <Property Name="use_id" Type="Int32" Nullable="false" />
+    <Property Name="A0177" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="send_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="job_notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="job_status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_LimitUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="from_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="to_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="limit_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="login_count" Type="Int32" Nullable="false" />
+    <Property Name="error_count" Type="Int32" Nullable="false" />
+    <Property Name="login_ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="login_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="last_ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="last_time" Type="DateTime" Precision="3" />
+    <Property Name="note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="if_false" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_LogSeting">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="business_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="table_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="primary_key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="log_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="log_date" Type="DateTime" Precision="3" />
+    <Property Name="log_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_LogSetingDetail">
+    <Key>
+      <PropertyRef Name="detail_id" />
+    </Key>
+    <Property Name="detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="table_field" Type="Int32" />
+    <Property Name="field_text" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="field_datetype" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="field_oldvalue" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="field_newvalue" Type="Int32" />
+  </EntityType>
+  <EntityType Name="T_MessageNotice">
+    <Key>
+      <PropertyRef Name="m_id" />
+    </Key>
+    <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="m_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="m_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="m_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="m_image_src" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="m_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_user_id" Type="Int32" />
+    <Property Name="create_user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="browse_num" Type="Int32" Nullable="false" />
+    <Property Name="focus_imgage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="messList_imgage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="messDetail_imgage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_ModulePermissRelation">
+    <Key>
+      <PropertyRef Name="pr_id" />
+    </Key>
+    <Property Name="pr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sm_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Org_User">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="org_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_OrgFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="folder_pid" Type="Int32" Nullable="false" />
+    <Property Name="folder_image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_order" Type="Int32" />
+    <Property Name="if_sys" Type="Boolean" Nullable="false" />
+    <Property Name="create_id" Type="Int32" Nullable="false" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="have_child" Type="Boolean" Nullable="false" />
+    <Property Name="folder_path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_OrgUserRelation">
+    <Key>
+      <PropertyRef Name="or_id" />
+    </Key>
+    <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PageElement">
+    <Key>
+      <PropertyRef Name="pe_id" />
+    </Key>
+    <Property Name="pe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_id" Type="Int32" Nullable="false" />
+    <Property Name="pe_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="pe_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="pe_event" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pe_func" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="pe_order" Type="Int32" Nullable="false" />
+    <Property Name="pe_create_time" Type="DateTime" Precision="0" />
+    <Property Name="pe_create_id" Type="Int32" />
+    <Property Name="pe_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_PageFile">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="file_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="file_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_id" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_PageFolder">
+    <Key>
+      <PropertyRef Name="folder_id" />
+    </Key>
+    <Property Name="folder_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="folder_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_pid" Type="Int32" Nullable="false" />
+    <Property Name="folder_image" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_order" Type="Int32" />
+    <Property Name="folder_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="folder_state" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="create_id" Type="Int32" />
+    <Property Name="create_time" Type="DateTime" Precision="3" />
+    <Property Name="have_child" Type="Boolean" Nullable="false" />
+    <Property Name="sm_code" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PayAccount">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ssyh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="khmc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="zh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="khh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pzzl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pzhm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ye" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="if_remove" Type="Int32" Nullable="false" />
+    <Property Name="create_name" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="update_name" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_PerFuncRelation">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fun_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PermissConfig">
+    <Key>
+      <PropertyRef Name="pc_id" />
+    </Key>
+    <Property Name="pc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="per_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="per_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pc_openUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pc_saveUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pc_width" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pc_height" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pc_note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Permissions">
+    <Key>
+      <PropertyRef Name="per_id" />
+    </Key>
+    <Property Name="per_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="per_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="per_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="per_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="per_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="creator_date" Type="DateTime" Precision="0" />
+    <Property Name="creator_id" Type="Int32" />
+    <Property Name="creator_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sm_code" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="role_order" Type="Int32" Nullable="false" />
+    <Property Name="creator_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="creator_id" Type="Int32" />
+    <Property Name="creator_name" Type="Int32" />
+    <Property Name="role_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="sm_code" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_RoleGroupRelation">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_RolePermissRelation">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="per_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SetMainPage">
+    <Key>
+      <PropertyRef Name="main_id" />
+    </Key>
+    <Property Name="main_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="main_url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Synchronous">
+    <Key>
+      <PropertyRef Name="sy_id" />
+    </Key>
+    <Property Name="sy_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sy_unit_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sy_user_id" Type="Int32" />
+    <Property Name="sy_date" Type="DateTime" Precision="3" />
+    <Property Name="deviceid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SysModule">
+    <Key>
+      <PropertyRef Name="sm_id" />
+    </Key>
+    <Property Name="sm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sm_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sm_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sm_image1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sm_image2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sm_order" Type="Int32" />
+    <Property Name="if_start" Type="Boolean" Nullable="false" />
+    <Property Name="create_id" Type="Int32" Nullable="false" />
+    <Property Name="create_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sm_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_Table">
+    <Key>
+      <PropertyRef Name="table_id" />
+    </Key>
+    <Property Name="table_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="table_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="table_cname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="table_key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="table_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="create_time" Type="DateTime" Precision="3" />
+    <Property Name="update_time" Type="DateTime" Precision="3" />
+    <Property Name="table_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_TableField">
+    <Key>
+      <PropertyRef Name="field_id" />
+    </Key>
+    <Property Name="field_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="table_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="field_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="field_cname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="data_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="not_null" Type="Boolean" Nullable="false" />
+    <Property Name="field_len" Type="Int32" />
+    <Property Name="create_time" Type="DateTime" Precision="3" />
+    <Property Name="update_time" Type="DateTime" Precision="3" />
+    <Property Name="field_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_TodoList">
+    <Key>
+      <PropertyRef Name="to_id" />
+    </Key>
+    <Property Name="to_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="to_user_id" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="to_user_name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="to_copy_to_user" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="to_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="to_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="to_file" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="to_send_user_id" Type="Int32" />
+    <Property Name="to_send_user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="to_send_date" Type="DateTime" Precision="3" />
+    <Property Name="is_system" Type="Int32" />
+    <Property Name="to_remove" Type="Int32" />
+    <Property Name="re_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="re_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="login_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_sex" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_qq" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_birth" Type="DateTime" Precision="0" />
+    <Property Name="user_note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="user_img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_guid" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="reg_from" Type="Int32" Nullable="false" />
+    <Property Name="user_type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="user_identify" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_UserGroup">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="group_cname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="group_order" Type="Int32" Nullable="false" />
+    <Property Name="creator_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="creator_id" Type="Int32" />
+    <Property Name="creator_name" Type="Int32" />
+    <Property Name="update_id" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="0" />
+    <Property Name="group_note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="sm_code" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserGroupRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserRoleRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserUnitPersonRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="person_id" Type="Int32" Nullable="false" />
+    <Property Name="org_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserUnitRelation">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="unit_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="unit_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_UseWorker">
+    <Key>
+      <PropertyRef Name="use_id" />
+    </Key>
+    <Property Name="use_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="use_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="com_id" Type="Int32" Nullable="false" />
+    <Property Name="work_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="trade_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="work_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="use_wage_start" Type="Int32" Nullable="false" />
+    <Property Name="use_wage_end" Type="Int32" Nullable="false" />
+    <Property Name="use_sex" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="use_age" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="use_edu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="use_ageLimit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="use_major" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="work_start" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="issue_start" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="use_status" Type="Int32" Nullable="false" />
+    <Property Name="postNote" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="use_note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="header_img" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="HCQ2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bane_CriminalRecord" EntityType="Self.Bane_CriminalRecord" />
+    <EntitySet Name="Bane_FamilyRecord" EntityType="Self.Bane_FamilyRecord" />
+    <EntitySet Name="Bane_HistoryScore" EntityType="Self.Bane_HistoryScore" />
+    <EntitySet Name="Bane_HistoryScoreDetial" EntityType="Self.Bane_HistoryScoreDetial" />
+    <EntitySet Name="Bane_IntegralScoreDetial" EntityType="Self.Bane_IntegralScoreDetial" />
+    <EntitySet Name="Bane_LogDetail" EntityType="Self.Bane_LogDetail" />
+    <EntitySet Name="Bane_QuestionInfo" EntityType="Self.Bane_QuestionInfo" />
+    <EntitySet Name="Bane_QuestionValue" EntityType="Self.Bane_QuestionValue" />
+    <EntitySet Name="Bane_RecoveryInfo" EntityType="Self.Bane_RecoveryInfo" />
+    <EntitySet Name="Bane_UrinalysisRecord" EntityType="Self.Bane_UrinalysisRecord" />
+    <EntitySet Name="Bane_UrinalysisTimeSet" EntityType="Self.Bane_UrinalysisTimeSet" />
+    <EntitySet Name="Bane_User" EntityType="Self.Bane_User" />
+    <EntitySet Name="Bane_UserPermissRelation" EntityType="Self.Bane_UserPermissRelation" />
+    <EntitySet Name="BMQ_Document" EntityType="Self.BMQ_Document" />
+    <EntitySet Name="T_AreaInfo" EntityType="Self.T_AreaInfo" />
+    <EntitySet Name="T_AreaPermissRelation" EntityType="Self.T_AreaPermissRelation" />
+    <EntitySet Name="T_AskManager" EntityType="Self.T_AskManager" />
+    <EntitySet Name="T_CheckGroup" EntityType="Self.T_CheckGroup" />
+    <EntitySet Name="T_Complaints" EntityType="Self.T_Complaints" />
+    <EntitySet Name="T_CompProInfo" EntityType="Self.T_CompProInfo" />
+    <EntitySet Name="T_Contract" EntityType="Self.T_Contract" />
+    <EntitySet Name="T_DocFolderPermissRelation" EntityType="Self.T_DocFolderPermissRelation" />
+    <EntitySet Name="T_DocumentFolder" EntityType="Self.T_DocumentFolder" />
+    <EntitySet Name="T_DocumentFolderRelation" EntityType="Self.T_DocumentFolderRelation" />
+    <EntitySet Name="T_DocumentInfo" EntityType="Self.T_DocumentInfo" />
+    <EntitySet Name="T_DocumentSetType" EntityType="Self.T_DocumentSetType" />
+    <EntitySet Name="T_ElementPermissRelation" EntityType="Self.T_ElementPermissRelation" />
+    <EntitySet Name="T_EnterDetail" EntityType="Self.T_EnterDetail" />
+    <EntitySet Name="T_Equipment" EntityType="Self.T_Equipment" />
+    <EntitySet Name="T_ExceptionLog" EntityType="Self.T_ExceptionLog" />
+    <EntitySet Name="T_FilePermissRelation" EntityType="Self.T_FilePermissRelation" />
+    <EntitySet Name="T_FolderPermissRelation" EntityType="Self.T_FolderPermissRelation" />
+    <EntitySet Name="T_Function" EntityType="Self.T_Function" />
+    <EntitySet Name="T_Implement" EntityType="Self.T_Implement" />
+    <EntitySet Name="T_Instructions" EntityType="Self.T_Instructions" />
+    <EntitySet Name="T_ItemCode" EntityType="Self.T_ItemCode" />
+    <EntitySet Name="T_ItemCodeMenum" EntityType="Self.T_ItemCodeMenum" />
+    <EntitySet Name="T_JobResumeRelation" EntityType="Self.T_JobResumeRelation" />
+    <EntitySet Name="T_LimitUser" EntityType="Self.T_LimitUser" />
+    <EntitySet Name="T_Login" EntityType="Self.T_Login" />
+    <EntitySet Name="T_LogSeting" EntityType="Self.T_LogSeting" />
+    <EntitySet Name="T_LogSetingDetail" EntityType="Self.T_LogSetingDetail" />
+    <EntitySet Name="T_MessageNotice" EntityType="Self.T_MessageNotice" />
+    <EntitySet Name="T_ModulePermissRelation" EntityType="Self.T_ModulePermissRelation" />
+    <EntitySet Name="T_Org_User" EntityType="Self.T_Org_User" />
+    <EntitySet Name="T_OrgFolder" EntityType="Self.T_OrgFolder" />
+    <EntitySet Name="T_OrgUserRelation" EntityType="Self.T_OrgUserRelation" />
+    <EntitySet Name="T_PageElement" EntityType="Self.T_PageElement" />
+    <EntitySet Name="T_PageFile" EntityType="Self.T_PageFile" />
+    <EntitySet Name="T_PageFolder" EntityType="Self.T_PageFolder" />
+    <EntitySet Name="T_PayAccount" EntityType="Self.T_PayAccount" />
+    <EntitySet Name="T_PerFuncRelation" EntityType="Self.T_PerFuncRelation" />
+    <EntitySet Name="T_PermissConfig" EntityType="Self.T_PermissConfig" />
+    <EntitySet Name="T_Permissions" EntityType="Self.T_Permissions" />
+    <EntitySet Name="T_Role" EntityType="Self.T_Role" />
+    <EntitySet Name="T_RoleGroupRelation" EntityType="Self.T_RoleGroupRelation" />
+    <EntitySet Name="T_RolePermissRelation" EntityType="Self.T_RolePermissRelation" />
+    <EntitySet Name="T_SetMainPage" EntityType="Self.T_SetMainPage" />
+    <EntitySet Name="T_Synchronous" EntityType="Self.T_Synchronous" />
+    <EntitySet Name="T_SysModule" EntityType="Self.T_SysModule" />
+    <EntitySet Name="T_Table" EntityType="Self.T_Table" />
+    <EntitySet Name="T_TableField" EntityType="Self.T_TableField" />
+    <EntitySet Name="T_TodoList" EntityType="Self.T_TodoList" />
+    <EntitySet Name="T_User" EntityType="Self.T_User" />
+    <EntitySet Name="T_UserGroup" EntityType="Self.T_UserGroup" />
+    <EntitySet Name="T_UserGroupRelation" EntityType="Self.T_UserGroupRelation" />
+    <EntitySet Name="T_UserRoleRelation" EntityType="Self.T_UserRoleRelation" />
+    <EntitySet Name="T_UserUnitPersonRelation" EntityType="Self.T_UserUnitPersonRelation" />
+    <EntitySet Name="T_UserUnitRelation" EntityType="Self.T_UserUnitRelation" />
+    <EntitySet Name="T_UseWorker" EntityType="Self.T_UseWorker" />
+    <FunctionImport Name="P_CreateDefault">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="Column" Mode="In" Type="String" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_CreateIndex">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="Columns" Mode="In" Type="String" />
+      <Parameter Name="Unique" Mode="In" Type="Boolean" />
+      <Parameter Name="Clustered" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="P_CreateTable">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="TableCName" Mode="In" Type="String" />
+      <Parameter Name="TableCols" Mode="In" Type="String" />
+      <Parameter Name="Drop" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
